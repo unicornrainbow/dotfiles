@@ -1,0 +1,16 @@
+[user]
+	name = myfreeweb
+	email = me@myfreeweb.ru
+[github]
+	user = myfreeweb
+[difftool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope
+    renames = copy
+[color]
+	ui = true
+[alias]
+    ci = commit -a
+    st = status
+    tags = tag -n1 -l

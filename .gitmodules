@@ -1,0 +1,10 @@
+[submodule "conkerorrc"]
+    path = conkerorrc
+    url = git://github.com/myfreeweb/conkerorrc.git
+[submodule "conky"]
+    path = conky
+    url = git://github.com/myfreeweb/conky-godville-krosswordr.git
+[submodule "oh-my-zsh"]
+    path = oh-my-zsh
+    url = git://github.com/myfreeweb/oh-my-zsh.git
+
