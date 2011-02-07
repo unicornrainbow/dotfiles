@@ -9,7 +9,7 @@ link zshrc
 link muttrc
 link hgrc
 link gitconfig
-mkdir $HOME/.bazaar
+if [ ! -d $HOME/.bazaar ]; then mkdir $HOME/.bazaar; fi
 rm $HOME/.bazaar/bazaar.conf
 ln -s `pwd`/bazaar.conf $HOME/.bazaar/bazaar.conf
 if [[ $(uname) = 'Linux' ]]; then
