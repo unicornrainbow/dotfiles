@@ -8,6 +8,7 @@ function link {
 link zshrc
 link muttrc
 link hgrc
+link conkerorrc
 link gitconfig
 
 if [ ! -d $HOME/.bazaar ]; then mkdir $HOME/.bazaar; fi
