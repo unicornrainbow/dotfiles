@@ -1,0 +1,13 @@
+[ui]
+username = myfreeweb <me@myfreeweb.ru>
+
+[schemes]
+bb = ssh://hg@bitbucket.org/
+
+[diff]
+git = True
+
+[alias]
+# Easily add ignore patterns /via Steve Losh
+ignore = ![ -n "$@" ] && echo '$@' >> `$HG root`/.hgignore && \
+          $HG commit `$HG root`/.hgignore -Am 'Add "$@" to .hgignore.'

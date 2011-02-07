@@ -7,9 +7,11 @@ task :setup do
   `ln -s #{d}/bazaar.conf #{h}/.bazaar/bazaar.conf`
   `rm #{h}/.gitconfig`
   `ln -s #{d}/gitconfig #{h}/.gitconfig`
+  `rm #{h}/.hgrc`
+  `ln -s #{d}/hgrc #{h}/.hgrc`
   `rm #{h}/.zshrc`
   `ln -s #{d}/zshrc #{h}/.zshrc`
-  if File.directory? quake
+  if File.directory? 'quake'
     if RUBY_PLATFORM.include? 'darwin'
       quake = "#{h}/Library/Application Support/QuakeLive/quakelive/home/baseq3"
     elsif RUBY_PLATFORM.include? 'linux'
