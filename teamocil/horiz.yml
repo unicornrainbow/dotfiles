@@ -1,0 +1,6 @@
+windows:
+  - name: horizontal
+    splits:
+      - cmd: cd ~/Dropbox
+      - cmd: cd ~/Dropbox
+        width: 50
