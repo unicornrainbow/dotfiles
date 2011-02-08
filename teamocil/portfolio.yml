@@ -1,0 +1,12 @@
+windows:
+  - name: portfolio
+    splits:
+      - cmd: cd ~/Dropbox/work/portfolio
+      - cmd:
+          - cd ~/Dropbox/work/portfolio
+          - fab serve
+        width: 20
+      - cmd:
+          - cd ~/Dropbox/work/portfolio
+          - fab watch
+        height: 50
