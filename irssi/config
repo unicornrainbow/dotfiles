@@ -1,10 +1,22 @@
 servers = (
   { address = "eu.irc6.net"; chatnet = "IRCnet"; port = "6667"; },
   { address = "open.ircnet.net"; chatnet = "IRCnet"; port = "6667"; },
-  { address = "irc.quakenet.org"; chatnet = "QuakeNet"; port = "6667"; },
-  { address = "irc.freenode.net"; chatnet = "Freenode"; port = "6667"; },
-  { address = "irc.foonetic.net"; chatnet = "Foonetic"; port = "6667"; },
-  { address = "irc.saurik.com"; chatnet = "Saurik"; port = "6667"; },
+  { 
+    address = "irc.quakenet.org";
+    chatnet = "QuakeNet";
+    port = "6667";
+  },
+  { 
+    address = "irc.freenode.net";
+    chatnet = "Freenode";
+    port = "6667";
+  },
+  { 
+    address = "irc.foonetic.net";
+    chatnet = "Foonetic";
+    port = "6667";
+  },
+  { address = "irc.saurik.com"; chatnet = "Saurik"; port = "6667"; }
 );
 
 chatnets = {
@@ -26,7 +38,9 @@ chatnets = {
     max_kicks = "1";
     max_msgs = "3";
     max_whois = "30";
-  }
+  };
+  Foonetic = { type = "IRC"; };
+  Saurik = { type = "IRC"; };
 };
 
 channels = (
@@ -46,7 +60,7 @@ channels = (
   { name = "#reddit"; chatnet = "freenode"; autojoin = "No"; },
   { name = "#zsh"; chatnet = "freenode"; autojoin = "No"; },
   { name = "#Dropbox"; chatnet = "foonetic"; autojoin = "No"; },
-  { name = "#iPhone"; chatnet = "saurik"; autojoin = "No"; },
+  { name = "#iPhone"; chatnet = "saurik"; autojoin = "No"; }
 );
 
 aliases = {
