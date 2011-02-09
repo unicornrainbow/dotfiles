@@ -1,0 +1,18 @@
+set jid = lol2fast4u@jabber.ru
+set nickname = myfreeweb
+
+set autoaway = 240
+set message_autoaway = Auto-away (idle)
+
+alias online   = status online
+alias away     = status away
+alias dnd      = status dnd
+alias notavail = status notavail
+
+set use_mouse = 1
+# F12 (276) bound to /roster toggle
+bind 276 = roster toggle
+# Alt-m to switch to/from multi-line mode
+bind M109 = msay toggle
+# Alt-M to switch to/from _verbatim_ multi-line mode
+bind M77 = msay toggle_verbatim
