@@ -12,6 +12,7 @@ link conkerorrc
 link gitconfig
 link teamocil
 link tmux.conf
+link irssi
 
 if [ ! -d $HOME/.bazaar ]; then mkdir $HOME/.bazaar; fi
 rm $HOME/.bazaar/bazaar.conf
