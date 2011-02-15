@@ -14,3 +14,7 @@
     ci = commit -a
     st = status
     tags = tag -n1 -l
+[url "git://github.com/"]
+	insteadOf = gh:
+[url "git@github.com:myfreeweb/"]
+	insteadOf = my:

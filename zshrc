@@ -8,6 +8,7 @@ plugins=(git github ruby gem pip fabric osx command-not-found command-coloring)
 
 source $ZSH/oh-my-zsh.sh
 export PYTHONDONTWRITEBYTECODE="yeah"
+export PYTHONSTARTUP=$DROPBOX/dotfiles/pythonrc.py
 export DISABLE_AUTO_UPDATE="true"
 export CLICOLOR="yes"
 if [[ $(uname) = 'Linux' ]]; then
