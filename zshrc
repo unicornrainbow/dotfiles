@@ -1,7 +1,7 @@
 autoload zcalc
 
 export DROPBOX=$HOME/Dropbox
-export PATH=$PATH:$HOME/Dropbox/dotfiles/bin/pickdrop
+export PATH=$PATH:$HOME/Dropbox/dotfiles/bin/pickdrop:$HOME/Dropbox/dotfiles/bin/rvn
 export ZSH=$DROPBOX/dotfiles/oh-my-zsh
 export ZSH_THEME="myfreeweb"
 

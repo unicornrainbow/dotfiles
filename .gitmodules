@@ -11,3 +11,6 @@
 [submodule "bin/pickdrop"]
 	path = bin/pickdrop
 	url = git://github.com/iaindooley/pickdrop.git
+[submodule "bin/rvn"]
+	path = bin/rvn
+	url = git://github.com/rupa/rvn.git
