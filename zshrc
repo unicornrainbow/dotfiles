@@ -1,61 +1,35 @@
-autoload zcalc
-
 export DROPBOX=$HOME/Dropbox
 export PATH=$PATH:$HOME/Dropbox/dotfiles/bin/pickdrop:$HOME/Dropbox/dotfiles/bin/rvn
-export ZSH=$DROPBOX/dotfiles/oh-my-zsh
-export ZSH_THEME="myfreeweb"
-
-plugins=(git github ruby gem pip fabric osx command-not-found command-coloring)
-
-source $ZSH/oh-my-zsh.sh
 export PYTHONDONTWRITEBYTECODE="yeah"
 export PYTHONSTARTUP=$DROPBOX/dotfiles/pythonrc.py
-export DISABLE_AUTO_UPDATE="true"
 export CLICOLOR="yes"
-if [[ $(uname) = 'Linux' ]]; then
+
+source $DROPBOX/dotfiles/zshuery/zshuery.sh
+load_defaults
+load_aliases
+load_lol_aliases
+load_completion
+load_correction
+
+prompt '%{$fg_bold[green]%}$DIR%{$reset_color%}$(virtualenv_info) %{$fg[yellow]%}$(prompt_char)%{$reset_color%} '
+
+if [ IS_LINUX = 1 ]; then
     export EDITOR='emacsclient'
     export ALTERNATE_EDITOR='emacs'
-elif [[ $(uname) = 'Darwin' ]]; then
+    alias ls='ls '${GREP_OPTIONS}
+elif [ IS_MAC = 1 ]; then
     export EDITOR='aquamacs'
+    export HAXE_LIBRARY_PATH="`brew --prefix`/share/haxe/std"
+    source "`brew --prefix grc`/etc/grc.bashrc" # colors
 fi
 
-if [[ -x `which hub` ]]; then
-    eval $(hub alias -s zsh)
-fi
-if [[ -d /var/lib/gems/1.8/bin ]]; then
-    export PATH=$PATH:/var/lib/gems/1.8/bin
-fi
-if [[ $(uname) = 'Linux' ]]; then
-    alias ls='ls '${GREP_OPTIONS}
-fi
-alias la='ls -la'
-alias df='df -h'
-alias du='du -h'
-alias erl='nocorrect erl'
-alias curl='nocorrect curl'
-alias rake='nocorrect rake'
-alias make='nocorrect make'
-alias cake='nocorrect cake'
-alias lessc='nocorrect lessc'
-alias pinst='sudo python setup.py install && sudo rm -r build/ && sudo rm -r dist && sudo rm -r *egg-info'
-alias moar='more'
 alias -s py=python
 alias -s js=node
 alias -s pl=perl
 alias -s rb=ruby
 
-#Stuff
 vid4iphone(){ ffmpeg -i $1 -s 480x272 -b 700k "`echo $1 | awk -F . '{print $1}'`.mp4" }
-md5(){ echo $1 | openssl md5 /dev/stdin }
-sha1(){ echo $1 | openssl sha1 /dev/stdin }
-mcd(){ mkdir $1; cd $1 }
-if [[ $(uname) = 'Darwin' ]]; then
-    source "`brew --prefix grc`/etc/grc.bashrc" # colors
-    gimme(){ sudo brew install $1 }
-elif [[ $(uname) = 'Linux' ]]; then
-    gimme(){ sudo apt-get install $1 }
-fi
-source $ZSH/z/z.sh
+source $DROPBOX/dotfiles/bin/z/z.sh
 
 precmd () {
     local cmd type_path

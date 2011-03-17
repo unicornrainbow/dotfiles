@@ -1,20 +1,25 @@
 [user]
-	name = myfreeweb
-	email = me@myfreeweb.ru
+    name = myfreeweb
+    email = me@myfreeweb.ru
 [github]
-	user = myfreeweb
+    user = myfreeweb
+[difftool "Kaleidoscope"]
+    cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [difftool]
-	prompt = false
+    prompt = false
 [diff]
-	tool = Kaleidoscope
     renames = copy
+  	tool = Kaleidoscope
+  	guitool = Kaleidoscope
 [color]
-	ui = true
+    ui = true
 [alias]
     ci = commit -a
     st = status
     tags = tag -n1 -l
+    rwt = reset --hard HEAD
+    unci = reset --hard HEAD^
 [url "git://github.com/"]
-	insteadOf = gh:
+    insteadOf = gh:
 [url "git@github.com:myfreeweb/"]
-	insteadOf = my:
+    insteadOf = my:
