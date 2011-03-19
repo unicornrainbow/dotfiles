@@ -10,10 +10,14 @@ link muttrc
 link hgrc
 link conkerorrc
 link gitconfig
+link gitignore
 link teamocil
 link tmux.conf
 link irssi
 link mcabber
+link vim
+link vimrc
+link gvimrc
 
 if [ ! -d $HOME/.bazaar ]; then mkdir $HOME/.bazaar; fi
 rm $HOME/.bazaar/bazaar.conf
