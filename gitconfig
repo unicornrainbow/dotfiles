@@ -24,4 +24,4 @@
 [url "git@github.com:myfreeweb/"]
     insteadOf = my:
 [core]
-	excludesfile = /Users/myfreeweb/.gitignore
+	excludesfile = ~/.gitignore

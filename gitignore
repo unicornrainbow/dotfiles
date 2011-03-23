@@ -1,4 +1,6 @@
-.DS_Store 
-*.pyc 
+.DS_Store
+*.pyc
 .rake_tasks~
 .cake_tasks~
+*~
+*.swp

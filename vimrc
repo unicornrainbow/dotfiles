@@ -37,19 +37,8 @@ call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
 
 autocmd FileType python set ft=python.django
-let g:user_zen_settings = {
-  'php' : {
-    'extends' : 'html',
-    'filters' : 'c',
-  },
-  'xml' : {
-    'extends' : 'html',
-  },
-  'haml' : {
-    'extends' : 'html',
-  },
-}
 let g:user_zen_expandabbr_key='<D-e>'
+let g:jekyll_path='~/Dropbox/work/floatboth'
 execute "HeadlightsTurnOn"
 
 if filereadable(expand("~/.vimrc.local"))
