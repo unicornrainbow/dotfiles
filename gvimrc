@@ -11,3 +11,4 @@ if has("gui_macvim")
     map <D-t> :CommandT<CR>
     map <D-Bslash> <plug>NERDCommenterToggle<CR>
 endif
+execute "HeadlightsTurnOn"

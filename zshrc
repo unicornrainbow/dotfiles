@@ -13,11 +13,11 @@ load_correction
 
 prompt '%{$fg_bold[green]%}$(COLLAPSED_DIR)%{$reset_color%}$(virtualenv_info) %{$fg[yellow]%}$(prompt_char)%{$reset_color%} '
 
-if [ IS_LINUX = 1 ]; then
+if [ $IS_LINUX -eq 1 ]; then
     export EDITOR='emacsclient'
     export ALTERNATE_EDITOR='emacs'
     alias ls='ls '${GREP_OPTIONS}
-elif [ IS_MAC = 1 ]; then
+elif [ $IS_MAC -eq 1 ]; then
     export EDITOR='aquamacs'
     export HAXE_LIBRARY_PATH="`brew --prefix`/share/haxe/std"
     source "`brew --prefix grc`/etc/grc.bashrc" # colors

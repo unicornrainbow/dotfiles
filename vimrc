@@ -17,6 +17,7 @@ set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,.hg,.bzr,.svn,*.pyc,*.rbc
 set noequalalways
 set backspace=indent,eol,start
+set whichwrap+=<,>,[,]
 set clipboard+=unnamed
 set cursorline
 set noerrorbells
@@ -39,7 +40,6 @@ filetype plugin indent on
 autocmd FileType python set ft=python.django
 let g:user_zen_expandabbr_key='<D-e>'
 let g:jekyll_path='~/Dropbox/work/floatboth'
-execute "HeadlightsTurnOn"
 
 if filereadable(expand("~/.vimrc.local"))
 	source ~/.vimrc.local
