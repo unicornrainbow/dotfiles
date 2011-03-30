@@ -8,5 +8,4 @@
 - Instapaper support (C-x i to add current page)
 
 ## Setting up ##
-- Clone this repo as ~/.conkerorrc (or clone it to your Dropbox and make a symlink to ~/.conkerorrc, that's cool)
 - Make your accounts.js by copying accounts.js.example and changing values.
