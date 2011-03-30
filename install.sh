@@ -18,6 +18,7 @@ link mcabber
 link vim
 link vimrc
 link gvimrc
+link js
 
 if [ ! -d $HOME/.bazaar ]; then mkdir $HOME/.bazaar; fi
 rm $HOME/.bazaar/bazaar.conf
