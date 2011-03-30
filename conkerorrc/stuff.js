@@ -1,4 +1,5 @@
 xkcd_add_title = true;
+homepage = "http://start.io/myfreeweb";
 
 define_key(content_buffer_normal_keymap, "n", "follow-new-buffer");
 
