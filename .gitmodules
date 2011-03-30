@@ -1,6 +1,3 @@
-[submodule "conky"]
-    path = conky
-    url = git://github.com/myfreeweb/conky-godville-krosswordr.git
 [submodule "bin/pickdrop"]
 	path = bin/pickdrop
 	url = git://github.com/iaindooley/pickdrop.git
