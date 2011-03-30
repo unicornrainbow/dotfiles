@@ -1,4 +1,9 @@
-set jid = lol2fast4u@jabber.ru
+set jid = me@myfreeweb.ru
+set username = me@myfreeweb.ru
+set server = talk.google.com
+set ssl = 1
+set ssl_ignore_checks = 1
+set port = 5223
 set nickname = myfreeweb
 
 set autoaway = 240
