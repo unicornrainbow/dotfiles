@@ -17,5 +17,5 @@ set certificate_file = ~/.mutt/certificates
 # UI
 set move = no
 set markers = no
-set editor = "emacsclient"
+set editor = "vim"
 macro pager \cb <pipe-entry>"conkeror"<enter> "Follow URLs with Conkeror"

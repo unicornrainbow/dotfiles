@@ -13,14 +13,13 @@ load_correction
 
 prompts '%{$fg_bold[green]%}$(COLLAPSED_DIR)%{$reset_color%}$(virtualenv_info) %{$fg[yellow]%}$(prompt_char)%{$reset_color%} ' '%{$fg[red]%}$(ruby_version)%{$reset_color%}'
 if [[ $IS_LINUX -eq 1 ]]; then
-    export EDITOR='emacsclient'
-    export ALTERNATE_EDITOR='emacs'
     alias ls='ls '${GREP_OPTIONS}
 elif [[ $IS_MAC -eq 1 ]]; then
-    export EDITOR='aquamacs'
     export HAXE_LIBRARY_PATH="`brew --prefix`/share/haxe/std"
     source "`brew --prefix grc`/etc/grc.bashrc" # colors
 fi
+export EDITOR='vim'
+bindkey -e
 
 alias -s py=python
 alias -s js=node
