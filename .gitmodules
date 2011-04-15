@@ -79,3 +79,9 @@
 [submodule "vim/bundle/lesscss"]
 	path = vim/bundle/lesscss
 	url = git://github.com/itspriddle/vim-lesscss.git
+[submodule "vim/bundle/solarized"]
+	path = vim/bundle/solarized
+	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "vim/bundle/unimpaired"]
+	path = vim/bundle/unimpaired
+	url = git://github.com/tpope/vim-unimpaired.git

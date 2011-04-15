@@ -16,7 +16,8 @@ if [[ $IS_LINUX -eq 1 ]]; then
     alias ls='ls '${GREP_OPTIONS}
 elif [[ $IS_MAC -eq 1 ]]; then
     export HAXE_LIBRARY_PATH="`brew --prefix`/share/haxe/std"
-    source "`brew --prefix grc`/etc/grc.bashrc" # colors
+    source "`brew --prefix grc`/etc/grc.bashrc"
+    export GOROOT=`brew --prefix go`
 fi
 export EDITOR='vim'
 bindkey -e
