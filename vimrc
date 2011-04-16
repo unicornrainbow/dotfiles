@@ -9,7 +9,7 @@ set softtabstop=2
 set expandtab
 set autoindent
 set list listchars=tab:\ \ ,trail:·
-set hlsearch
+set nohlsearch
 set incsearch
 set ignorecase
 set smartcase
@@ -21,29 +21,35 @@ set whichwrap+=<,>,[,]
 set clipboard+=unnamed
 set cursorline
 set noerrorbells
+set nohidden
 set shell=/bin/zsh
+set mouse=a
+set autochdir
+set autoread
+filetype off
+set runtimepath+=$HOME/.vim/pathogen
+call pathogen#runtime_append_all_bundles()
+filetype plugin indent on
 
 cmap w!! w !sudo tee % >/dev/null
 nmap <C-Up> [e
 nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
+map  <C-h> <C-w>h
+map  <C-j> <C-w>j
+map  <C-k> <C-w>k
+map  <C-l> <C-w>l
+map  <C-c> <Leader>c 
 
 au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,Vagrantfile,Thorfile,config.ru} set ft=ruby
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set ft=markdown
-au FileType python set textwidth=79
-
-filetype off
-set runtimepath+=$HOME/.vim/pathogen
-call pathogen#runtime_append_all_bundles()
-filetype plugin indent on
-
-if has("autocmd")
-  autocmd FileType python set ft=python.django
-  autocmd bufwritepost .vimrc source $MYVIMRC
-endif
+au BufRead,BufNewFile {SConstruct,SConscript,*.py} set ft=python.django
+au BufRead,BufNewFile *.json set ft=javascript
+au bufwritepost .vimrc source $MYVIMRC
 
 let mapleader = ","
+let g:mapleader = ","
 let g:CommandTMaxHeight=20
 let g:user_zen_expandabbr_key='<D-e>'
 let g:jekyll_path='~/Dropbox/work/floatboth'
