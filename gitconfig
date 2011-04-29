@@ -25,4 +25,4 @@
 [url "git@github.com:myfreeweb/"]
     insteadOf = my:
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = ~/Dropbox/dotfiles/gitignore
