@@ -9,7 +9,7 @@
     prompt = false
 [diff]
     renames = copy
-  	tool = Kaleidoscope
+  	tool = vimdiff
   	guitool = Kaleidoscope
 [color]
     ui = true
@@ -22,6 +22,7 @@
     rwt = reset --hard HEAD
     unci = reset --hard HEAD^
     sup = submodule foreach --recursive git pull
+    ksdiff = difftool --gui
 [url "git://github.com/"]
     insteadOf = gh:
 [url "git@github.com:myfreeweb/"]
