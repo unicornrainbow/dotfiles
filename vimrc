@@ -53,6 +53,7 @@ let g:mapleader = ","
 let g:CommandTMaxHeight=20
 let g:user_zen_expandabbr_key='<D-e>'
 let g:jekyll_path='~/Dropbox/work/floatboth'
+let g:maintainer='{"name": "Grigory V.", "web": "http://myfreeweb.ru"}'
 
 if filereadable(expand("~/.vimrc.local"))
 	source ~/.vimrc.local

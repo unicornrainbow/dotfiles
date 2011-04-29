@@ -85,3 +85,6 @@
 [submodule "vim/bundle/unimpaired"]
 	path = vim/bundle/unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
+[submodule "vim/bundle/commonjs-package-json/plugin"]
+	path = vim/bundle/commonjs-package-json/plugin
+	url = git://gist.github.com/311512.git
