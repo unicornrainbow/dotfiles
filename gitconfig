@@ -19,6 +19,7 @@
     tags = tag -n1 -l
     rwt = reset --hard HEAD
     unci = reset --hard HEAD^
+    sup = submodule foreach --recursive git pull
 [url "git://github.com/"]
     insteadOf = gh:
 [url "git@github.com:myfreeweb/"]
