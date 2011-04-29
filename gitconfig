@@ -14,6 +14,8 @@
 [color]
     ui = true
 [alias]
+    a = add -A
+    ass = add -A # LOL https://gist.github.com/894971
     ci = commit -a
     st = status
     tags = tag -n1 -l
@@ -25,4 +27,4 @@
 [url "git@github.com:myfreeweb/"]
     insteadOf = my:
 [core]
-	excludesfile = ~/Dropbox/dotfiles/gitignore
+  	excludesfile = ~/Dropbox/dotfiles/gitignore
