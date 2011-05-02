@@ -18,6 +18,7 @@ link vim
 link vimrc
 link gvimrc
 link js
+link irbrc
 
 mkdir -p $HOME/.bazaar
 rm $HOME/.bazaar/bazaar.conf
