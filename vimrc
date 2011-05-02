@@ -15,6 +15,7 @@ set ignorecase
 set smartcase
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,.hg,.bzr,.svn,*.pyc,*.rbc
+set backupskip=/tmp/*,/private/tmp/*
 set noequalalways
 set backspace=indent,eol,start
 set whichwrap+=<,>,[,]
@@ -40,16 +41,17 @@ map  <C-h> <C-w>h
 map  <C-j> <C-w>j
 map  <C-k> <C-w>k
 map  <C-l> <C-w>l
-map  <C-c> <Leader>c 
+map  <Leader>p :Hammer<CR>
 
 au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,Vagrantfile,Thorfile,config.ru} set ft=ruby
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set ft=markdown
 au BufRead,BufNewFile {SConstruct,SConscript,*.py} set ft=python.django
 au BufRead,BufNewFile *.json set ft=javascript
+au BufRead,BufNewFile *.{css,sass,scss,less,styl,stylus} set omnifunc=csscomplete#CompleteCSS
 au bufwritepost .vimrc source $MYVIMRC
 
-let mapleader = ","
-let g:mapleader = ","
+let mapleader=','
+let g:mapleader=','
 let g:CommandTMaxHeight=20
 let g:user_zen_expandabbr_key='<D-e>'
 let g:jekyll_path='~/Dropbox/work/floatboth'

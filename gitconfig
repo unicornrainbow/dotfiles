@@ -21,7 +21,7 @@
     tags = tag -n1 -l
     rwt = reset --hard HEAD
     unci = reset --hard HEAD^
-    sup = submodule foreach --recursive git pull
+    sup = submodule foreach --recursive git pull origin master
     ksdiff = difftool --gui
 [url "git://github.com/"]
     insteadOf = gh:

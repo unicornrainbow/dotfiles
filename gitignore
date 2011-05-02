@@ -6,3 +6,19 @@
 *.swp
 *.o
 *.bak
+
+# http://blog.illuminex.com/2009/10/better-sample-gitignore-file-for-xcode.html
+dsa_priv.pem
+*.mode1
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+*.pbxuser
+xcuserdata
+VersionX-revision.h
+*~.nib
+*(Autosaved).rtfd/
+Backup[ ]of[ ]*.pages/
+Backup[ ]of[ ]*.key/
+Backup[ ]of[ ]*.numbers/

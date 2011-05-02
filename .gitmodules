@@ -4,9 +4,6 @@
 [submodule "bin/rvn"]
 	path = bin/rvn
 	url = git://github.com/rupa/rvn.git
-[submodule "bin/z"]
-	path = bin/z
-	url = git://github.com/sjl/z-zsh.git
 [submodule "zshuery"]
     path = zshuery
     url = git://github.com/myfreeweb/zshuery.git
@@ -55,9 +52,6 @@
 [submodule "vim/bundle/css3"]
 	path = vim/bundle/css3
 	url = git://github.com/hail2u/vim-css3-syntax.git
-[submodule "vim/bundle/markdown-preview"]
-	path = vim/bundle/markdown-preview
-	url = git://github.com/robgleeson/vim-markdown-preview.git
 [submodule "vim/bundle/jekyll"]
 	path = vim/bundle/jekyll
 	url = git://github.com/csexton/jekyll.vim.git
@@ -88,3 +82,9 @@
 [submodule "vim/bundle/commonjs-package-json/plugin"]
 	path = vim/bundle/commonjs-package-json/plugin
 	url = git://gist.github.com/311512.git
+[submodule "vim/bundle/hammer"]
+	path = vim/bundle/hammer
+	url = git://github.com/robgleeson/hammer.vim.git
+[submodule "bin/z"]
+	path = bin/z
+	url = git://github.com/sjl/z-zsh
