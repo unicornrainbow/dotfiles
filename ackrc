@@ -1,0 +1,4 @@
+--type-add
+html=.haml,.jade,.mustache
+--type-add
+css=.sass,.scss,.less,.styl,.ccss,.clevercss

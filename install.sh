@@ -5,6 +5,7 @@ function link {
     ln -s `pwd`/$1 $HOME/.$1
 }
 
+link ackrc
 link zshrc
 link muttrc
 link hgrc
