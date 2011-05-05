@@ -88,3 +88,6 @@
 [submodule "bin/z"]
 	path = bin/z
 	url = git://github.com/sjl/z-zsh
+[submodule "vim/bundle/slim"]
+	path = vim/bundle/slim
+	url = git://github.com/bbommarito/vim-slim.git
