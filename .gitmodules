@@ -31,8 +31,8 @@
 [submodule "vim/bundle/command-t"]
 	path = vim/bundle/command-t
 	url = git://github.com/wincent/Command-T.git
-[submodule "vim/bundle/pathogen"]
-	path = vim/bundle/pathogen
+[submodule "vim/pathogen"]
+	path = vim/pathogen
 	url = git://github.com/tpope/vim-pathogen.git
 [submodule "vim/bundle/jade"]
 	path = vim/bundle/jade
@@ -79,9 +79,6 @@
 [submodule "vim/bundle/unimpaired"]
 	path = vim/bundle/unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
-[submodule "vim/bundle/commonjs-package-json/plugin"]
-	path = vim/bundle/commonjs-package-json/plugin
-	url = git://gist.github.com/311512.git
 [submodule "vim/bundle/hammer"]
 	path = vim/bundle/hammer
 	url = git://github.com/robgleeson/hammer.vim.git
@@ -91,3 +88,9 @@
 [submodule "vim/bundle/slim"]
 	path = vim/bundle/slim
 	url = git://github.com/bbommarito/vim-slim.git
+[submodule "vim/bundle/commonjs-package-json/autoload"]
+	path = vim/bundle/commonjs-package-json/autoload
+	url = git://gist.github.com/961425.git
+[submodule "vim/bundle/commonjs-package-json/plugin"]
+	path = vim/bundle/commonjs-package-json/plugin
+	url = git://gist.github.com/961425.git
