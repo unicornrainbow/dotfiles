@@ -94,3 +94,6 @@
 [submodule "vim/bundle/commonjs-package-json/plugin"]
 	path = vim/bundle/commonjs-package-json/plugin
 	url = git://gist.github.com/961425.git
+[submodule "bin/git-achievements"]
+	path = bin/git-achievements
+	url = git@github.com:myfreeweb/git-achievements.git

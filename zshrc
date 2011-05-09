@@ -1,8 +1,10 @@
 export DROPBOX=$HOME/Dropbox
-export PATH=$PATH:$HOME/Dropbox/dotfiles/bin/pickdrop:$HOME/Dropbox/dotfiles/bin/rvn
 export PYTHONDONTWRITEBYTECODE="yeah"
 export PYTHONSTARTUP=$DROPBOX/dotfiles/pythonrc.py
 export CLICOLOR="yes"
+
+for dir in $DROPBOX/dotfiles/bin/* export PATH=$PATH:$dir
+alias git="git-achievements"
 
 source $DROPBOX/dotfiles/zshuery/zshuery.sh
 load_defaults
@@ -26,8 +28,8 @@ alias -s py=python
 alias -s js=node
 alias -s pl=perl
 alias -s rb=ruby
+alias -s coffee=coffee
 
-vid4iphone(){ ffmpeg -i $1 -s 480x272 -b 700k "`echo $1 | awk -F . '{print $1}'`.mp4" }
 source $DROPBOX/dotfiles/bin/z/z.sh
 
 precmd () {
@@ -37,10 +39,10 @@ precmd () {
     test "$LINENO" -le 1 || case "$type_path" in
         git) git clone "$cmd";;
         hg|bitbucket) hg clone "$cmd";;
-	    bzr|bzr+ssh|lp) bzr branch "$cmd";;
-	    http|https) wget "$cmd";;
-	    file) cd "$(echo "${cmd#file://}" | ascii2uni -qa J)";;
-	    *) ;;
+        bzr|bzr+ssh|lp) bzr branch "$cmd";;
+        http|https) wget "$cmd";;
+        file) cd "$(echo "${cmd#file://}" | ascii2uni -qa J)";;
+        *) ;;
     esac
     z --add "$(pwd -P)"
     return 0;

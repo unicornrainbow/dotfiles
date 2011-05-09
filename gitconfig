@@ -29,3 +29,5 @@
     insteadOf = my:
 [core]
   	excludesfile = ~/Dropbox/dotfiles/gitignore
+[achievement]
+	upload = true
