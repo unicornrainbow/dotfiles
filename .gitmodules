@@ -88,12 +88,6 @@
 [submodule "vim/bundle/slim"]
 	path = vim/bundle/slim
 	url = git://github.com/bbommarito/vim-slim.git
-[submodule "vim/bundle/commonjs-package-json/autoload"]
-	path = vim/bundle/commonjs-package-json/autoload
-	url = git://gist.github.com/961425.git
 [submodule "vim/bundle/commonjs-package-json/plugin"]
 	path = vim/bundle/commonjs-package-json/plugin
 	url = git://gist.github.com/961425.git
-[submodule "bin/git-achievements"]
-	path = bin/git-achievements
-	url = git@github.com:myfreeweb/git-achievements.git
