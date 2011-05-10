@@ -2,6 +2,7 @@
 *.pyc
 .rake_tasks~
 .cake_tasks~
+.sass-cache
 *~
 *.swp
 *.o

@@ -3,7 +3,7 @@ export PYTHONDONTWRITEBYTECODE="yeah"
 export PYTHONSTARTUP=$DROPBOX/dotfiles/pythonrc.py
 export CLICOLOR="yes"
 
-for dir in $DROPBOX/dotfiles/bin/* export PATH=$PATH:$dir
+for dir in $DROPBOX/dotfiles/bin/*; export PATH=$PATH:$dir
 alias git="git-achievements"
 
 source $DROPBOX/dotfiles/zshuery/zshuery.sh
