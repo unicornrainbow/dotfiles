@@ -42,6 +42,12 @@ map  <C-j> <C-w>j
 map  <C-k> <C-w>k
 map  <C-l> <C-w>l
 map  <Leader>p :Hammer<CR>
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
 
 au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,Vagrantfile,Thorfile,Guardfile,config.ru} set ft=ruby
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set ft=markdown
@@ -54,7 +60,6 @@ let mapleader=','
 let g:mapleader=','
 let g:CommandTMaxHeight=20
 let g:user_zen_expandabbr_key='<D-e>'
-let g:jekyll_path='~/Dropbox/work/floatboth'
 let g:maintainer='{"name": "Grigory V.", "web": "http://myfreeweb.ru"}'
 
 if filereadable(expand("~/.vimrc.local"))
