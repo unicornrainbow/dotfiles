@@ -1,5 +1,10 @@
 syntax on
 
+filetype off
+set runtimepath+=$HOME/.vim/pathogen
+call pathogen#runtime_append_all_bundles()
+filetype plugin indent on
+
 set nocompatible
 set encoding=utf-8
 set nowrap
@@ -22,15 +27,15 @@ set whichwrap+=<,>,[,]
 set clipboard+=unnamed
 set cursorline
 set noerrorbells
-set nohidden
+set hidden
 set shell=/bin/zsh
 set mouse=a
-set autochdir
+if exists("autochdir")
+  set autochdir
+endif
 set autoread
-filetype off
-set runtimepath+=$HOME/.vim/pathogen
-call pathogen#runtime_append_all_bundles()
-filetype plugin indent on
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)
+set laststatus=2
 
 cmap w!! w !sudo tee % >/dev/null
 nmap <C-Up> [e
@@ -54,7 +59,8 @@ au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set ft=markdown
 au BufRead,BufNewFile {SConstruct,SConscript,*.py} set ft=python.django
 au BufRead,BufNewFile *.json set ft=javascript
 au BufRead,BufNewFile *.{css,sass,scss,less,styl,stylus} set omnifunc=csscomplete#CompleteCSS
-au bufwritepost .vimrc source $MYVIMRC
+au BufWritePost {g,.g,,.}vimrc source $MYVIMRC
+au BufReadPost fugitive://* set bufhidden=delete
 
 let mapleader=','
 let g:mapleader=','
