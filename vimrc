@@ -30,6 +30,8 @@ set noerrorbells
 set hidden
 set shell=/bin/zsh
 set mouse=a
+set completeopt=longest,menuone
+set tags=./tags;/
 if exists("autochdir")
   set autochdir
 endif
@@ -53,12 +55,14 @@ if exists(":Tabularize")
   nmap <Leader>a: :Tabularize /:\zs<CR>
   vmap <Leader>a: :Tabularize /:\zs<CR>
 endif
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,Vagrantfile,Thorfile,Guardfile,config.ru} set ft=ruby
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set ft=markdown
 au BufRead,BufNewFile {SConstruct,SConscript,*.py} set ft=python.django
 au BufRead,BufNewFile *.json set ft=javascript
 au BufRead,BufNewFile *.{css,sass,scss,less,styl,stylus} set omnifunc=csscomplete#CompleteCSS
+au BufRead,BufNewFile *.go set noexpandtab
 au BufWritePost {g,.g,,.}vimrc source $MYVIMRC
 au BufReadPost fugitive://* set bufhidden=delete
 
