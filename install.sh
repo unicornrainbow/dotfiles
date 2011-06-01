@@ -20,6 +20,7 @@ link vimrc
 link gvimrc
 link js
 link irbrc
+link inputrc
 
 mkdir -p $HOME/.ssh
 rm $HOME/.ssh/config
