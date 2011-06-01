@@ -97,3 +97,6 @@
 [submodule "vim/bundle/tabular"]
 	path = vim/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
+[submodule "vim/bundle/clojure"]
+	path = vim/bundle/clojure
+	url = git://github.com/vim-scripts/VimClojure.git
