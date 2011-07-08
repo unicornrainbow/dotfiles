@@ -9,8 +9,8 @@
     prompt = false
 [diff]
     renames = copy
-  	tool = vimdiff
-  	guitool = Kaleidoscope
+    tool = vimdiff
+    guitool = Kaleidoscope
 [color]
     ui = true
 [alias]
@@ -28,6 +28,4 @@
 [url "git@github.com:myfreeweb/"]
     insteadOf = my:
 [core]
-  	excludesfile = ~/Dropbox/dotfiles/gitignore
-[achievement]
-	upload = true
+    excludesfile = ~/Code/dotfiles/gitignore

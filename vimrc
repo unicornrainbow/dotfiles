@@ -71,6 +71,7 @@ let g:mapleader=','
 let g:CommandTMaxHeight=20
 let g:user_zen_expandabbr_key='<D-e>'
 let g:maintainer='{"name": "Grigory V.", "web": "http://myfreeweb.ru"}'
+let vimclojure#WantNailgun = 1
 
 if filereadable(expand("~/.vimrc.local"))
 	source ~/.vimrc.local

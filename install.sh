@@ -7,14 +7,11 @@ function link {
 
 link ackrc
 link zshrc
-link muttrc
 link hgrc
 link conkerorrc
 link gitconfig
 link teamocil
 link tmux.conf
-link irssi
-link mcabber
 link vim
 link vimrc
 link gvimrc
@@ -31,9 +28,6 @@ rm $HOME/.bazaar/bazaar.conf
 ln -s `pwd`/bazaar.conf $HOME/.bazaar/bazaar.conf
 
 if [[ $(uname) = 'Linux' ]]; then
-    if [ ! -d $HOME/.config ]; then mkdir $HOME/.config; fi
-    rm -r $HOME/.config/awesome
-    ln -s `pwd`/awesome $HOME/.config/awesome
     QUAKE=$HOME/.quakelive/quakelive/home/baseq3
 elif [[ $(uname) = 'Darwin' ]]; then
     QUAKE=$HOME/Library/Application\ Support/QuakeLive/quakelive/home/baseq3
