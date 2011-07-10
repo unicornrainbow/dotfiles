@@ -1,16 +1,16 @@
-export DROPBOX=$HOME/Code
+export CODEDIR=$HOME/Code
 export PYTHONDONTWRITEBYTECODE="yeah"
-export PYTHONSTARTUP=$DROPBOX/dotfiles/pythonrc.py
+export PYTHONSTARTUP=$CODEDIR/dotfiles/pythonrc.py
 export CLICOLOR="yes"
 
-for dir in $DROPBOX/dotfiles/bin/*; export PATH=$PATH:$dir
+for dir in $CODEDIR/dotfiles/bin/*; export PATH=$PATH:$dir
 export PATH=$PATH:~/.cljr/bin
 
-source $DROPBOX/dotfiles/zshuery/zshuery.sh
+source $CODEDIR/dotfiles/zshuery/zshuery.sh
 load_defaults
 load_aliases
 load_lol_aliases
-load_completion $DROPBOX/dotfiles/zshuery/completion
+load_completion $CODEDIR/dotfiles/zshuery/completion
 load_correction
 
 prompts '%{$fg_bold[green]%}$(COLLAPSED_DIR)%{$reset_color%}$(virtualenv_info) %{$fg[yellow]%}$(prompt_char)%{$reset_color%} ' '%{$fg[red]%}$(ruby_version)%{$reset_color%}'
@@ -30,7 +30,7 @@ alias -s pl=perl
 alias -s rb=ruby
 alias -s coffee=coffee
 
-source $DROPBOX/dotfiles/bin/z/z.sh
+source $CODEDIR/dotfiles/bin/z/z.sh
 
 precmd () {
     local cmd type_path
