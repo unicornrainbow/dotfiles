@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/Users/myfreeweb/Dropbox/work/floatboth/_posts'
-let g:netrw_dirhist_2='/Users/myfreeweb/Dropbox/dotfiles'
-let g:netrw_dirhist_3='/Users/myfreeweb/Dropbox/work/floatboth'
-let g:netrw_dirhist_4='/Users/myfreeweb/Code/open'
-let g:netrw_dirhist_5='/Library/Ruby/Gems/1.8/gems/kramdown-0.13.3'
-let g:netrw_dirhist_6='/Library/Ruby/Gems/1.8/gems/rubypants-0.2.0'
-let g:netrw_dirhist_7='/Users/myfreeweb/Code/private/floatboth/output/articles'

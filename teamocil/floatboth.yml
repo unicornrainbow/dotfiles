@@ -1,0 +1,8 @@
+windows:
+- name: floatboth
+  splits:
+  - cmd: cd ~/Code/private/floatboth
+  - cmd:
+    - cd ~/Code/private/floatboth
+    - nanoc aco & python -c 'import time;time.sleep(2)' && open http://localhost:3000
+    height: 10
