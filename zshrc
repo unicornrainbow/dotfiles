@@ -4,7 +4,7 @@ export PYTHONSTARTUP=$CODEDIR/dotfiles/pythonrc.py
 export CLICOLOR="yes"
 
 for dir in $CODEDIR/dotfiles/bin/*; export PATH=$PATH:$dir
-export PATH=$PATH:~/.cljr/bin
+export PATH=/usr/local/sbin:$PATH:~/.cljr/bin
 
 source $CODEDIR/dotfiles/zshuery/zshuery.sh
 load_defaults
