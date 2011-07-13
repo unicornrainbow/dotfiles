@@ -61,9 +61,6 @@
 [submodule "vim/bundle/selfdot"]
 	path = vim/bundle/selfdot
 	url = git://github.com/narfdotpl/selfdot.vim.git
-[submodule "vim/bundle/headlights"]
-	path = vim/bundle/headlights
-	url = git://github.com/mbadran/headlights.git
 [submodule "vim/bundle/snipmate_nodejs"]
 	path = vim/bundle/snipmate_nodejs
 	url = git://github.com/jamescarr/snipmate-nodejs.git
