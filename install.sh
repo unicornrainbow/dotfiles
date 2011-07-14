@@ -36,7 +36,7 @@ elif [[ $(uname) = 'Darwin' ]]; then
     QUAKE=$HOME/Library/Application\ Support/QuakeLive/quakelive/home/baseq3
 fi
 if [[ -d $QUAKE ]]; then
-    rm $QUAKE/lol2fast4u.cfg $QUAKE/autoexec.cfg
-    ln -s `pwd`/lol2fast4u.cfg $QUAKE/lol2fast4u.cfg
-    echo 'exec "lol2fast4u.cfg"' > $QUAKE/autoexec.cfg
+    rm $QUAKE/quakelive.cfg $QUAKE/autoexec.cfg
+    ln -s `pwd`/quakelive.cfg $QUAKE/quakelive.cfg
+    echo 'exec "quakelive.cfg"' > $QUAKE/autoexec.cfg
 fi
