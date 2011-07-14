@@ -8,6 +8,7 @@ function link {
 link ackrc
 link zshrc
 link hgrc
+link ctags
 link conkerorrc
 link gitconfig
 link teamocil
@@ -18,6 +19,8 @@ link gvimrc
 link js
 link irbrc
 link inputrc
+
+echo "vim/tmp vim/tmp/undo vim/tmp/swap vim/tmp/backups" | xargs mkdir -p
 
 mkdir -p $HOME/.ssh
 rm $HOME/.ssh/config
@@ -32,7 +35,7 @@ if [[ $(uname) = 'Linux' ]]; then
 elif [[ $(uname) = 'Darwin' ]]; then
     QUAKE=$HOME/Library/Application\ Support/QuakeLive/quakelive/home/baseq3
 fi
-if [ -d $QUAKE ]; then
+if [[ -d $QUAKE ]]; then
     rm $QUAKE/lol2fast4u.cfg $QUAKE/autoexec.cfg
     ln -s `pwd`/lol2fast4u.cfg $QUAKE/lol2fast4u.cfg
     echo 'exec "lol2fast4u.cfg"' > $QUAKE/autoexec.cfg

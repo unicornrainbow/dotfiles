@@ -1,5 +1,6 @@
 .DS_Store
 *.pyc
+*.rbc
 .rake_tasks
 .cake_tasks
 .sass-cache
@@ -8,6 +9,9 @@
 *.swo
 *.o
 *.bak
+tags
+TAGS
+.netrwhist
 
 # http://blog.illuminex.com/2009/10/better-sample-gitignore-file-for-xcode.html
 dsa_priv.pem

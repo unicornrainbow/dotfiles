@@ -18,11 +18,17 @@
     ass = add -A # LOL https://gist.github.com/894971
     ci = commit -a
     st = status
+    s = status -s
     tags = tag -n1 -l
-    rwt = reset --hard HEAD
-    unci = reset --hard HEAD^
+    rwt = reset --hard HEAD # revert working tree
+    unci = reset --hard HEAD^ # uncommit
     sup = submodule foreach --recursive git pull origin master
     ksdiff = difftool --gui
+    vd = difftool
+    forget = rm --cached
+    two = diff HEAD@{1} HEAD@{0}
+    tip = log -n 1
+    last = log -n 10 --oneline
 [url "git://github.com/"]
     insteadOf = gh:
 [url "git@github.com:myfreeweb/"]

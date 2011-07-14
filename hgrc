@@ -1,5 +1,19 @@
+# thanks:
+# http://bitbucket.org/sjl/dotfiles
+
 [ui]
 username = myfreeweb <me@myfreeweb.ru>
+editor = vim
+
+[extensions]
+mq =
+fetch =
+color =
+rebase =
+extdiff =
+progress =
+graphlog =
+transplant =
 
 [schemes]
 bb = ssh://hg@bitbucket.org/
@@ -7,7 +21,16 @@ bb = ssh://hg@bitbucket.org/
 [diff]
 git = True
 
+[extdiff]
+cmd.vd = vimdiff
+opts.vd =
+cmd.ksdiff = /usr/local/bin/ksdiff-wrapper
+opts.ksdiff = hg
+
+[defaults]
+rebase = --keepbranches
+addremove = --similarity 100
+
 [alias]
-# Easily add ignore patterns /via Steve Losh
 ignore = ![ -n "$@" ] && echo '$@' >> `$HG root`/.hgignore && \
           $HG commit `$HG root`/.hgignore -Am 'Add "$@" to .hgignore.'

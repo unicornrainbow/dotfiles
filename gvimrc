@@ -9,10 +9,11 @@ if has("gui_macvim")
     set guifont=Monaco:h12
     map <D-t> :CommandT<CR>
     map <D-Bslash> <plug>NERDCommenterToggle<CR>
+    set guicursor=n-c:block-Cursor-blinkon0
+    set guicursor+=v:block-vCursor-blinkon0
 else
     set guifont=Monaco "linux doesn't like size here
 endif
 " au BufAdd,BufNewFile * nested tab sball
 tab sball
 set switchbuf=usetab,newtab
-execute "HeadlightsTurnOn"
