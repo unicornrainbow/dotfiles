@@ -26,10 +26,6 @@ mkdir -p $HOME/.ssh
 rm $HOME/.ssh/config
 ln -s `pwd`/ssh_config $HOME/.ssh/config
 
-mkdir -p $HOME/.bazaar
-rm $HOME/.bazaar/bazaar.conf
-ln -s `pwd`/bazaar.conf $HOME/.bazaar/bazaar.conf
-
 if [[ $(uname) = 'Linux' ]]; then
     QUAKE=$HOME/.quakelive/quakelive/home/baseq3
 elif [[ $(uname) = 'Darwin' ]]; then

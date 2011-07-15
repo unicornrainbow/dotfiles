@@ -9,8 +9,9 @@ import os
 try:
     import rlcompleter
     import readline
-    readline.parse_and_bind('tab: complete')
-    HISTFILE="%s/.pyhistory" % os.environ["HOME"]
+    home = os.environ["HOME"]
+    readline.parse_and_bind(open("%s/.inputrc" % home).read())
+    HISTFILE = "%s/.pyhistory." % home
 
     if os.path.exists(HISTFILE):
         readline.read_history_file(HISTFILE)
