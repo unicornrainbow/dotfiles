@@ -44,6 +44,9 @@ precmd () {
         file) cd "$(echo "${cmd#file://}" | ascii2uni -qa J)";;
         *) ;;
     esac
+    if [[ -d "$(pwd)/src" ]]; then
+      CLOJURE_SOURCE_DIRS=`pwd`/lib:`pwd`/src
+    fi
     z --add "$(pwd -P)"
     return 0;
 }

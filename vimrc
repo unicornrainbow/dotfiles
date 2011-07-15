@@ -57,7 +57,7 @@ map  <C-h> <C-w>h
 map  <C-j> <C-w>j
 map  <C-k> <C-w>k
 map  <C-l> <C-w>l
-map  <Leader>p :Hammer<CR>
+map  <Leader>h :Hammer<CR>
 map  <Leader>a :Ack!
 if exists(":Tabularize")
   nmap <Leader>a= :Tabularize /=<CR>
@@ -66,9 +66,6 @@ if exists(":Tabularize")
   vmap <Leader>a: :Tabularize /:\zs<CR>
 endif
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" sane regexps
-nnoremap / /\v
-vnoremap / /\v
 " change case
 nnoremap <C-u> gUiw
 inoremap <C-u> <esc>gUiwea
@@ -96,7 +93,10 @@ let g:mapleader=','
 let g:CommandTMaxHeight=20
 let g:user_zen_expandabbr_key='<D-e>'
 let g:maintainer='{"name": "Grigory V.", "web": "http://floatboth.com"}'
-let vimclojure#WantNailgun = 1
+let vimclojure#WantNailgun=1
+let vimclojure#SplitPos="bottom"
+let g:vimclojure#ParenRainbow=1
+let g:vimclojure#DynamicHighlighting=1
 
 if filereadable(expand("~/.vimrc.local"))
 	source ~/.vimrc.local
