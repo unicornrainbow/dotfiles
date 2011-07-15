@@ -39,6 +39,7 @@ if exists("autochdir")
   set autochdir
 endif
 set autoread
+set autowrite
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)
 set laststatus=2
 set undodir=~/.vim/tmp/undo//
@@ -72,12 +73,6 @@ inoremap <C-u> <esc>gUiwea
 " textmate-style formatting
 nnoremap <Leader>q gqip
 
-" <tag>|</tag> to
-" <tag>
-"   |
-" </tag>
-au BufRead,BufNewFile *.html inoremap <buffer> <S-CR> <CR><Esc>kA<CR>
-au BufRead,BufNewFile *.html nnoremap <buffer> <S-CR>vit<Esc>a<CR><Esc>vito<Esc>i<CR><Esc>
 au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,Vagrantfile,Thorfile,Guardfile,config.ru} set ft=ruby
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set ft=markdown
 au BufRead,BufNewFile {SConstruct,SConscript,*.py} set ft=python.django
@@ -85,6 +80,7 @@ au BufRead,BufNewFile *.json set ft=javascript
 au BufRead,BufNewFile *.conf set ft=config
 au BufRead,BufNewFile *.{css,sass,scss,less,styl,stylus} set omnifunc=csscomplete#CompleteCSS
 au BufRead,BufNewFile *.go set noexpandtab
+au BufReadCmd *.jar call zip#Browse(expand('<amatch>')) " TODO: get zip
 au BufWritePost {g,.g,,.}vimrc source $MYVIMRC
 au BufReadPost fugitive://* set bufhidden=delete
 
@@ -95,7 +91,6 @@ let g:user_zen_expandabbr_key='<D-e>'
 let g:maintainer='{"name": "Grigory V.", "web": "http://floatboth.com"}'
 let vimclojure#WantNailgun=1
 let vimclojure#SplitPos="bottom"
-let g:vimclojure#ParenRainbow=1
 let g:vimclojure#DynamicHighlighting=1
 
 if filereadable(expand("~/.vimrc.local"))

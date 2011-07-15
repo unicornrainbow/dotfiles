@@ -1,3 +1,5 @@
+[core]
+    excludesfile = ~/Code/dotfiles/gitignore
 [user]
     name = myfreeweb
     email = me@myfreeweb.ru
@@ -11,6 +13,13 @@
     renames = copy
     tool = vimdiff
     guitool = Kaleidoscope
+[merge]
+    summary = true
+[push]
+    default = tracking
+[branch]
+    autosetupmerge = always
+    autosetuprebase = always
 [color]
     ui = true
 [alias]
@@ -33,5 +42,3 @@
     insteadOf = gh:
 [url "git@github.com:myfreeweb/"]
     insteadOf = my:
-[core]
-    excludesfile = ~/Code/dotfiles/gitignore
