@@ -3,7 +3,6 @@
 
 [ui]
 username = myfreeweb <me@myfreeweb.ru>
-editor = vim
 
 [extensions]
 mq =
