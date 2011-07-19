@@ -38,6 +38,7 @@
     two = diff HEAD@{1} HEAD@{0}
     tip = log -n 1
     last = log -n 10 --oneline
+    dima = diff master
 [url "git://github.com/"]
     insteadOf = gh:
 [url "git@github.com:myfreeweb/"]
