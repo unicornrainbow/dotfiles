@@ -6,14 +6,14 @@ from pymongo import Connection
 coll = Connection()["code-stat"]["stat"]
 h = os.environ["HOME"]
 
-def mkstream(path):
+def backup(path):
     path = h + "/" + path.replace(' ', '\ ')
     def cb(ev):
         coll.insert({"path": ev.name, "mask": ev.mask})
         os.system("rsync -az --delete %s myfreeweb@myfreeweb.strongspace.com:/strongspace/myfreeweb/home" % path)
-    return Stream(cb, path, file_events=True)
+    observer = Observer()
+    observer.schedule(Stream(cb, path, file_events=True))
+    observer.start()
 
-observer = Observer()
-observer.schedule(mkstream("Library/Application Support/TextExpander"))
-observer.schedule(mkstream("Code/private"))
-observer.run()
+backup("Library/Application Support/TextExpander")
+backup("Code/private")
