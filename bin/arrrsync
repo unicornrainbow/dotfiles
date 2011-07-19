@@ -10,7 +10,8 @@ h = os.environ["HOME"]
 def backup(path):
     path = h + "/" + path
     def cb(ev):
-        coll.insert({"path": ev.name, "mask": ev.mask, "time": datetime.datetime.now()})
+        coll.insert({"path": ev.name, "mask": ev.mask,
+            "time": datetime.datetime.utcnow()})
         os.system("rsync -az --delete %s myfreeweb@myfreeweb.strongspace.com:/strongspace/myfreeweb/home" % path.replace(' ', '\ '))
     observer = Observer()
     observer.schedule(Stream(cb, path, file_events=True))
