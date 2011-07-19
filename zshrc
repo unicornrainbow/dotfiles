@@ -21,6 +21,7 @@ elif [[ $IS_MAC -eq 1 ]]; then
     source "`brew --prefix grc`/etc/grc.bashrc"
     export GOROOT=`brew --prefix go`
 fi
+alias rmswp='rm ~/.vim/tmp/swap/*'
 export EDITOR='vim'
 bindkey -e
 
