@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/zsh
 
-function link {
+link() {
     rm $HOME/.$1
     ln -s `pwd`/$1 $HOME/.$1
 }
@@ -21,6 +21,7 @@ link irbrc
 link inputrc
 
 echo "vim/tmp vim/tmp/undo vim/tmp/swap vim/tmp/backups" | xargs mkdir -p
+cp com.floatboth.arrrsync.plist ~/Library/LaunchAgents/
 
 mkdir -p $HOME/.ssh
 rm $HOME/.ssh/config
