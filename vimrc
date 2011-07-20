@@ -76,6 +76,7 @@ au BufRead,BufNewFile *.conf set ft=config
 au BufRead,BufNewFile *.{css,sass,scss,less,styl} set omnifunc=csscomplete#CompleteCSS
 au BufRead,BufNewFile *.{sass,scss,less,styl} runtime! after/syntax/css.vim
 au BufRead,BufNewFile *.go set noexpandtab
+au BufRead,BufNewFile *.clj set iskeyword+=- " allow jumping to tags w/ dashes
 au BufReadCmd *.jar call zip#Browse(expand('<amatch>'))
 au BufWritePost {g,.g,,.}vimrc source $MYVIMRC
 au BufReadPost fugitive://* set bufhidden=delete

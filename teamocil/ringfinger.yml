@@ -1,0 +1,12 @@
+windows:
+- name: ringfinger
+  splits:
+  - cmd:
+    - cd $CODEDIR/open/ringfinger/src/ringfinger
+    - ctags .
+    - vim .
+  - cmd:
+    - cd $CODEDIR/open/ringfinger
+    - git status
+    - lein repl
+    width: 35
