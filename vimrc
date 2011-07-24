@@ -1,5 +1,6 @@
 " thanks:
 " http://bitbucket.org/sjl/dotfiles
+" https://github.com/daveray/vimfiles
 
 syntax on
 
@@ -11,18 +12,13 @@ filetype plugin indent on
 set nocompatible
 set encoding=utf-8
 set nowrap
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=2 shiftwidth=2 softtabstop=2
 set expandtab
 set autoindent
 set list listchars=tab:\ \ ,trail:·
-set nohlsearch
-set incsearch
-set ignorecase
-set smartcase
+set wrapscan nohlsearch incsearch ignorecase smartcase
 set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,.hg,.bzr,.svn,*.pyc,*.rbc
+set wildignore+=*.o,*.obj,.git,.hg,.bzr,.svn,*.pyc,*.rbc,*.class
 set backupskip=/tmp/*,/private/tmp/*
 set noequalalways
 set backspace=indent,eol,start
@@ -35,18 +31,16 @@ set shell=/bin/zsh
 set mouse=a
 set completeopt=longest,menuone,preview
 set tags=./tags;
-set autoread
-set autowrite
+set autoread autowrite
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)
 set laststatus=2
 set undodir=~/.vim/tmp/undo//
 set backupdir=~/.vim/tmp/backup//
 set directory=~/.vim/tmp/swap//
-set backup
-set undofile
-set undoreload=5000
+set backup undofile undoreload=5000
 
 cmap w!! w !sudo tee % >/dev/null
+" moving lines around
 nmap <C-Up> [e
 nmap <C-Down> ]e
 vmap <C-Up> [egv
@@ -55,10 +49,12 @@ map  <C-h> <C-w>h
 map  <C-j> <C-w>j
 map  <C-k> <C-w>k
 map  <C-l> <C-w>l
-map  <Leader>a :Ack!
+" you know what
 if exists(":Tabularize")
   nmap <Leader>a= :Tabularize /=<CR>
   vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a<Space> :Tabularize /<Space><CR>
+  vmap <Leader>a<Space> :Tabularize /<Space><CR>
   nmap <Leader>a: :Tabularize /:\zs<CR>
   vmap <Leader>a: :Tabularize /:\zs<CR>
 endif
@@ -67,21 +63,26 @@ nnoremap <C-u> gUiw
 inoremap <C-u> <esc>gUiwea
 " textmate-style formatting
 nnoremap <Leader>q gqip
+" shift shit
+cab W w
+cab Q q
 
 au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,Vagrantfile,Thorfile,Guardfile,config.ru} set ft=ruby
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set ft=markdown
 au BufRead,BufNewFile {SConstruct,SConscript,*.py} set ft=python.django
 au BufRead,BufNewFile *.json set ft=javascript
 au BufRead,BufNewFile *.conf set ft=config
+au BufRead,BufNewFile *nginx.conf set ft=nginx
+au BufRead,BufNewFile *quakelive.cfg set ft=quake
 au BufRead,BufNewFile *.{css,sass,scss,less,styl} set omnifunc=csscomplete#CompleteCSS
-au BufRead,BufNewFile *.{sass,scss,less,styl} runtime! after/syntax/css.vim
-au BufRead,BufNewFile *.go set noexpandtab
-au BufRead,BufNewFile *.clj set iskeyword+=- " allow jumping to tags w/ dashes
+au BufRead,BufNewFile {*.go,Makefile} set noexpandtab
 au BufReadCmd *.jar call zip#Browse(expand('<amatch>'))
 au BufWritePost {g,.g,,.}vimrc source $MYVIMRC
 au BufReadPost fugitive://* set bufhidden=delete
+au FileType markdown set linebreak
 
 let mapleader=','
+let maplocalleader=','
 let g:mapleader=','
 let g:CommandTMaxHeight=20
 let g:user_zen_expandabbr_key='<D-e>'
