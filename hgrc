@@ -13,6 +13,7 @@ extdiff =
 progress =
 graphlog =
 transplant =
+hgext.extdiff =
 
 [schemes]
 bb = ssh://hg@bitbucket.org/

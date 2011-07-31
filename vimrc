@@ -50,22 +50,18 @@ map  <C-j> <C-w>j
 map  <C-k> <C-w>k
 map  <C-l> <C-w>l
 " you know what
-if exists(":Tabularize")
-  nmap <Leader>a= :Tabularize /=<CR>
-  vmap <Leader>a= :Tabularize /=<CR>
-  nmap <Leader>a<Space> :Tabularize /<Space><CR>
-  vmap <Leader>a<Space> :Tabularize /<Space><CR>
-  nmap <Leader>a: :Tabularize /:\zs<CR>
-  vmap <Leader>a: :Tabularize /:\zs<CR>
-endif
-" change case
-nnoremap <C-u> gUiw
-inoremap <C-u> <esc>gUiwea
-" textmate-style formatting
-nnoremap <Leader>q gqip
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a<Space> :Tabularize /<Space><CR>
+vmap <Leader>a<Space> :Tabularize /<Space><CR>
+nmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a: :Tabularize /:\zs<CR>
 " shift shit
+cab E e
 cab W w
 cab Q q
+cab WQ wq
+cab Wq wq
 
 au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,Vagrantfile,Thorfile,Guardfile,config.ru} set ft=ruby
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set ft=markdown

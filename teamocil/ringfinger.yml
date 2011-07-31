@@ -3,10 +3,14 @@ windows:
   splits:
   - cmd:
     - cd $CODEDIR/open/ringfinger/src/ringfinger
-    - ctags .
+    - /usr/local/bin/ctags .
     - vim .
   - cmd:
     - cd $CODEDIR/open/ringfinger
     - git status
     - lein repl
     width: 35
+  - cmd:
+    - cd $CODEDIR/open/ringfinger
+    - lein vimclojure
+    height: 1
