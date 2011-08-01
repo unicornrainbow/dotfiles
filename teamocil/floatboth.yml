@@ -4,5 +4,5 @@ windows:
   - cmd: cd $CODEDIR/private/floatboth
   - cmd:
     - cd $CODEDIR/private/floatboth
-    - nanoc aco & python -c 'import time;time.sleep(2)' && open http://localhost:3000
+    - nanoc aco & sleep 2 && open http://localhost:3000
     height: 10
