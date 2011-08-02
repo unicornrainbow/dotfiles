@@ -19,6 +19,7 @@ link gvimrc
 link js
 link irbrc
 link inputrc
+link nethackrc
 
 echo "vim/tmp vim/tmp/undo vim/tmp/swap vim/tmp/backups" | xargs mkdir -p
 cp com.floatboth.arrrsync.plist ~/Library/LaunchAgents/
