@@ -5,6 +5,7 @@
     email = me@myfreeweb.ru
 [github]
     user = myfreeweb
+    token = !sh -c 'echo $GITHUB_TOKEN' # thanks: https://github.com/mattly/dotfiles
 [difftool "Kaleidoscope"]
     cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [difftool]
