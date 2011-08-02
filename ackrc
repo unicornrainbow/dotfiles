@@ -1,4 +1,8 @@
---type-add
-html=.haml,.jade,.mustache
---type-add
-css=.sass,.scss,.less,.styl,.ccss,.clevercss
+--ignore-case
+--smart-case
+--ignore-dir=log
+--ignore-dir=vendor
+--ignore-dir=autodoc
+--type-add=html=haml,jade,mustache,tpl
+--type-add=css=sass,scss,less,styl,ccss,clevercss
+--type-add=js=coffee
