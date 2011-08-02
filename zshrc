@@ -3,8 +3,6 @@ export PYTHONDONTWRITEBYTECODE="yeah"
 export PYTHONSTARTUP=$CODEDIR/dotfiles/pythonrc.py
 export CLICOLOR="yes"
 export EDITOR="vim"
-for dir in $CODEDIR/dotfiles/bin/*; export PATH=$PATH:$dir
-export PATH=$CODEDIR/dotfiles/bin:/usr/local/bin:/usr/local/sbin:$PATH:~/.cljr/bin
 
 source $CODEDIR/dotfiles/bin/z/z.sh
 source $CODEDIR/dotfiles/zshuery/zshuery.sh
@@ -13,6 +11,9 @@ load_aliases
 load_lol_aliases
 load_completion $CODEDIR/dotfiles/zshuery/completion
 load_correction
+
+for dir in $CODEDIR/dotfiles/bin/*; export PATH=$PATH:$dir
+export PATH=$CODEDIR/dotfiles/bin:/usr/local/bin:/usr/local/sbin:~/.cljr/bin:$PATH
 
 prompts '%{$fg_bold[green]%}$(COLLAPSED_DIR)%{$reset_color%}$(virtualenv_info) %{$fg[yellow]%}$(prompt_char)%{$reset_color%} ' '%{$fg[red]%}$(ruby_version)%{$reset_color%}'
 if [[ $IS_LINUX -eq 1 ]]; then
