@@ -1,0 +1,9 @@
+windows:
+- name: nethack
+  splits:
+  - cmd:
+    - nethack
+  - cmd:
+    - cd $HOME/Code/open/nhtools/bin
+    - ./priceid
+    width: 30
