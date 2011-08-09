@@ -1,4 +1,4 @@
 DOGNAME=Richard
 OPTIONS=pettype:dog
 OPTIONS=pickup_types:$
-OPTIONS=color, confirm, pushweapon, !checkspace, fullscreen
+OPTIONS=color, confirm, pushweapon, !checkspace, fullscreen, DECgraphics

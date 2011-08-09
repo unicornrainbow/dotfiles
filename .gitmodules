@@ -109,3 +109,12 @@
 [submodule "vim/bundle/abolish"]
 	path = vim/bundle/abolish
 	url = git://github.com/tpope/vim-abolish
+[submodule "vim/bundle/strftimedammit"]
+	path = vim/bundle/strftimedammit
+	url = git://github.com/sjl/strftimedammit.vim.git
+[submodule "vim/bundle/threesome"]
+	path = vim/bundle/threesome
+	url = git://github.com/sjl/threesome.vim.git
+[submodule "vim/bundle/gundo"]
+	path = vim/bundle/gundo
+	url = git://github.com/sjl/gundo.vim.git

@@ -14,8 +14,12 @@
     renames = copy
     tool = vimdiff
     guitool = Kaleidoscope
+[mergetool "threesome"]
+    cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
+    trustExitCode = true
 [merge]
     summary = true
+    tool = threesome
 [push]
     default = tracking
 [branch]
@@ -33,6 +37,7 @@
     rwt = reset --hard HEAD # revert working tree
     unci = reset --hard HEAD^ # uncommit
     sup = submodule foreach --recursive git pull origin master
+    sadd = submodule add
     ksdiff = difftool --gui
     vd = difftool
     forget = rm --cached

@@ -27,6 +27,12 @@ opts.vd =
 cmd.ksdiff = /usr/local/bin/ksdiff-wrapper
 opts.ksdiff = hg
 
+[merge-tools]
+threesome.executable = vim
+threesome.args = -f $base $local $other $output -c 'ThreesomeInit'
+threesome.premerge = keep
+threesome.priority = 1
+
 [defaults]
 rebase = --keepbranches
 addremove = --similarity 100
