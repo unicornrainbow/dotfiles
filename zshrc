@@ -32,6 +32,7 @@ alias -s rb=ruby
 alias -s coffee=coffee
 alias rmswp="rm ~/.vim/tmp/swap/*"
 alias v="vim ."
+alias l="ls"
 
 precmd() {
     update_terminal_cwd
