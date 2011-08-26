@@ -12,6 +12,7 @@ filetype plugin indent on
 set nocompatible
 set encoding=utf-8
 set nowrap
+set sidescroll=1 sidescrolloff=10
 set tabstop=2 shiftwidth=2 softtabstop=2
 set expandtab
 set autoindent
@@ -68,6 +69,7 @@ au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set ft=markdown
 au BufRead,BufNewFile {SConstruct,SConscript,*.py} set ft=python.django
 au BufRead,BufNewFile *.json set ft=javascript
 au BufRead,BufNewFile *.conf set ft=config
+au BufRead,BufNewFile *gitconfig set ft=gitconfig
 au BufRead,BufNewFile *nginx.conf set ft=nginx
 au BufRead,BufNewFile *quakelive.cfg set ft=quake
 au BufRead,BufNewFile *.{css,sass,scss,less,styl} set omnifunc=csscomplete#CompleteCSS
