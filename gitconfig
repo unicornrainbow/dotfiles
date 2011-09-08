@@ -1,7 +1,7 @@
 [core]
     excludesfile = ~/Code/dotfiles/gitignore
 [user]
-    name = myfreeweb
+	name = myfreeweb
     email = me@myfreeweb.ru
 [github]
     user = myfreeweb
