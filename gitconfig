@@ -1,5 +1,8 @@
 [core]
     excludesfile = ~/Code/dotfiles/gitignore
+    whitespace = fix,space-before-tab,tab-in-indent,trailing-space
+[apply]
+    whitespace = fix
 [user]
 	name = myfreeweb
     email = me@myfreeweb.ru

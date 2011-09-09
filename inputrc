@@ -2,3 +2,4 @@ set editing-mode vi
 tab: complete
 set completion-ignore-case on
 set blink-matching-paren on
+set show-all-if-ambiguous on
