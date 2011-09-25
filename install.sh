@@ -29,6 +29,8 @@ link nethackrc
 mkdir -p $HOME/.ssh
 link_custom ssh_config $HOME/.ssh/config
 link_custom sublime $HOME/Library/Application\ Support/Sublime\ Text\ 2/Packages/Floatboth
+mkdir -p $HOME/.re.pl
+link_custom re.pl $HOME/.re.pl/repl.rc
 
 echo "vim/tmp vim/tmp/undo vim/tmp/swap vim/tmp/backups" | xargs mkdir -p
 
