@@ -4,8 +4,9 @@ export PYTHONSTARTUP=$CODEDIR/dotfiles/pythonrc.py
 export CLICOLOR="yes"
 export EDITOR="vim"
 
-source $CODEDIR/dotfiles/bin/z/z.sh
 source $CODEDIR/dotfiles/zshuery/zshuery.sh
+source $CODEDIR/dotfiles/bin/z/z.sh
+
 load_defaults
 load_aliases
 load_lol_aliases
@@ -34,8 +35,11 @@ alias rmswp="rm ~/.vim/tmp/swap/*"
 alias v="vim ."
 alias l="ls"
 
-precmd() {
+chpwd() {
     update_terminal_cwd
+}
+
+precmd() {
     local cmd type_path
     cmd=`fc -ln -1`;
     type_path="${cmd%%:*}"
@@ -50,3 +54,6 @@ precmd() {
     z --add "$(pwd -P)"
     return 0;
 }
+
+source $CODEDIR/dotfiles/vendor/zsh-hl/zsh-syntax-highlighting.zsh
+source $CODEDIR/dotfiles/vendor/zsh-hss/zsh-history-substring-search.zsh

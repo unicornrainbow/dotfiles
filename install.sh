@@ -36,6 +36,7 @@ if [[ $(uname) = 'Linux' ]]; then
     QUAKE=$HOME/.quakelive/quakelive/home/baseq3
 elif [[ $(uname) = 'Darwin' ]]; then
     cp com.floatboth.arrrsync.plist ~/Library/LaunchAgents/
+    defaults write -g NSNavPanelExpandedStateForSaveMode -bool true
     echo "0x08000100:0" > ~/.CFUserTextEncoding
     echo 'do shell script "'$(pwd)'/bin/newpost.sh"' > ~/Library/Application\ Support/LaunchBar/Actions/New\ post.scpt
     QUAKE=$HOME/Library/Application\ Support/QuakeLive/quakelive/home/baseq3

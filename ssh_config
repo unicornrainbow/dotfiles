@@ -3,6 +3,7 @@ ControlMaster auto
 ControlPath /tmp/ssh_%h%p%r
 ControlPersist 5m
 GSSAPIAuthentication no
+HashKnownHosts no
 
 Host nfsn
   Hostname ssh.phx.nearlyfreespeech.net

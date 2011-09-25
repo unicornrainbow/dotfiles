@@ -35,7 +35,8 @@
     ass = add -A # LOL https://gist.github.com/894971
     ci = commit -a
     st = status
-    s = status -s
+    s = status -sb
+    l = log --oneline --decorate
     tags = tag -n1 -l
     rwt = reset --hard HEAD # revert working tree
     unci = reset --hard HEAD^ # uncommit

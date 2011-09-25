@@ -121,3 +121,9 @@
 [submodule "bin/tmux-osx-paste-fix"]
 	path = bin/tmux-osx-paste-fix
 	url = git://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard.git
+[submodule "vendor/zsh-hl"]
+	path = vendor/zsh-hl
+	url = git://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "vendor/zsh-hss"]
+	path = vendor/zsh-hss
+	url = git://github.com/zsh-users/zsh-history-substring-search.git
