@@ -13,9 +13,6 @@ load_lol_aliases
 load_completion $CODEDIR/dotfiles/zshuery/completion
 load_correction
 
-for dir in $CODEDIR/dotfiles/bin/*; export PATH=$PATH:$dir
-export PATH=$CODEDIR/dotfiles/bin:/usr/local/bin:/usr/local/sbin:$HOME:.cljr/bin:$PATH
-
 prompts '%{$fg_bold[green]%}$(COLLAPSED_DIR)%{$reset_color%}$(virtualenv_info) %{$fg[yellow]%}$(prompt_char)%{$reset_color%} ' '%{$fg[red]%}$(ruby_version)%{$reset_color%}'
 if [[ $IS_LINUX -eq 1 ]]; then
     alias ls="ls "${GREP_OPTIONS}
@@ -23,7 +20,11 @@ elif [[ $IS_MAC -eq 1 ]]; then
     export HAXE_LIBRARY_PATH="`brew --prefix`/share/haxe/std"
     source "`brew --prefix grc`/etc/grc.bashrc"
     export GOROOT=`brew --prefix go`
+    export GOBIN=$GOROOT/bin
 fi
+for dir in $CODEDIR/dotfiles/bin/*; export PATH=$PATH:$dir
+export PATH=$CODEDIR/dotfiles/bin:/usr/local/bin:/usr/local/sbin:$HOME:$GOBIN:.cljr/bin:$PATH
+
 bindkey -e
 
 alias -s py=python
