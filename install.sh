@@ -35,15 +35,19 @@ echo "vim/tmp vim/tmp/undo vim/tmp/swap vim/tmp/backups" | xargs mkdir -p
 
 if [[ $(uname) = 'Linux' ]]; then
   QUAKE=$HOME/.quakelive/quakelive/home/baseq3
+  SUBLIME=$HOME/.config/sublime-text-2
 elif [[ $(uname) = 'Darwin' ]]; then
   defaults write -g NSNavPanelExpandedStateForSaveMode -bool true
-  echo "0x08000100:0" > ~/.CFUserTextEncoding
-  echo 'do shell script "'$(pwd)'/bin/newpost.sh"' > ~/Library/Application\ Support/LaunchBar/Actions/New\ post.scpt
-  link_custom arrrsync.plist ~/Library/LaunchAgents/com.floatboth.arrrsync.plist
-  link_custom sublime $HOME/Library/Application\ Support/Sublime\ Text\ 2/Packages/Floatboth
+  echo "0x08000100:0" > $HOME/.CFUserTextEncoding
+  echo 'do shell script "'$(pwd)'/bin/newpost.sh"' > $HOME/Library/Application\ Support/LaunchBar/Actions/New\ post.scpt
+  link_custom arrrsync.plist $HOME/Library/LaunchAgents/com.floatboth.arrrsync.plist
   QUAKE=$HOME/Library/Application\ Support/QuakeLive/quakelive/home/baseq3
+  SUBLIME=$HOME/Library/Application\ Support/Sublime\ Text\ 2
 fi
 if [[ -d $QUAKE ]]; then
   link_custom quakelive.cfg $QUAKE/quakelive.cfg
   echo 'exec "quakelive.cfg"' > $QUAKE/autoexec.cfg
+fi
+if [[ -d $SUBLIME ]]; then
+  link_custom sublime $SUBLIME/Packages/Floatboth
 fi
