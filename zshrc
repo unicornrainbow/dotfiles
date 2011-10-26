@@ -4,6 +4,8 @@ export PYTHONSTARTUP=$CODEDIR/dotfiles/pythonrc.py
 export CLICOLOR="yes"
 export EDITOR="vim"
 
+for dir in $CODEDIR/dotfiles/bin/*; export PATH=$PATH:$dir
+export PATH=$CODEDIR/dotfiles/bin:/usr/local/bin:/usr/local/sbin:.cljr/bin:$PATH
 source $CODEDIR/dotfiles/zshuery/zshuery.sh
 source $CODEDIR/dotfiles/bin/z/z.sh
 
@@ -21,9 +23,8 @@ elif [[ $IS_MAC -eq 1 ]]; then
     source "`brew --prefix grc`/etc/grc.bashrc"
     export GOROOT=`brew --prefix go`
     export GOBIN=$GOROOT/bin
+    export PATH=$GOBIN:$PATH
 fi
-for dir in $CODEDIR/dotfiles/bin/*; export PATH=$PATH:$dir
-export PATH=$CODEDIR/dotfiles/bin:/usr/local/bin:/usr/local/sbin:$HOME:$GOBIN:.cljr/bin:$PATH
 
 bindkey -e
 
@@ -58,3 +59,5 @@ precmd() {
 
 source $CODEDIR/dotfiles/vendor/zsh-hl/zsh-syntax-highlighting.zsh
 source $CODEDIR/dotfiles/vendor/zsh-hss/zsh-history-substring-search.zsh
+
+export PATH=$HOME/.rbenv/shims:$PATH # WTF
