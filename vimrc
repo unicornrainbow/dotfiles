@@ -62,6 +62,7 @@ cab W w
 cab Q q
 cab WQ wq
 cab Wq wq
+inoremap jj <Esc>
 
 au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,Vagrantfile,Thorfile,Guardfile,config.ru} set ft=ruby
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set ft=markdown

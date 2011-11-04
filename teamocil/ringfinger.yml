@@ -2,7 +2,7 @@ windows:
 - name: ringfinger
   splits:
   - cmd:
-    - cd $CODEDIR/open/ringfinger/src/ringfinger
+    - cd $CODEDIR/open/ringfinger
     - /usr/local/bin/ctags .
     - vim .
   - cmd:

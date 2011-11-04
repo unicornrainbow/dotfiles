@@ -62,6 +62,6 @@ precmd() {
 source $CODEDIR/dotfiles/vendor/zsh-hl/zsh-syntax-highlighting.zsh
 source $CODEDIR/dotfiles/vendor/zsh-hss/zsh-history-substring-search.zsh
 
-export PATH=$HOME/.rbenv/shims:$PATH # WTF
+export PATH=$HOME/.rbenv/shims:/usr/local/bin:$PATH # WTF
 
 source $HOME/.zshrc.local
