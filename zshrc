@@ -18,6 +18,7 @@ load_correction
 prompts '%{$fg_bold[green]%}$(COLLAPSED_DIR)%{$reset_color%}$(virtualenv_info) %{$fg[yellow]%}$(prompt_char)%{$reset_color%} ' '%{$fg[red]%}$(ruby_version)%{$reset_color%}'
 if [[ $IS_LINUX -eq 1 ]]; then
     alias ls="ls "${GREP_OPTIONS}
+    alias ack="ack-grep"
 elif [[ $IS_MAC -eq 1 ]]; then
     export HAXE_LIBRARY_PATH="`brew --prefix`/share/haxe/std"
     source "`brew --prefix grc`/etc/grc.bashrc"
@@ -36,6 +37,7 @@ alias -s coffee=coffee
 alias rmswp="rm ~/.vim/tmp/swap/*"
 alias v="vim ."
 alias l="ls"
+alias "ps?"="ps aux | ack"
 
 chpwd() {
     update_terminal_cwd

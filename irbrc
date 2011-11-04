@@ -14,7 +14,7 @@ end
 
 begin
   require 'sketches'
-  Sketches.config :editor => 'vim'
+  Sketches.config :editor => 'subl'
 rescue LoadError => err
   warn "Couldn't load Sketches: #{err}"
 end

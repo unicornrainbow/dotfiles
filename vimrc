@@ -12,7 +12,6 @@ filetype plugin indent on
 set nocompatible
 set encoding=utf-8
 set nowrap
-set sidescroll=1 sidescrolloff=10
 set tabstop=2 shiftwidth=2 softtabstop=2
 set expandtab
 set autoindent
@@ -93,4 +92,4 @@ if filereadable(expand("~/.vimrc.local"))
 	source ~/.vimrc.local
 endif
 
-color solarized
+color railscasts

@@ -1,8 +1,0 @@
-windows:
-- name: floatboth
-  splits:
-  - cmd: cd $CODEDIR/private/floatboth
-  - cmd:
-    - cd $CODEDIR/private/floatboth
-    - nanoc aco & sleep 2 && open http://localhost:3000
-    height: 10
