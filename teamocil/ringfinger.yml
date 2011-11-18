@@ -3,7 +3,7 @@ windows:
   splits:
   - cmd:
     - cd $CODEDIR/open/ringfinger
-    - /usr/local/bin/ctags .
+    - ctags .
     - vim .
   - cmd:
     - cd $CODEDIR/open/ringfinger
