@@ -127,3 +127,9 @@
 [submodule "vendor/zsh-hss"]
 	path = vendor/zsh-hss
 	url = git://github.com/zsh-users/zsh-history-substring-search.git
+[submodule "vim/bundle/indent-object"]
+	path = vim/bundle/indent-object
+	url = git://github.com/michaeljsmith/vim-indent-object.git
+[submodule "vim/bundle/easymotion"]
+	path = vim/bundle/easymotion
+	url = git://github.com/Lokaltog/vim-easymotion.git

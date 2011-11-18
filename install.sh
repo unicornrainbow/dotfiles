@@ -41,6 +41,7 @@ elif [[ $(uname) = 'Darwin' ]]; then
   echo "0x08000100:0" > $HOME/.CFUserTextEncoding
   echo 'do shell script "'$(pwd)'/bin/newpost.sh"' > $HOME/Library/Application\ Support/LaunchBar/Actions/New\ post.scpt
   link_custom arrrsync.plist $HOME/Library/LaunchAgents/com.floatboth.arrrsync.plist
+  link_custom evernote_selection.plist $HOME/Library/LaunchAgents/com.floatboth.evernote_selection.plist
   QUAKE=$HOME/Library/Application\ Support/QuakeLive/quakelive/home/baseq3
   SUBLIME=$HOME/Library/Application\ Support/Sublime\ Text\ 2
 fi
