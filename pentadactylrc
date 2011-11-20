@@ -1,0 +1,16 @@
+set mapleader='\'
+set editor='open -a iTerm $(which vim) -f +<line> <file>'
+set defsearch='duckduckgo-ssl'
+set followhints=1
+set showtabline=always
+set showstatuslinks=command
+set passkeys+=duckduckgo.com:lojkh/vrstm1<CR>
+set passkeys+=tumblr.com:jkroae<CR>,gi
+
+nnoremap j 3j
+nnoremap k 3k
+nnoremap F ;t
+
+highlight FontCode  font: normal 14px Monaco !important
+highlight FontFixed font: normal 14px Monaco !important
+highlight FontProportional font: normal 14px Monaco !important
