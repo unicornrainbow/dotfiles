@@ -6,6 +6,7 @@ set showtabline=always
 set showstatuslinks=command
 set passkeys+=duckduckgo.com:lojkh/vrstm1<CR>
 set passkeys+=tumblr.com:jkroae<CR>,gi
+set passkeys+=github.com:s?jkcoyxIUeliu/hlHJKLtw
 
 nnoremap j 3j
 nnoremap k 3k
