@@ -27,6 +27,7 @@ link inputrc
 link nethackrc
 link pentadactylrc
 link gemrc
+link weechat
 
 mkdir -p $HOME/.ssh
 link_custom ssh_config $HOME/.ssh/config
