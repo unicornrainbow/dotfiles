@@ -26,6 +26,7 @@ link irbrc
 link inputrc
 link nethackrc
 link pentadactylrc
+link gemrc
 
 mkdir -p $HOME/.ssh
 link_custom ssh_config $HOME/.ssh/config
