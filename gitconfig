@@ -9,14 +9,11 @@
 [github]
     user = myfreeweb
     token = !sh -c 'echo $GITHUB_TOKEN' # thanks: https://github.com/mattly/dotfiles
-[difftool "Kaleidoscope"]
-    cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [difftool]
     prompt = false
 [diff]
     renames = copy
     tool = vimdiff
-    guitool = Kaleidoscope
     wordRegex = [^[:space:]]
 [mergetool "threesome"]
     cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
@@ -44,7 +41,6 @@
     unci = reset --hard HEAD^ # uncommit
     sup = submodule foreach --recursive git pull origin master
     sadd = submodule add
-    ksdiff = difftool --gui
     vd = difftool
     forget = rm --cached
     two = diff HEAD@{1} HEAD@{0}
