@@ -5,7 +5,7 @@
     whitespace = fix
 [user]
     name = myfreeweb
-    email = me@myfreeweb.ru
+    email = floatboth@me.com
 [github]
     user = myfreeweb
     token = !sh -c 'echo $GITHUB_TOKEN' # thanks: https://github.com/mattly/dotfiles
@@ -17,6 +17,7 @@
     renames = copy
     tool = vimdiff
     guitool = Kaleidoscope
+    wordRegex = [^[:space:]]
 [mergetool "threesome"]
     cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
     trustExitCode = true
@@ -34,6 +35,7 @@
     a = add -A
     ass = add -A # LOL https://gist.github.com/894971
     ci = commit -a
+    co = checkout
     st = status
     s = status -sb
     l = log --oneline --decorate

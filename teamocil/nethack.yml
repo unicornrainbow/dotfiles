@@ -1,9 +1,14 @@
 windows:
 - name: nethack
   splits:
-  - cmd:
-    - nethack
+  - cmd: links nethackwiki.com
+  - cmd: weechat-curses
+    width: 50
+  - cmd: telnet nethack.alt.org
+    height: 50
+    target: bottom-right
   - cmd:
     - cd $HOME/Code/open/nhtools/bin
     - ./priceid
-    width: 30
+    height: 50
+    target: bottom-left
