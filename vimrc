@@ -50,6 +50,7 @@ set showbreak=↪ list listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set dictionary=/usr/share/dict/words
 set nopaste
 set ttyfast
+set formatprg=par\ -eq
 
 " Bindings
 " sudo
@@ -102,19 +103,19 @@ function! s:AckMotion(type) abort
 endfunction
 
 " Das Auto
-au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,Vagrantfile,Thorfile,Guardfile,config.ru} set ft=ruby
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set ft=markdown wrap linebreak nolist
-au BufRead,BufNewFile {SConstruct,SConscript,*.py} set ft=python.django
-au BufRead,BufNewFile *.json set ft=javascript
-au BufRead,BufNewFile *.conf set ft=config
-au BufRead,BufNewFile *gitconfig set ft=gitconfig
-au BufRead,BufNewFile *nginx.conf set ft=nginx
-au BufRead,BufNewFile *quakelive.cfg set ft=quake
-au BufRead,BufNewFile *.{css,sass,scss,less,styl} set omnifunc=csscomplete#CompleteCSS
-au BufRead,BufNewFile {*.go,Makefile} set noexpandtab
-au BufRead,BufNewFile *.{jar,war,ear,sar} set ft=zip
+au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,Vagrantfile,Thorfile,Guardfile,config.ru} setlocal ft=ruby
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setlocal ft=markdown wrap linebreak nolist
+au BufRead,BufNewFile {SConstruct,SConscript,*.py} setlocal ft=python.django
+au BufRead,BufNewFile *.json setlocal ft=javascript
+au BufRead,BufNewFile *.conf setlocal ft=config
+au BufRead,BufNewFile *gitconfig setlocal ft=gitconfig
+au BufRead,BufNewFile *nginx.conf setlocal ft=nginx
+au BufRead,BufNewFile *quakelive.cfg setlocal ft=quake
+au BufRead,BufNewFile *.{css,sass,scss,less,styl} setlocal omnifunc=csscomplete#CompleteCSS
+au BufRead,BufNewFile {*.go,Makefile} setlocal noexpandtab
+au BufRead,BufNewFile *.{jar,war,ear,sar} setlocal ft=zip
 au BufWritePost {g,.g,,.}vimrc source $MYVIMRC
-au BufReadPost fugitive://* set bufhidden=delete
+au BufReadPost fugitive://* setlocal bufhidden=delete
 
 let mapleader='\'
 let maplocalleader='\'
