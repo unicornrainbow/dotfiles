@@ -1,9 +1,10 @@
---ignore-case
+-ignore-case
 --smart-case
 --ignore-dir=log
 --ignore-dir=vendor
 --ignore-dir=autodoc
 --ignore-dir=classes
---type-add=html=haml,jade,mustache,tpl
+--type-add=html=haml,jade,mustache,tpl,erb,slim
 --type-add=css=sass,scss,less,styl,ccss,clevercss
 --type-add=js=coffee
+--type-add=clojure=clj,cljs
