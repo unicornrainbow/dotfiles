@@ -28,6 +28,7 @@ link nethackrc
 link pentadactylrc
 link gemrc
 link weechat
+link ledgerrc
 
 mkdir -p $HOME/.ssh
 link_custom ssh_config $HOME/.ssh/config
