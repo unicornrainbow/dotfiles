@@ -112,6 +112,7 @@ au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setlocal ft=markdown
 au BufRead,BufNewFile {SConstruct,SConscript,*.py} setlocal ft=python.django
 au BufRead,BufNewFile *.json setlocal ft=javascript
 au BufRead,BufNewFile *.conf setlocal ft=config
+au BufRead,BufNewFile *.ledger setlocal ft=ledger
 au BufRead,BufNewFile *gitconfig setlocal ft=gitconfig
 au BufRead,BufNewFile *nginx.conf setlocal ft=nginx
 au BufRead,BufNewFile *quakelive.cfg setlocal ft=quake
