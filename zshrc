@@ -5,7 +5,7 @@ export CLICOLOR="yes"
 export EDITOR="vim"
 
 for dir in $CODEDIR/dotfiles/bin/*; export PATH=$PATH:$dir
-export PATH=$CODEDIR/dotfiles/bin:/usr/local/bin:/usr/local/sbin:.cljr/bin:$PATH
+export PATH=$CODEDIR/dotfiles/bin:$CODEDIR:/usr/local/bin:/usr/local/sbin:.cljr/bin:$PATH
 source $CODEDIR/dotfiles/zshuery/zshuery.sh
 source $CODEDIR/dotfiles/bin/z/z.sh
 

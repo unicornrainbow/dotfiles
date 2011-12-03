@@ -130,6 +130,7 @@ let g:user_zen_expandabbr_key='<D-e>'
 let g:maintainer='{"name": "Grigory V.", "web": "http://floatboth.com"}'
 let vimclojure#SplitPos="bottom"
 let g:vimclojure#DynamicHighlighting=1
+let g:SuperTabDefaultCompletionType = "context"
 
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
