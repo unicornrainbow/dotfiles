@@ -66,5 +66,6 @@ source $CODEDIR/dotfiles/vendor/zsh-hl/zsh-syntax-highlighting.zsh
 source $CODEDIR/dotfiles/vendor/zsh-hss/zsh-history-substring-search.zsh
 
 export PATH=$HOME/.rbenv/shims:/usr/local/bin:$PATH # WTF
+export LEDGER_FILE=$HOME/Documents/my.ledger
 
 source $HOME/.zshrc.local

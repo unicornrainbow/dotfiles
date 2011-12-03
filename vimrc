@@ -135,4 +135,5 @@ if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
 
-color railscasts
+color solarized
+set background=dark
