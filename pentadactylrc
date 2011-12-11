@@ -6,6 +6,7 @@ set showtabline=always
 set showstatuslinks=command
 set passkeys+=duckduckgo.com:lojkh/vrstm1<CR>
 set passkeys+=tumblr.com/dashboard:jkroae<CR>,gi
+set passkeys+=twitter.com/#:frtmn<CR>l?jk<Space>/.ghcrdpfmu
 
 map -ex <Leader>i :open insta
 map -ex <Leader>z :open zootl

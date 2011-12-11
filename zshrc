@@ -26,7 +26,6 @@ elif [[ $IS_MAC -eq 1 ]]; then
     export PATH=$GOBIN:$PATH
 fi
 if [[ $HAS_APT -eq 1 ]]; then
-    alias ack="ack-grep"
     alias ng="ng-nailgun"
 fi
 

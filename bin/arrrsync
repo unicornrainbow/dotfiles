@@ -2,16 +2,12 @@
 import os
 import datetime
 from fsevents import Observer, Stream
-from pymongo import Connection
 
-coll = Connection()["code-stat"]["stat"]
 h = os.environ["HOME"]
 
 def backup(path):
-    path = h + "/" + path
+    path = os.path.join(h, path)
     def cb(ev):
-        coll.insert({"path": ev.name, "mask": ev.mask,
-            "time": datetime.datetime.utcnow()})
         os.system("rsync -az --delete %s myfreeweb@myfreeweb.strongspace.com:/strongspace/myfreeweb/home" % path.replace(' ', '\ '))
     observer = Observer()
     observer.schedule(Stream(cb, path, file_events=True))
@@ -19,3 +15,4 @@ def backup(path):
 
 backup("Library/Application Support/TextExpander")
 backup("Code/private")
+backup("Documents/my.ledger")
