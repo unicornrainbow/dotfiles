@@ -1,4 +1,4 @@
--ignore-case
+--ignore-case
 --smart-case
 --ignore-dir=log
 --ignore-dir=vendor

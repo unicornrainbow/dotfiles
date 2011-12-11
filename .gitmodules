@@ -136,3 +136,21 @@
 [submodule "vim/bundle/repeat"]
 	path = vim/bundle/repeat
 	url = git://github.com/tpope/vim-repeat.git
+[submodule "vim/bundle/ledger"]
+	path = vim/bundle/ledger
+	url = git://github.com/cypok/vim-ledger.git
+[submodule "vim/bundle/supertab"]
+	path = vim/bundle/supertab
+	url = git://github.com/ervandew/supertab.git
+[submodule "vim/bundle/quickrun"]
+	path = vim/bundle/quickrun
+	url = git://github.com/thinca/vim-quickrun.git
+[submodule "vim/bundle/argtextobj"]
+	path = vim/bundle/argtextobj
+	url = git://github.com/vim-scripts/argtextobj.vim.git
+[submodule "vim/bundle/fuzzee"]
+	path = vim/bundle/fuzzee
+	url = git://github.com/mattsa/vim-fuzzee.git
+[submodule "vim/bundle/xml"]
+	path = vim/bundle/xml
+	url = git://github.com/othree/xml.vim.git

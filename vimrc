@@ -1,22 +1,41 @@
 " thanks:
 " http://bitbucket.org/sjl/dotfiles
 " https://github.com/daveray/vimfiles
+" https://github.com/erynofwales/dotfiles
 
 syntax on
 filetype off
 set runtimepath+=$HOME/.vim/pathogen
+call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
 
 " Settings
+" basics
 set nocompatible
-set encoding=utf-8
+set noequalalways
 set nowrap
-set tabstop=2 shiftwidth=2 softtabstop=2
 set expandtab
 set autoindent
-set list listchars=tab:\ \ ,trail:·
+set encoding=utf-8
+set tabstop=2 shiftwidth=2 softtabstop=2
 set wrapscan nohlsearch incsearch ignorecase smartcase
+set backspace=indent,eol,start
+set whichwrap+=<,>,[,]
+set clipboard+=unnamed
+set cursorline
+set noerrorbells
+set hidden
+set mouse=a
+set completeopt=longest,menuone,preview
+set autoread autowrite
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)
+set laststatus=2
+set backup undofile undoreload=5000
+set showbreak=↪ list listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+set ttyfast
+set nojoinspaces
+" completion
 set wildmenu wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,.hg,.bzr,.svn,*.pyc,*.rbc,*.class
 set wildignore+=.hg,.git,.svn                    " Version control
@@ -27,30 +46,15 @@ set wildignore+=*.spl                            " compiled spelling word lists
 set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.DS_Store                       " OSX bullshit
 set wildignore+=*.luac,*.pyc,*.rbc,classes,lib   " Byte code and stuff
-set backupskip=/tmp/*,/private/tmp/*
-set noequalalways
-set backspace=indent,eol,start
-set whichwrap+=<,>,[,]
-set clipboard+=unnamed
-set cursorline
-set noerrorbells
-set hidden
+" paths
 set shell=/bin/zsh
-set mouse=a
-set completeopt=longest,menuone,preview
+set formatprg=par\ -eq
 set tags=./tags;
-set autoread autowrite
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)
-set laststatus=2
-set undodir=~/.vim/tmp/undo//
+set dictionary=/usr/share/dict/words
+set backupskip=/tmp/*,/private/tmp/*
 set backupdir=~/.vim/tmp/backup//
 set directory=~/.vim/tmp/swap//
-set backup undofile undoreload=5000
-set showbreak=↪ list listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
-set dictionary=/usr/share/dict/words
-set nopaste
-set ttyfast
-set formatprg=par\ -eq
+set undodir=~/.vim/tmp/undo//
 
 " Bindings
 " sudo
@@ -104,10 +108,11 @@ endfunction
 
 " Das Auto
 au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,Vagrantfile,Thorfile,Guardfile,config.ru} setlocal ft=ruby
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setlocal ft=markdown wrap linebreak nolist
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setlocal ft=markdown
 au BufRead,BufNewFile {SConstruct,SConscript,*.py} setlocal ft=python.django
 au BufRead,BufNewFile *.json setlocal ft=javascript
 au BufRead,BufNewFile *.conf setlocal ft=config
+au BufRead,BufNewFile *.ledger setlocal ft=ledger | comp ledger
 au BufRead,BufNewFile *gitconfig setlocal ft=gitconfig
 au BufRead,BufNewFile *nginx.conf setlocal ft=nginx
 au BufRead,BufNewFile *quakelive.cfg setlocal ft=quake
@@ -125,9 +130,11 @@ let g:user_zen_expandabbr_key='<D-e>'
 let g:maintainer='{"name": "Grigory V.", "web": "http://floatboth.com"}'
 let vimclojure#SplitPos="bottom"
 let g:vimclojure#DynamicHighlighting=1
+let g:SuperTabDefaultCompletionType = "context"
 
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
 
-color railscasts
+color solarized
+set background=dark

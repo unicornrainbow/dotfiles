@@ -5,7 +5,7 @@ export CLICOLOR="yes"
 export EDITOR="vim"
 
 for dir in $CODEDIR/dotfiles/bin/*; export PATH=$PATH:$dir
-export PATH=$CODEDIR/dotfiles/bin:/usr/local/bin:/usr/local/sbin:.cljr/bin:$PATH
+export PATH=$CODEDIR/dotfiles/bin:$CODEDIR:/usr/local/bin:/usr/local/sbin:.cljr/bin:$PATH
 source $CODEDIR/dotfiles/zshuery/zshuery.sh
 source $CODEDIR/dotfiles/bin/z/z.sh
 
@@ -26,7 +26,6 @@ elif [[ $IS_MAC -eq 1 ]]; then
     export PATH=$GOBIN:$PATH
 fi
 if [[ $HAS_APT -eq 1 ]]; then
-    alias ack="ack-grep"
     alias ng="ng-nailgun"
 fi
 
@@ -66,5 +65,6 @@ source $CODEDIR/dotfiles/vendor/zsh-hl/zsh-syntax-highlighting.zsh
 source $CODEDIR/dotfiles/vendor/zsh-hss/zsh-history-substring-search.zsh
 
 export PATH=$HOME/.rbenv/shims:/usr/local/bin:$PATH # WTF
+export LEDGER_FILE=$HOME/Documents/my.ledger
 
 source $HOME/.zshrc.local
