@@ -25,20 +25,18 @@ elif [[ $IS_MAC -eq 1 ]]; then
     export GOBIN=$GOROOT/bin
     export PATH=$GOBIN:$PATH
 fi
-if [[ $HAS_APT -eq 1 ]]; then
-    alias ng="ng-nailgun"
-fi
 
 bindkey -e
 
 alias -s py=python
 alias -s js=node
-alias -s pl=perl
 alias -s rb=ruby
 alias -s coffee=coffee
 alias rmswp="rm ~/.vim/tmp/swap/*"
 alias v="vim ."
 alias l="ls"
+alias ele="vim $LEDGER_FILE"
+alias gs="git s"
 alias "ps?"="ps aux | ack"
 
 chpwd() {

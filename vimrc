@@ -2,6 +2,7 @@
 " http://bitbucket.org/sjl/dotfiles
 " https://github.com/daveray/vimfiles
 " https://github.com/erynofwales/dotfiles
+" https://github.com/rmurphey/dotfiles
 
 syntax on
 filetype off
@@ -17,7 +18,7 @@ set noequalalways
 set nowrap
 set expandtab
 set autoindent
-set encoding=utf-8
+set encoding=utf-8 nobomb
 set tabstop=2 shiftwidth=2 softtabstop=2
 set wrapscan nohlsearch incsearch ignorecase smartcase
 set backspace=indent,eol,start
@@ -33,8 +34,9 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)
 set laststatus=2
 set backup undofile undoreload=5000
 set showbreak=↪ list listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
-set ttyfast
+set ttyfast title
 set nojoinspaces
+set magic
 " completion
 set wildmenu wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,.hg,.bzr,.svn,*.pyc,*.rbc,*.class
@@ -82,14 +84,22 @@ nnoremap ; :
 " emacs bindings
 cnoremap <c-a> <home>
 cnoremap <c-e> <end>
+" indent block
+nnoremap <Leader>] >i{<CR>
+nnoremap <Leader>[ <i{<CR>
+" buffer nav
+map <Right> :bnext<CR>
+map <Left>  :bprev<CR>
+" newline
+map <Leader><CR> o<ESC>
 " plugins
-nmap <Leader>a= :Tabularize /=<CR>
-vmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a<Space> :Tabularize /<Space><CR>
-vmap <Leader>a<Space> :Tabularize /<Space><CR>
-nmap <Leader>a: :Tabularize /:\zs<CR>
-vmap <Leader>a: :Tabularize /:\zs<CR>
-map <leader>a :Ack!
+nmap <Leader>T= :Tabularize /=<CR>
+vmap <Leader>T= :Tabularize /=<CR>
+nmap <Leader>T<Space> :Tabularize /<Space><CR>
+vmap <Leader>T<Space> :Tabularize /<Space><CR>
+nmap <Leader>T: :Tabularize /:\zs<CR>
+vmap <Leader>T: :Tabularize /:\zs<CR>
+map <Leader>a :Ack!
 nnoremap <silent> \a :set opfunc=<SID>AckMotion<CR>g@
 xnoremap <silent> \a :<C-U>call <SID>AckMotion(visualmode())<CR>
 function! s:CopyMotionForType(type)
