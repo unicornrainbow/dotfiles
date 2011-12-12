@@ -1,0 +1,2 @@
+*/30 * * * * ~/Code/dotfiles/bin/pinboard_html.py
+30 * * * * purge
