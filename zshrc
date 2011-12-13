@@ -35,7 +35,6 @@ alias -s coffee=coffee
 alias rmswp="rm ~/.vim/tmp/swap/*"
 alias v="vim ."
 alias l="ls"
-alias ele="vim $LEDGER_FILE"
 alias gs="git s"
 alias "ps?"="ps aux | ack"
 
@@ -64,5 +63,6 @@ source $CODEDIR/dotfiles/vendor/zsh-hss/zsh-history-substring-search.zsh
 
 export PATH=$HOME/.rbenv/shims:/usr/local/bin:$PATH # WTF
 export LEDGER_FILE=$HOME/Documents/my.ledger
+alias ele="vim $LEDGER_FILE"
 
 source $HOME/.zshrc.local

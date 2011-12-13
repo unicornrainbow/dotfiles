@@ -10,6 +10,9 @@ set passkeys+=twitter.com/#:frtmn<CR>l?jk<Space>/.ghcrdpfmu
 
 map -ex <Leader>i :open insta
 map -ex <Leader>z :open zootl
+" Markdown yank
+map -ex <Leader>y :javascript Components.classes["@mozilla.org/widget/clipboardhelper;1"].getService(Components.interfaces.nsIClipboardHelper).copyString("[" + content.document.title + "]" + "(" + content.location.href + ")")
+
 nnoremap j 3j
 nnoremap k 3k
 nnoremap F ;t

@@ -39,15 +39,14 @@ set nojoinspaces
 set magic
 " completion
 set wildmenu wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,.hg,.bzr,.svn,*.pyc,*.rbc,*.class
-set wildignore+=.hg,.git,.svn                    " Version control
-set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
-set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
-set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
-set wildignore+=*.spl                            " compiled spelling word lists
-set wildignore+=*.sw?                            " Vim swap files
-set wildignore+=*.DS_Store                       " OSX bullshit
-set wildignore+=*.luac,*.pyc,*.rbc,classes,lib   " Byte code and stuff
+set wildignore+=.hg,.git,.bzr,.svn                 " Version control
+set wildignore+=*.aux,*.out,*.toc                  " LaTeX intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg     " binary images
+set wildignore+=*.luac,*.pyc,*.rbc,*.class,classes " Byte code and stuff
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest   " compiled object files
+set wildignore+=*.spl                              " compiled spelling word lists
+set wildignore+=*.sw?                              " Vim swap files
+set wildignore+=.DS_Store,Thumbs.db                " Shit
 " paths
 set shell=/bin/zsh
 set formatprg=par\ -eq
@@ -59,13 +58,14 @@ set directory=~/.vim/tmp/swap//
 set undodir=~/.vim/tmp/undo//
 
 " Bindings
-" sudo
 cmap w!! w !sudo tee % >/dev/null
+inoremap jj <Esc>
 " moving lines around
 nmap <C-Up> [e
 nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
+" windows
 map  <C-h> <C-w>h
 map  <C-j> <C-w>j
 map  <C-k> <C-w>k
@@ -76,7 +76,6 @@ cab W w
 cab Q q
 cab WQ wq
 cab Wq wq
-inoremap jj <Esc>
 " move by visual lines
 nnoremap j gj
 nnoremap k gk
@@ -99,7 +98,7 @@ nmap <Leader>T<Space> :Tabularize /<Space><CR>
 vmap <Leader>T<Space> :Tabularize /<Space><CR>
 nmap <Leader>T: :Tabularize /:\zs<CR>
 vmap <Leader>T: :Tabularize /:\zs<CR>
-map <Leader>a :Ack!
+map <Leader>A :Ack! 
 nnoremap <silent> \a :set opfunc=<SID>AckMotion<CR>g@
 xnoremap <silent> \a :<C-U>call <SID>AckMotion(visualmode())<CR>
 function! s:CopyMotionForType(type)
@@ -115,6 +114,7 @@ function! s:AckMotion(type) abort
     execute "normal! :Ack! --literal " . shellescape(@@) . "\<cr>"
     let @@ = reg_save
 endfunction
+nnoremap <leader>w :silent !open <C-R>=escape("<C-R><C-F>", "#?&;\|%")<CR><CR>
 
 " Das Auto
 au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,Vagrantfile,Thorfile,Guardfile,config.ru} setlocal ft=ruby
@@ -125,7 +125,7 @@ au BufRead,BufNewFile *.conf setlocal ft=config
 au BufRead,BufNewFile *.ledger setlocal ft=ledger | comp ledger
 au BufRead,BufNewFile *gitconfig setlocal ft=gitconfig
 au BufRead,BufNewFile *nginx.conf setlocal ft=nginx
-au BufRead,BufNewFile *quakelive.cfg setlocal ft=quake
+au BufRead,BufNewFile quakelive.cfg setlocal ft=quake
 au BufRead,BufNewFile *.{css,sass,scss,less,styl} setlocal omnifunc=csscomplete#CompleteCSS
 au BufRead,BufNewFile {*.go,Makefile} setlocal noexpandtab
 au BufRead,BufNewFile *.{jar,war,ear,sar} setlocal ft=zip
