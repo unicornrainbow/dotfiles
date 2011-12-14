@@ -154,3 +154,6 @@
 [submodule "vim/bundle/xml"]
 	path = vim/bundle/xml
 	url = git://github.com/othree/xml.vim.git
+[submodule "vim/bundle/nu"]
+	path = vim/bundle/nu
+	url = git://github.com/itfrombit/nuvim.git

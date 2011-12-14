@@ -117,18 +117,19 @@ endfunction
 nnoremap <leader>w :silent !open <C-R>=escape("<C-R><C-F>", "#?&;\|%")<CR><CR>
 
 " Das Auto
-au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,Vagrantfile,Thorfile,Guardfile,config.ru} setlocal ft=ruby
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setlocal ft=markdown
-au BufRead,BufNewFile {SConstruct,SConscript,*.py} setlocal ft=python.django
-au BufRead,BufNewFile *.json setlocal ft=javascript
-au BufRead,BufNewFile *.conf setlocal ft=config
-au BufRead,BufNewFile *.ledger setlocal ft=ledger | comp ledger
-au BufRead,BufNewFile *gitconfig setlocal ft=gitconfig
-au BufRead,BufNewFile *nginx.conf setlocal ft=nginx
-au BufRead,BufNewFile quakelive.cfg setlocal ft=quake
+au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,Vagrantfile,Thorfile,Guardfile,config.ru} setf ruby
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setf markdown
+au BufRead,BufNewFile {SConstruct,SConscript,*.py} setf python.django
+au BufNewFile,BufRead *.{nu,nujson},Nukefile setf nu
+au BufRead,BufNewFile *.json setf javascript
+au BufRead,BufNewFile *.conf setf config
+au BufRead,BufNewFile *.ledger setf ledger | comp ledger
+au BufRead,BufNewFile *gitconfig setf gitconfig
+au BufRead,BufNewFile *nginx.conf setf nginx
+au BufRead,BufNewFile quakelive.cfg setf quake
 au BufRead,BufNewFile *.{css,sass,scss,less,styl} setlocal omnifunc=csscomplete#CompleteCSS
 au BufRead,BufNewFile {*.go,Makefile} setlocal noexpandtab
-au BufRead,BufNewFile *.{jar,war,ear,sar} setlocal ft=zip
+au BufRead,BufNewFile *.{jar,war,ear,sar} setf zip
 au BufWritePost {g,.g,,.}vimrc source $MYVIMRC
 au BufReadPost fugitive://* setlocal bufhidden=delete
 
