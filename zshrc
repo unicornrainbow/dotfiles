@@ -24,8 +24,8 @@ elif [[ $IS_MAC -eq 1 ]]; then
     export GOROOT=`brew --prefix go`
     export GOBIN=$GOROOT/bin
     export PATH=$GOBIN:$PATH
+    [[ -e /usr/local/lib/stderred.so ]] && export DYLD_INSERT_LIBRARIES=/usr/local/lib/stderred.so DYLD_FORCE_FLAT_NAMESPACE=1
 fi
-[[ -e /usr/local/lib/stderred.so ]] && export DYLD_INSERT_LIBRARIES=/usr/local/lib/stderred.so DYLD_FORCE_FLAT_NAMESPACE=1
 
 bindkey -e
 
