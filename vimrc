@@ -4,16 +4,14 @@
 " https://github.com/erynofwales/dotfiles
 " https://github.com/rmurphey/dotfiles
 
-syntax on
-filetype off
+set nocompatible
 set runtimepath+=$HOME/.vim/pathogen
 call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 filetype plugin indent on
+syntax on
 
-" Settings
 " basics
-set nocompatible
 set noequalalways
 set nowrap
 set expandtab
@@ -32,7 +30,7 @@ set completeopt=longest,menuone,preview
 set autoread autowrite
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)
 set laststatus=2
-set backup undofile undoreload=5000
+set noswapfile backup undofile undoreload=5000 history=500
 set showbreak=↪ list listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set ttyfast title
 set nojoinspaces
@@ -54,15 +52,12 @@ set tags=./tags;
 set dictionary=/usr/share/dict/words
 set backupskip=/tmp/*,/private/tmp/*
 set backupdir=~/.vim/tmp/backup//
-set directory=~/.vim/tmp/swap//
 set undodir=~/.vim/tmp/undo//
 
 " Bindings
 cmap w!! w !sudo tee % >/dev/null
 inoremap jj <Esc>
 " moving lines around
-nmap <C-Up> [e
-nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 " windows
@@ -98,6 +93,8 @@ nmap <Leader>T<Space> :Tabularize /<Space><CR>
 vmap <Leader>T<Space> :Tabularize /<Space><CR>
 nmap <Leader>T: :Tabularize /:\zs<CR>
 vmap <Leader>T: :Tabularize /:\zs<CR>
+nmap sj :SplitjoinSplit<CR>
+nmap sk :SplitjoinJoin<CR>
 map <Leader>A :Ack! 
 nnoremap <silent> \a :set opfunc=<SID>AckMotion<CR>g@
 xnoremap <silent> \a :<C-U>call <SID>AckMotion(visualmode())<CR>

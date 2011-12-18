@@ -157,3 +157,6 @@
 [submodule "vim/bundle/nu"]
 	path = vim/bundle/nu
 	url = git://github.com/itfrombit/nuvim.git
+[submodule "vim/bundle/splitjoin"]
+	path = vim/bundle/splitjoin
+	url = git://github.com/AndrewRadev/splitjoin.vim.git

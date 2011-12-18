@@ -2,7 +2,7 @@
 # http://bitbucket.org/sjl/dotfiles
 
 [ui]
-username = myfreeweb <me@myfreeweb.ru>
+username = myfreeweb <floatboth@me.com>
 
 [extensions]
 mq =
@@ -24,8 +24,6 @@ git = True
 [extdiff]
 cmd.vd = vimdiff
 opts.vd =
-cmd.ksdiff = /usr/local/bin/ksdiff-wrapper
-opts.ksdiff = hg
 
 [merge-tools]
 threesome.executable = vim

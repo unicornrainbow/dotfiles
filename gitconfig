@@ -15,6 +15,7 @@
     renames = copy
     tool = vimdiff
     wordRegex = [^[:space:]]
+    mnemonicprefix = true
 [mergetool "threesome"]
     cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
     trustExitCode = true
@@ -30,23 +31,27 @@
     ui = true
 [alias]
     a = add -A
-    ass = add -A # LOL https://gist.github.com/894971
     ci = commit -a
     co = checkout
+    nb = checkout -b # newbranch
     st = status
     s = status -sb
-    l = log --oneline --decorate
-    tags = tag -n1 -l
+    l = log --oneline --decorate --graph
+    tip = log -n 1
+    last = log -n 10 --oneline
+    d = diff master
+    two = diff HEAD@{1} HEAD@{0}
+    vd = difftool
+    mt = mergetool
+    rc = rebase --continue
+    rs = rebase --skip
+    cp = cherry-pick -x
+    t = tag -n1 -l
     rwt = reset --hard HEAD # revert working tree
     unci = reset --hard HEAD^ # uncommit
     sup = submodule foreach --recursive git pull origin master
     sadd = submodule add
-    vd = difftool
     forget = rm --cached
-    two = diff HEAD@{1} HEAD@{0}
-    tip = log -n 1
-    last = log -n 10 --oneline
-    dima = diff master
 [url "git://github.com/"]
     insteadOf = gh:
 [url "git@github.com:myfreeweb/"]

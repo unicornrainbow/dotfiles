@@ -1,4 +1,5 @@
 set mapleader='\'
+set titlestring=''
 set editor='open -a iTerm $(which vim) -f +<line> <file>'
 set defsearch='duckduckgo-ssl'
 set followhints=1
@@ -12,7 +13,7 @@ map -ex <Leader>i :open insta
 map -ex <Leader>z :open zootl
 " Markdown yank
 map -ex <Leader>y :javascript Components.classes["@mozilla.org/widget/clipboardhelper;1"].getService(Components.interfaces.nsIClipboardHelper).copyString("[" + content.document.title + "]" + "(" + content.location.href + ")")
-" open in Chrome --  for flash
+" open in Chrome (for flash)
 map -ex <Leader>c :exe "run open -a 'Google Chrome' " + content.location.href
 
 nnoremap j 3j

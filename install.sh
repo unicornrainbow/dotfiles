@@ -43,7 +43,15 @@ if [[ $(uname) = 'Linux' ]]; then
   SUBLIME=$HOME/.config/sublime-text-2
 elif [[ $(uname) = 'Darwin' ]]; then
   cat ./crontab ./crontab_mac | crontab
+  chflags nohidden ~/Library
+  defaults write -g AppleKeyboardUIMode -int 3
   defaults write -g NSNavPanelExpandedStateForSaveMode -bool true
+  defaults write -g PMPrintingExpandedStateForPrint -bool true
+  defaults write com.apple.LaunchServices LSQuarantine -bool false
+  defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+  defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+  defaults write com.apple.finder WarnOnEmptyTrash -bool false
+  defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
   echo "0x08000100:0" > $HOME/.CFUserTextEncoding
   link_custom evernote_selection.plist $HOME/Library/LaunchAgents/com.floatboth.evernote_selection.plist
   QUAKE=$HOME/Library/Application\ Support/QuakeLive/quakelive/home/baseq3

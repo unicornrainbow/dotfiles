@@ -14,7 +14,7 @@ end
 
 begin
   require 'sketches'
-  Sketches.config :editor => 'subl'
+  Sketches.config :editor => ENV["EDITOR"]
 rescue LoadError => err
   warn "Couldn't load Sketches: #{err}"
 end

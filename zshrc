@@ -4,8 +4,7 @@ export PYTHONSTARTUP=$CODEDIR/dotfiles/pythonrc.py
 export CLICOLOR="yes"
 export EDITOR="vim"
 
-for dir in $CODEDIR/dotfiles/bin/*; export PATH=$PATH:$dir
-export PATH=$CODEDIR/dotfiles/bin:$CODEDIR:/usr/local/bin:/usr/local/sbin:.cljr/bin:$PATH
+for dir in $CODEDIR/dotfiles/bin/*; export PATH=$dir:$PATH
 source $CODEDIR/dotfiles/zshuery/zshuery.sh
 source $CODEDIR/dotfiles/bin/z/z.sh
 
@@ -23,7 +22,6 @@ elif [[ $IS_MAC -eq 1 ]]; then
     source "`brew --prefix grc`/etc/grc.bashrc"
     export GOROOT=`brew --prefix go`
     export GOBIN=$GOROOT/bin
-    export PATH=$GOBIN:$PATH
     [[ -e /usr/local/lib/stderred.so ]] && export DYLD_INSERT_LIBRARIES=/usr/local/lib/stderred.so DYLD_FORCE_FLAT_NAMESPACE=1
 fi
 
@@ -36,7 +34,7 @@ alias -s coffee=coffee
 alias rmswp="rm ~/.vim/tmp/swap/*"
 alias v="vim ."
 alias l="ls"
-alias gs="git s"
+alias g="git"
 alias "ps?"="ps aux | ack"
 
 chpwd() {
@@ -62,7 +60,7 @@ precmd() {
 source $CODEDIR/dotfiles/vendor/zsh-hl/zsh-syntax-highlighting.zsh
 source $CODEDIR/dotfiles/vendor/zsh-hss/zsh-history-substring-search.zsh
 
-export PATH=$HOME/.rbenv/shims:/usr/local/bin:$PATH # WTF
+export PATH=$HOME/.rbenv/shims:$GOBIN:$CODEDIR/dotfiles/bin:$CODEDIR:/usr/local/bin:/usr/local/sbin:.cljr/bin:$PATH
 export LEDGER_FILE=$HOME/Documents/my.ledger
 alias ele="vim $LEDGER_FILE"
 

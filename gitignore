@@ -1,6 +1,7 @@
 .DS_Store
 *.pyc
 *.rbc
+*.class
 .rake_tasks
 .cake_tasks
 .sass-cache
