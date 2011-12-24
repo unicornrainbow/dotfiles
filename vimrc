@@ -26,7 +26,6 @@ set cursorline
 set noerrorbells
 set hidden
 set mouse=a
-set completeopt=longest,menuone,preview
 set autoread autowrite
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)
 set laststatus=2
@@ -36,6 +35,7 @@ set ttyfast title
 set nojoinspaces
 set magic
 " completion
+set completeopt=longest,menuone,preview
 set wildmenu wildmode=list:longest,list:full
 set wildignore+=.hg,.git,.bzr,.svn                 " Version control
 set wildignore+=*.aux,*.out,*.toc                  " LaTeX intermediate files
@@ -57,17 +57,17 @@ set undodir=~/.vim/tmp/undo//
 " Bindings
 " colemak movement and stuff
 noremap n gj
+noremap N J
 noremap e gk
 noremap i l
-nnoremap ; :
-noremap f e
 noremap k n
 noremap K N
-noremap u i
-noremap l u
-noremap L <C-r>
+noremap ' i
+noremap U <C-r>
 cmap w!! w !sudo tee % >/dev/null
-inoremap nn <Esc>
+nnoremap ; :
+nnoremap <Space> za
+vnoremap <Space> za
 " moving lines around
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
@@ -83,8 +83,8 @@ cab Q q
 cab WQ wq
 cab Wq wq
 " emacs bindings
-cnoremap <c-a> <home>
-cnoremap <c-e> <end>
+cnoremap <C-a> <home>
+cnoremap <C-e> <end>
 " indent block
 nnoremap <Leader>] >i{<CR>
 nnoremap <Leader>[ <i{<CR>
@@ -103,8 +103,8 @@ vmap <Leader>T: :Tabularize /:\zs<CR>
 nmap sj :SplitjoinSplit<CR>
 nmap sk :SplitjoinJoin<CR>
 map <Leader>A :Ack! 
-nnoremap <silent> \a :set opfunc=<SID>AckMotion<CR>g@
-xnoremap <silent> \a :<C-U>call <SID>AckMotion(visualmode())<CR>
+nnoremap <silent> <Leader>a :set opfunc=<SID>AckMotion<CR>g@
+xnoremap <silent> <Leader>a :<C-U>call <SID>AckMotion(visualmode())<CR>
 function! s:CopyMotionForType(type)
     if a:type ==# 'v'
         silent execute "normal! `<" . a:type . "`>y"
@@ -137,15 +137,15 @@ au BufRead,BufNewFile *.{jar,war,ear,sar} setf zip
 au BufWritePost {g,.g,,.}vimrc source $MYVIMRC
 au BufReadPost fugitive://* setlocal bufhidden=delete
 
-let mapleader='\'
-let maplocalleader='\'
-let g:mapleader='\'
+let mapleader=','
+let maplocalleader=','
+let g:mapleader=','
 let g:CommandTMaxHeight=20
 let g:user_zen_expandabbr_key='<D-e>'
 let g:maintainer='{"name": "Grigory V.", "web": "http://floatboth.com"}'
-let vimclojure#SplitPos="bottom"
+let vimclojure#SplitPos='bottom'
 let g:vimclojure#DynamicHighlighting=1
-let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabDefaultCompletionType='context'
 
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local

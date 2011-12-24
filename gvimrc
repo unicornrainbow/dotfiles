@@ -14,6 +14,3 @@ if has("gui_macvim")
 else
     set guifont=Monaco "linux doesn't like size here
 endif
-" au BufAdd,BufNewFile * nested tab sball
-tab sball
-set switchbuf=usetab,newtab

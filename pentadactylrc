@@ -1,10 +1,11 @@
-set mapleader='\'
+set mapleader=','
 set titlestring=''
 set editor='open -a iTerm $(which vim) -f +<line> <file>'
 set defsearch='duckduckgo-ssl'
 set followhints=1
-set showtabline=always
+set showtabline=multitab
 set showstatuslinks=command
+set hlfind
 set passkeys+=duckduckgo.com:lojkh/vrstm1<CR>
 set passkeys+=tumblr.com/dashboard:jkroae<CR>,gi
 set passkeys+=twitter.com/#:frtmn<CR>l?jk<Space>/.ghcrdpfmu
@@ -16,10 +17,14 @@ map -ex <Leader>y :javascript Components.classes["@mozilla.org/widget/clipboardh
 " open in Chrome (for flash)
 map -ex <Leader>c :exe "run open -a 'Google Chrome' " + content.location.href
 
+nnoremap ; :
 nnoremap n 3j
 nnoremap e 3k
+nnoremap N :tn<CR>
+nnoremap E :tp<CR>
 nnoremap t f
 nnoremap T ;t
+nnoremap m t
 
 highlight FontCode  font: normal 14px Monaco !important
 highlight FontFixed font: normal 14px Monaco !important
