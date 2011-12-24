@@ -55,26 +55,33 @@ set backupdir=~/.vim/tmp/backup//
 set undodir=~/.vim/tmp/undo//
 
 " Bindings
+" colemak movement and stuff
+noremap n gj
+noremap e gk
+noremap i l
+nnoremap ; :
+noremap f e
+noremap k n
+noremap K N
+noremap u i
+noremap l u
+noremap L <C-r>
 cmap w!! w !sudo tee % >/dev/null
-inoremap jj <Esc>
+inoremap nn <Esc>
 " moving lines around
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 " windows
 map  <C-h> <C-w>h
-map  <C-j> <C-w>j
-map  <C-k> <C-w>k
-map  <C-l> <C-w>l
+map  <C-n> <C-w>j
+map  <C-e> <C-w>k
+map  <C-i> <C-w>l
 " case-insensitive
 cab E e
 cab W w
 cab Q q
 cab WQ wq
 cab Wq wq
-" move by visual lines
-nnoremap j gj
-nnoremap k gk
-nnoremap ; :
 " emacs bindings
 cnoremap <c-a> <home>
 cnoremap <c-e> <end>

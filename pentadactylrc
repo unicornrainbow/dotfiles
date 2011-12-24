@@ -16,9 +16,10 @@ map -ex <Leader>y :javascript Components.classes["@mozilla.org/widget/clipboardh
 " open in Chrome (for flash)
 map -ex <Leader>c :exe "run open -a 'Google Chrome' " + content.location.href
 
-nnoremap j 3j
-nnoremap k 3k
-nnoremap F ;t
+nnoremap n 3j
+nnoremap e 3k
+nnoremap t f
+nnoremap T ;t
 
 highlight FontCode  font: normal 14px Monaco !important
 highlight FontFixed font: normal 14px Monaco !important
