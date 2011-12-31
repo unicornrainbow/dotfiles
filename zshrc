@@ -61,7 +61,14 @@ source $CODEDIR/dotfiles/vendor/zsh-hl/zsh-syntax-highlighting.zsh
 source $CODEDIR/dotfiles/vendor/zsh-hss/zsh-history-substring-search.zsh
 
 export PATH=$HOME/.rbenv/shims:$GOBIN:$CODEDIR/dotfiles/bin:$CODEDIR:/usr/local/bin:/usr/local/sbin:.cljr/bin:$PATH
+
 export LEDGER_FILE=$HOME/Documents/my.ledger
-alias ele="vim $LEDGER_FILE"
+alias ele="$EDITOR $LEDGER_FILE"
+alias ass="ledger -s bal Assets"
+ale() {
+  echo "\n$(date +%m/%d) $1\n    $2    $3 RUR\n    $4" >> $LEDGER_FILE
+}
+alea() { ale $1 Expenses:Apps $2 Assets:QIWI }
+aleg() { ale $1 Expenses:Games $2 Assets:QIWI }
 
 source $HOME/.zshrc.local

@@ -3,6 +3,7 @@
 " https://github.com/daveray/vimfiles
 " https://github.com/erynofwales/dotfiles
 " https://github.com/rmurphey/dotfiles
+" https://github.com/holman/dotfiles
 
 set nocompatible
 set runtimepath+=$HOME/.vim/pathogen
@@ -12,28 +13,37 @@ filetype plugin indent on
 syntax on
 
 " basics
+set noswapfile backup undofile undoreload=5000 history=500
 set noequalalways
+set wrapscan incsearch ignorecase smartcase
+set clipboard+=unnamed
+set autoread autowrite
+set magic
+set nojoinspaces
+" formatting
 set nowrap
 set expandtab
-set autoindent
-set encoding=utf-8 nobomb
 set tabstop=2 shiftwidth=2 softtabstop=2
-set wrapscan nohlsearch incsearch ignorecase smartcase
-set backspace=indent,eol,start
+set autoindent smartindent
+set encoding=utf-8 nobomb
 set whichwrap+=<,>,[,]
-set clipboard+=unnamed
-set cursorline
+set virtualedit=block
+" ui
+set nohlsearch
+set backspace=indent,eol,start
 set noerrorbells
-set hidden
-set mouse=a
-set autoread autowrite
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)
-set laststatus=2
-set noswapfile backup undofile undoreload=5000 history=500
 set showbreak=↪ list listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set ttyfast title
-set nojoinspaces
-set magic
+set cursorline
+set hidden
+set mouse=a
+set shortmess=filtIoOA
+set laststatus=2
+set nostartofline
+set visualbell
+set showmatch
+set mat=5
 " completion
 set completeopt=longest,menuone,preview
 set wildmenu wildmode=list:longest,list:full
