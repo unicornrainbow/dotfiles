@@ -17,3 +17,4 @@
 --regex-coffee=/^[ \t]*([A-Za-z.]+)[ \t]+=[^->\n]*$/\1/v,variable/
 
 --langmap=Lisp:+.clj
+--langmap=Lisp:+.cljs

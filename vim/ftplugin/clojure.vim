@@ -3,8 +3,18 @@ setlocal iskeyword+=-
 let b:delimitMate_balance_matchpairs=0
 
 " https://gist.github.com/519858
-function GetClojureFold()
+function! GetClojureFold()
   if getline(v:lnum) =~ '^\s*(defn.*\s'
+    return ">1"
+  elseif getline(v:lnum) =~ '^\s*(def.*\s'
+    return ">1"
+  elseif getline(v:lnum) =~ '^\s*(deftest.*\s'
+    return ">1"
+  elseif getline(v:lnum) =~ '^\s*(fact.*\s'
+    return ">1"
+  elseif getline(v:lnum) =~ '^\s*(defapp.*\s'
+    return ">1"
+  elseif getline(v:lnum) =~ '^\s*(defresource.*\s'
     return ">1"
   elseif getline(v:lnum) =~ '^\s*(defmacro.*\s'
     return ">1"

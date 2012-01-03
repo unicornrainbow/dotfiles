@@ -78,6 +78,7 @@ cmap w!! w !sudo tee % >/dev/null
 nnoremap ; :
 nnoremap <Space> za
 vnoremap <Space> za
+noremap! <C-Y> <Esc>klyWjpa
 " moving lines around
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
