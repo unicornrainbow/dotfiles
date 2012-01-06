@@ -27,19 +27,9 @@ fi
 
 bindkey -e
 
-alias -s py=python
-alias -s js=node
-alias -s rb=ruby
-alias -s coffee=coffee
-alias rmswp="rm ~/.vim/tmp/swap/*"
-alias v="vim"
-alias l="ls"
-alias g="git"
-alias t="todo.sh -d $CODEDIR/dotfiles/todo.cfg"
-alias "ps?"="ps aux | ack"
-
 chpwd() {
     update_terminal_cwd
+    z --add "$(pwd -P)"
 }
 
 precmd() {
@@ -49,21 +39,31 @@ precmd() {
     test "$LINENO" -le 1 || case "$type_path" in
         git) git clone "$cmd";;
         hg|bitbucket) hg clone "$cmd";;
-        bzr|bzr+ssh|lp) bzr branch "$cmd";;
         http|https) wget "$cmd";;
         file) cd "$(echo "${cmd#file://}" | ascii2uni -qa J)";;
         *) ;;
     esac
-    z --add "$(pwd -P)"
     return 0;
 }
 
 source $CODEDIR/dotfiles/vendor/zsh-hl/zsh-syntax-highlighting.zsh
 source $CODEDIR/dotfiles/vendor/zsh-hss/zsh-history-substring-search.zsh
 
-export PATH=$HOME/.rbenv/shims:$GOBIN:$CODEDIR/dotfiles/bin:$CODEDIR:/usr/local/bin:/usr/local/sbin:.cljr/bin:$PATH
-
+export PATH=$HOME/.rbenv/shims:$GOBIN:$CODEDIR/dotfiles/bin:$CODEDIR:/usr/local/bin:/usr/local/sbin:$HOME/.cljr/bin:$PATH
 export LEDGER_FILE=$HOME/Documents/my.ledger
+
+alias rmswp="rm ~/.vim/tmp/swap/*"
+alias collapse="sed -e 's/  */ /g'"
+alias v="vim"
+alias l="ls"
+alias g="git"
+alias t="todo.sh -d $CODEDIR/dotfiles/todo.cfg"
+alias ci="git commit -am"
+psack() {
+  ps auxww | ack $* | ack -v ack | collapse | cut -d' ' -f 2,11-
+}
+alias "ps?"=psack
+
 alias ele="$EDITOR $LEDGER_FILE"
 alias ass="ledger -s bal Assets"
 ale() {
