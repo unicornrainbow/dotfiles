@@ -32,9 +32,10 @@ alias -s js=node
 alias -s rb=ruby
 alias -s coffee=coffee
 alias rmswp="rm ~/.vim/tmp/swap/*"
-alias v="vim ."
+alias v="vim"
 alias l="ls"
 alias g="git"
+alias t="todo.sh -d $CODEDIR/dotfiles/todo.cfg"
 alias "ps?"="ps aux | ack"
 
 chpwd() {

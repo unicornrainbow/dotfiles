@@ -160,3 +160,6 @@
 [submodule "vim/bundle/splitjoin"]
 	path = vim/bundle/splitjoin
 	url = git://github.com/AndrewRadev/splitjoin.vim.git
+[submodule "bin/todotxt"]
+	path = bin/todotxt
+	url = git://github.com/ginatrapani/todo.txt-cli.git
