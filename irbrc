@@ -1,8 +1,13 @@
 require 'rubygems'
+require 'irb/completion'
 
 IRB.conf[:USE_READLINE] = true
 IRB.conf[:AUTO_INDENT]  = true
 IRB.conf[:PROMPT_MODE]  = :SIMPLE
+
+def IRB.reload
+  load __FILE__
+end
 
 begin
   require 'wirble'
