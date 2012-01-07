@@ -141,6 +141,7 @@ au BufRead,BufNewFile *.conf setf config
 au BufRead,BufNewFile *.ledger setf ledger | comp ledger
 au BufRead,BufNewFile *gitconfig setf gitconfig
 au BufRead,BufNewFile *nginx.conf setf nginx
+au BufRead,BufNewFile *.gradle setf groovy
 au BufRead,BufNewFile quakelive.cfg setf quake
 au BufRead,BufNewFile *.{css,sass,scss,less,styl} setlocal omnifunc=csscomplete#CompleteCSS
 au BufRead,BufNewFile {*.go,Makefile} setlocal noexpandtab
