@@ -163,3 +163,6 @@
 [submodule "bin/todotxt"]
 	path = bin/todotxt
 	url = git://github.com/ginatrapani/todo.txt-cli.git
+[submodule "vim/bundle/ctrlp"]
+	path = vim/bundle/ctrlp
+	url = git://github.com/kien/ctrlp.vim.git
