@@ -27,6 +27,7 @@ link pentadactylrc
 link gemrc
 link weechat
 link ledgerrc
+link todo.actions.d
 
 mkdir -p $HOME/.ssh
 link_custom ssh_config $HOME/.ssh/config
