@@ -4,6 +4,7 @@
 " https://github.com/erynofwales/dotfiles
 " https://github.com/rmurphey/dotfiles
 " https://github.com/holman/dotfiles
+" https://github.com/spf13/spf13-vim
 
 set nocompatible
 set runtimepath+=$HOME/.vim/pathogen
@@ -12,7 +13,7 @@ call pathogen#infect()
 filetype plugin indent on
 syntax on
 
-" basics
+" basics {{{
 set noswapfile backup undofile undoreload=5000 history=500
 set noequalalways
 set wrapscan incsearch ignorecase smartcase
@@ -20,7 +21,8 @@ set clipboard+=unnamed
 set autoread autowrite
 set magic
 set nojoinspaces
-" formatting
+" }}}
+" formatting {{{
 set nowrap
 set expandtab
 set tabstop=2 shiftwidth=2 softtabstop=2
@@ -32,7 +34,6 @@ set virtualedit=block
 set nohlsearch
 set backspace=indent,eol,start
 set noerrorbells
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)
 set showbreak=↪ list listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set ttyfast title
 set cursorline
@@ -44,7 +45,10 @@ set nostartofline
 set visualbell
 set showmatch
 set mat=5
-" completion
+set virtualedit=onemore
+set viewoptions=folds,options,cursor,unix,slash
+" }}}
+" completion {{{
 set completeopt=longest,menuone,preview
 set wildmenu wildmode=list:longest,list:full
 set wildignore+=.hg,.git,.bzr,.svn                 " Version control
@@ -55,21 +59,26 @@ set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest   " compiled object files
 set wildignore+=*.spl                              " compiled spelling word lists
 set wildignore+=*.sw?                              " Vim swap files
 set wildignore+=.DS_Store,Thumbs.db                " Shit
-" paths
+" }}}
+" paths {{{
 set shell=/bin/zsh
 set formatprg=par\ -eq
 set tags=./tags;
 set dictionary=/usr/share/dict/words
 set backupskip=/tmp/*,/private/tmp/*
-set backupdir=~/.vim/tmp/backup//
-set undodir=~/.vim/tmp/undo//
+set backupdir=~/.vim/tmp/backups/
+set undodir=~/.vim/tmp/undo/
+" }}}
 
 " Bindings
-" colemak movement and stuff
+" colemak movement and stuff {{{
 noremap n gj
 noremap N J
 noremap e gk
 noremap i l
+vnoremap n gj
+vnoremap e gk
+vnoremap i l
 noremap k n
 noremap K N
 noremap ' i
@@ -79,32 +88,39 @@ nnoremap ; :
 nnoremap <Space> za
 vnoremap <Space> za
 noremap! <C-Y> <Esc>klyWjpa
-" moving lines around
+map <Leader><CR> o<ESC>
+nnoremap Y y$
+" }}}
+" moving lines around {{{
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
-" windows
+" }}}
+" windows {{{
 map  <C-h> <C-w>h
 map  <C-n> <C-w>j
 map  <C-e> <C-w>k
 map  <C-i> <C-w>l
-" case-insensitive
+" }}}
+" case-insensitive {{{
 cab E e
 cab W w
 cab Q q
 cab WQ wq
 cab Wq wq
-" emacs bindings
+" }}}
+" emacs bindings {{{
 cnoremap <C-a> <home>
 cnoremap <C-e> <end>
-" indent block
+" }}}
+" indent block {{{
 nnoremap <Leader>] >i{<CR>
 nnoremap <Leader>[ <i{<CR>
-" buffer nav
+" }}}
+" buffer nav {{{
 map <Right> :bnext<CR>
 map <Left>  :bprev<CR>
-" newline
-map <Leader><CR> o<ESC>
-" plugins
+" }}}
+" plugins {{{
 nmap <Leader>T= :Tabularize /=<CR>
 vmap <Leader>T= :Tabularize /=<CR>
 nmap <Leader>T<Space> :Tabularize /<Space><CR>
@@ -130,8 +146,9 @@ function! s:AckMotion(type) abort
     let @@ = reg_save
 endfunction
 nnoremap <leader>w :silent !open <C-R>=escape("<C-R><C-F>", "#?&;\|%")<CR><CR>
+" }}}
 
-" Das Auto
+" Das Auto {{{
 au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,Vagrantfile,Thorfile,Guardfile,config.ru} setf ruby
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setf markdown
 au BufRead,BufNewFile {SConstruct,SConscript,*.py} setf python.django
@@ -140,7 +157,7 @@ au BufRead,BufNewFile *.json setf javascript
 au BufRead,BufNewFile *.conf setf config
 au BufRead,BufNewFile *.ledger setf ledger | comp ledger
 au BufRead,BufNewFile *gitconfig setf gitconfig
-au BufRead,BufNewFile *nginx.conf setf nginx
+au BufRead,BufNewFile nginx.conf setf nginx
 au BufRead,BufNewFile *.gradle setf groovy
 au BufRead,BufNewFile quakelive.cfg setf quake
 au BufRead,BufNewFile *.{css,sass,scss,less,styl} setlocal omnifunc=csscomplete#CompleteCSS
@@ -148,20 +165,26 @@ au BufRead,BufNewFile {*.go,Makefile} setlocal noexpandtab
 au BufRead,BufNewFile *.{jar,war,ear,sar} setf zip
 au BufWritePost {g,.g,,.}vimrc source $MYVIMRC
 au BufReadPost fugitive://* setlocal bufhidden=delete
+au VimResized * exe "normal! \<c-w>="
+au FileType vim setlocal foldmethod=marker
+au FileType help setlocal textwidth=78
+au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
+" }}}
 
+" Vars {{{
 let mapleader=','
 let maplocalleader=','
 let g:mapleader=','
 let g:CommandTMaxHeight=20
-let g:user_zen_expandabbr_key='<D-e>'
 let g:maintainer='{"name": "Grigory V.", "web": "http://floatboth.com"}'
 let vimclojure#SplitPos='bottom'
 let g:vimclojure#DynamicHighlighting=1
 let g:SuperTabDefaultCompletionType='context'
+" }}}
 
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
 
-color solarized
+color railscasts
 set background=dark

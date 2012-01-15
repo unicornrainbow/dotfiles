@@ -8,7 +8,6 @@
     email = floatboth@me.com
 [github]
     user = myfreeweb
-    token = !sh -c 'echo $GITHUB_TOKEN' # thanks: https://github.com/mattly/dotfiles
 [difftool]
     prompt = false
 [diff]
