@@ -166,3 +166,6 @@
 [submodule "vim/bundle/powerline"]
 	path = vim/bundle/powerline
 	url = git://github.com/Lokaltog/vim-powerline.git
+[submodule "keybindings"]
+	path = keybindings
+	url = git://github.com/ttscoff/KeyBindings.git
