@@ -23,8 +23,6 @@ if [[ $IS_LINUX -eq 1 ]]; then
 elif [[ $IS_MAC -eq 1 ]]; then
     export HAXE_LIBRARY_PATH="$(brew --prefix)/share/haxe/std"
     source "$(brew --prefix grc)/etc/grc.bashrc"
-    export GOROOT=$(brew --prefix go)
-    export GOBIN=$GOROOT/bin
     [[ -e /usr/local/lib/stderred.so ]] && export DYLD_INSERT_LIBRARIES=/usr/local/lib/stderred.so DYLD_FORCE_FLAT_NAMESPACE=1
     alias nolib="DYLD_INSERT_LIBRARIES= "
     alias cabal="nolib cabal"
@@ -38,6 +36,7 @@ alias g="git"
 alias t="todo.sh -d $CODEDIR/dotfiles/todo.cfg"
 alias p="popd"
 alias ci="git commit -am"
+alias gaes="dev_appserver.py -a 0.0.0.0 ."
 psack() {
   ps auxww | ack $* | ack -v ack | collapse | cut -d' ' -f 2,11-
 }
@@ -55,8 +54,10 @@ aleg() { ale $1 Expenses:Games $2 Assets:QIWI }
 
 source $CODEDIR/dotfiles/vendor/zsh-hl/zsh-syntax-highlighting.zsh
 source $CODEDIR/dotfiles/vendor/zsh-hss/zsh-history-substring-search.zsh
-export PATH=$HOME/.rbenv/shims:$GOBIN:$CODEDIR/dotfiles/bin:$CODEDIR:/usr/local/bin:/usr/local/sbin:$HOME/.cljr/bin:$PATH
+export PATH=$HOME/.rbenv/shims:$CODEDIR/dotfiles/bin:$CODEDIR:/usr/local/bin:/usr/local/sbin:$HOME/.cljr/bin:$PATH
 [[ -d /opt/gradle ]] && export PATH=/opt/gradle/bin:$PATH
+[[ -d /opt/gae_go ]] && export GOROOT=/opt/gae_go/goroot \
+  && export GOBIN=$GOROOT/bin && export PATH=/opt/gae_go:$GOBIN:$PATH
 
 
 chpwd() {
