@@ -6,8 +6,7 @@ if has("gui_running")
 endif
 if has("gui_macvim")
     macmenu &File.New\ Tab key=<nop>
-    set guifont=Monaco:h12
-    map <D-t> :CtrlP<CR>
+    set guifont=Menlo\ Regular\ for\ Powerline:h12
     map <D-Bslash> <plug>NERDCommenterToggle<CR>
     set guicursor=n-c:block-Cursor-blinkon0
     set guicursor+=v:block-vCursor-blinkon0

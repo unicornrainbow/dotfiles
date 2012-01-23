@@ -1,5 +1,3 @@
 OPTIONS=pettype:dog
 OPTIONS=pickup_types:$
 OPTIONS=color, confirm, pushweapon, !checkspace, fullscreen, DECgraphics
-# Colemak
-OPTIONS=directionkeys:h j e l i k n b

@@ -17,9 +17,8 @@ map -ex <Leader>y :javascript Components.classes["@mozilla.org/widget/clipboardh
 " open in Chrome (for flash)
 map -ex <Leader>c :exe "run open -a 'Google Chrome' " + content.location.href
 
-nnoremap ; :
-nnoremap n 3j
-nnoremap e 3k
+nnoremap k 3j
+nnoremap j 3k
 nnoremap N :tn<CR>
 nnoremap E :tp<CR>
 nnoremap t f

@@ -21,6 +21,7 @@ set clipboard+=unnamed
 set autoread autowrite
 set magic
 set nojoinspaces
+set modelines=3
 " }}}
 " formatting {{{
 set nowrap
@@ -30,11 +31,14 @@ set autoindent smartindent
 set encoding=utf-8 nobomb
 set whichwrap+=<,>,[,]
 set virtualedit=block
-" ui
+" }}}
+" ui {{{
 set nohlsearch
 set backspace=indent,eol,start
 set noerrorbells
-set showbreak=↪ list listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+set showbreak=↪
+set list listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+set fillchars+=vert:│
 set ttyfast title
 set cursorline
 set hidden
@@ -71,16 +75,9 @@ set undodir=~/.vim/tmp/undo/
 " }}}
 
 " Bindings
-" colemak movement and stuff {{{
-noremap n gj
-noremap N J
-noremap e gk
-noremap i l
-vnoremap n gj
-vnoremap e gk
-vnoremap i l
-noremap k n
-noremap K N
+" stuff {{{
+noremap k gj
+noremap j gk
 noremap ' i
 noremap U <C-r>
 cmap w!! w !sudo tee % >/dev/null
@@ -90,6 +87,7 @@ vnoremap <Space> za
 noremap! <C-Y> <Esc>klyWjpa
 map <Leader><CR> o<ESC>
 nnoremap Y y$
+nnoremap <CR> zvzz " center line
 " }}}
 " moving lines around {{{
 vmap <C-Up> [egv
@@ -97,9 +95,9 @@ vmap <C-Down> ]egv
 " }}}
 " windows {{{
 map  <C-h> <C-w>h
-map  <C-n> <C-w>j
-map  <C-e> <C-w>k
-map  <C-i> <C-w>l
+map  <C-k> <C-w>j
+map  <C-j> <C-w>k
+map  <C-l> <C-w>l
 " }}}
 " case-insensitive {{{
 cab E e
@@ -180,11 +178,11 @@ let g:maintainer='{"name": "Grigory V.", "web": "http://floatboth.com"}'
 let vimclojure#SplitPos='bottom'
 let g:vimclojure#DynamicHighlighting=1
 let g:SuperTabDefaultCompletionType='context'
+let g:Powerline_symbols='fancy'
 " }}}
 
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
 
-color railscasts
-set background=dark
+colorscheme monokai

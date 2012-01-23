@@ -1,6 +1,11 @@
 [core]
     excludesfile = ~/Code/dotfiles/gitignore
     whitespace = fix,space-before-tab,tab-in-indent,trailing-space
+    legacyheaders = false
+    quotepath = false
+    pager = $PAGER
+[repack]
+    usedeltabaseoffset = true
 [apply]
     whitespace = fix
 [user]
@@ -27,10 +32,13 @@
     autosetupmerge = always
     autosetuprebase = always
 [color]
-    ui = true
+    ui = auto
+    interactive = auto
 [alias]
-    a = add -A
+    a = !git add -A && git status -sb
     ci = commit -a
+    cm = commit -am
+    ca = commit --amend
     co = checkout
     nb = checkout -b # newbranch
     st = status
@@ -38,8 +46,8 @@
     l = log --oneline --decorate --graph
     tip = log -n 1
     last = log -n 10 --oneline
-    d = diff master
-    two = diff HEAD@{1} HEAD@{0}
+    d = diff --color-words head
+    two = diff --color-words HEAD@{1} HEAD@{0}
     vd = difftool
     mt = mergetool
     rc = rebase --continue
@@ -48,8 +56,9 @@
     t = tag -n1 -l
     rwt = reset --hard HEAD # revert working tree
     unci = reset --hard HEAD^ # uncommit
-    sup = submodule foreach --recursive git pull origin master
+    sup = submodule foreach --recursive git pull
     sadd = submodule add
+    smaster = submodule foreach --recursive git checkout master
     forget = rm --cached
 [url "git://github.com/"]
     insteadOf = gh:

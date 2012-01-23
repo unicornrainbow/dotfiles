@@ -70,9 +70,6 @@
 [submodule "vim/bundle/unimpaired"]
 	path = vim/bundle/unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
-[submodule "vim/bundle/hammer"]
-	path = vim/bundle/hammer
-	url = git://github.com/robgleeson/hammer.vim.git
 [submodule "bin/z"]
 	path = bin/z
 	url = git://github.com/sjl/z-zsh
@@ -169,3 +166,9 @@
 [submodule "keybindings"]
 	path = keybindings
 	url = git://github.com/ttscoff/KeyBindings.git
+[submodule "vim/bundle/snipmate_clojure"]
+	path = vim/bundle/snipmate_clojure
+	url = git://github.com/swannodette/clojure-snippets.git
+[submodule "vim/bundle/monokai"]
+	path = vim/bundle/monokai
+	url = git://github.com/rickharris/vim-monokai.git
