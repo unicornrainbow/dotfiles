@@ -56,7 +56,7 @@ aleg() { ale $1 Expenses:Games $2 Assets:QIWI }
 source $CODEDIR/dotfiles/vendor/zsh-hl/zsh-syntax-highlighting.zsh
 source $CODEDIR/dotfiles/vendor/zsh-hss/zsh-history-substring-search.zsh
 export PATH=$HOME/.rbenv/shims:$GOBIN:$CODEDIR/dotfiles/bin:$CODEDIR:/usr/local/bin:/usr/local/sbin:$HOME/.cljr/bin:$PATH
-[[ -e /opt/gradle ]] && export PATH="/opt/gradle:$PATH"
+[[ -d /opt/gradle ]] && export PATH=/opt/gradle/bin:$PATH
 
 
 chpwd() {
