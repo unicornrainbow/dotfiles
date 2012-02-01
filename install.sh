@@ -34,6 +34,8 @@ mkdir -p $HOME/.ssh
 link_custom ssh_config $HOME/.ssh/config
 mkdir -p $HOME/.re.pl
 link_custom re.pl $HOME/.re.pl/repl.rc
+mkdir -p $HOME/.lein
+link_custom lein_init.clj $HOME/.lein/init.clj
 
 echo "vim/tmp vim/tmp/undo vim/tmp/backups" | xargs mkdir -p
 
