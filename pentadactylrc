@@ -6,7 +6,7 @@ set followhints=1
 set showtabline=multitab
 set showstatuslinks=command
 set hlfind
-set passkeys+=duckduckgo.com:lojkh/vrstm1<CR>
+set passkeys+=duckduckgo.com:jkv/<CR>
 set passkeys+=tumblr.com/dashboard:jkroae<CR>,gi
 set passkeys+=twitter.com/#:frtmn<CR>l?jk<Space>/.ghcrdpfmu
 
@@ -15,7 +15,7 @@ map -ex <Leader>z :open zootl
 " Markdown yank
 map -ex <Leader>y :javascript Components.classes["@mozilla.org/widget/clipboardhelper;1"].getService(Components.interfaces.nsIClipboardHelper).copyString("[" + content.document.title + "]" + "(" + content.location.href + ")")
 " open in Chrome (for flash)
-map -ex <Leader>c :exe "run open -a 'Google Chrome' " + content.location.href
+map -ex <Leader>c :exe "run open -a 'Google Chrome' '" + content.location.href + "'"
 
 nnoremap k 3j
 nnoremap j 3k
@@ -24,7 +24,8 @@ nnoremap E :tp<CR>
 nnoremap t f
 nnoremap T ;t
 nnoremap m t
+nnoremap <C-f> <f12> " Firebug
 
-highlight FontCode  font: normal 14px Monaco !important
-highlight FontFixed font: normal 14px Monaco !important
-highlight FontProportional font: normal 14px Monaco !important
+highlight FontCode  font: normal 12px Menlo !important
+highlight FontFixed font: normal 12px Menlo !important
+highlight FontProportional font: normal 12px Menlo !important

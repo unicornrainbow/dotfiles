@@ -107,8 +107,8 @@ cab WQ wq
 cab Wq wq
 " }}}
 " emacs bindings {{{
-cnoremap <C-a> <home>
-cnoremap <C-e> <end>
+inoremap <C-a> <home>
+inoremap <C-e> <end>
 " }}}
 " indent block {{{
 nnoremap <Leader>] >i{<CR>

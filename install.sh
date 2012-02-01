@@ -54,7 +54,6 @@ elif [[ $(uname) = 'Darwin' ]]; then
   defaults write com.apple.finder WarnOnEmptyTrash -bool false
   defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
   echo "0x08000100:0" > $HOME/.CFUserTextEncoding
-  link_custom evernote_selection.plist $HOME/Library/LaunchAgents/com.floatboth.evernote_selection.plist
   mkdir -p $HOME/Library/KeyBindings
   link_custom keybindings/DefaultKeyBinding.dict $HOME/Library/KeyBindings/DefaultKeyBinding.dict
   QUAKE=$HOME/Library/Application\ Support/QuakeLive/quakelive/home/baseq3
