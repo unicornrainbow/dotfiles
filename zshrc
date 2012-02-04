@@ -26,6 +26,7 @@ elif [[ $IS_MAC -eq 1 ]]; then
     [[ -e /usr/local/lib/stderred.so ]] && export DYLD_INSERT_LIBRARIES=/usr/local/lib/stderred.so DYLD_FORCE_FLAT_NAMESPACE=1
     alias nolib="DYLD_INSERT_LIBRARIES= "
     alias cabal="nolib cabal"
+    alias kindlegen="nolib kindlegen"
 fi
 
 alias rmswp="rm ~/.vim/tmp/swap/*"
@@ -56,9 +57,10 @@ aleg() { ale $1 Expenses:Games $2 Assets:QIWI }
 source $CODEDIR/dotfiles/vendor/zsh-hl/zsh-syntax-highlighting.zsh
 source $CODEDIR/dotfiles/vendor/zsh-hss/zsh-history-substring-search.zsh
 export PATH=$HOME/.rbenv/shims:$CODEDIR/dotfiles/bin:$CODEDIR:/usr/local/bin:/usr/local/sbin:$HOME/.cljr/bin:$PATH
-[[ -d /opt/gradle ]] && export PATH=/opt/gradle/bin:$PATH
-[[ -d /opt/reply  ]] && export PATH=/opt/reply/bin:$PATH
-[[ -d /opt/gae_go ]] && export GOROOT=/opt/gae_go/goroot \
+[[ -d /opt/gradle    ]] && export PATH=/opt/gradle/bin:$PATH
+[[ -d /opt/reply     ]] && export PATH=/opt/reply/bin:$PATH
+[[ -d /opt/kindlegen ]] && export PATH=/opt/kindlegen:$PATH
+[[ -d /opt/gae_go    ]] && export GOROOT=/opt/gae_go/goroot \
   && export GOBIN=$GOROOT/bin && export PATH=/opt/gae_go:$GOBIN:$PATH
 
 
