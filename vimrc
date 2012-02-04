@@ -179,6 +179,7 @@ let vimclojure#SplitPos='bottom'
 let g:vimclojure#DynamicHighlighting=1
 let g:SuperTabDefaultCompletionType='context'
 let g:Powerline_symbols='fancy'
+let delimitMate_excluded_ft='clojure'
 " }}}
 
 if filereadable(expand("~/.vimrc.local"))

@@ -37,6 +37,7 @@ alias t="todo.sh -d $CODEDIR/dotfiles/todo.cfg"
 alias p="popd"
 alias ci="git commit -am"
 alias gaes="dev_appserver.py -a 0.0.0.0 ."
+alias reply="USER_CP=$HOME/.lein/plugins:$HOME/.cljr/lib reply.sh"
 psack() {
   ps auxww | ack $* | ack -v ack | collapse | cut -d' ' -f 2,11-
 }
@@ -56,6 +57,7 @@ source $CODEDIR/dotfiles/vendor/zsh-hl/zsh-syntax-highlighting.zsh
 source $CODEDIR/dotfiles/vendor/zsh-hss/zsh-history-substring-search.zsh
 export PATH=$HOME/.rbenv/shims:$CODEDIR/dotfiles/bin:$CODEDIR:/usr/local/bin:/usr/local/sbin:$HOME/.cljr/bin:$PATH
 [[ -d /opt/gradle ]] && export PATH=/opt/gradle/bin:$PATH
+[[ -d /opt/reply  ]] && export PATH=/opt/reply/bin:$PATH
 [[ -d /opt/gae_go ]] && export GOROOT=/opt/gae_go/goroot \
   && export GOBIN=$GOROOT/bin && export PATH=/opt/gae_go:$GOBIN:$PATH
 

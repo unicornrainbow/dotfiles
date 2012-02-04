@@ -172,3 +172,6 @@
 [submodule "vim/bundle/monokai"]
 	path = vim/bundle/monokai
 	url = git://github.com/rickharris/vim-monokai.git
+[submodule "vim/bundle/paredit"]
+	path = vim/bundle/paredit
+	url = git://github.com/emezeske/paredit.vim.git

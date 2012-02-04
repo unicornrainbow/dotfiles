@@ -1,6 +1,5 @@
 " allow jumping to tags w/ dashes
 setlocal iskeyword+=-
-let b:delimitMate_balance_matchpairs=0
 
 " https://gist.github.com/519858
 function! GetClojureFold()

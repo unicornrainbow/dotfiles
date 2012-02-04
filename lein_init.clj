@@ -2,3 +2,6 @@
      (def settings {:repl-options [:init (require 'clj-stacktrace.repl)
                                    :caught 'clj-stacktrace.repl/pst+]})
   (catch java.io.FileNotFoundException _))
+
+(try (use 'criterium.core)
+  (catch java.io.FileNotFoundException _))
