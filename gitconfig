@@ -35,32 +35,34 @@
     ui = auto
     interactive = auto
 [alias]
-    a    = !git add -A && git status -sb
+    a    = !git add --all && git status --short --branch
     ca   = commit --amend
-    ci   = commit -a
-    cm   = commit -am
+    ci   = commit --all
+    cm   = commit --all -m
     co   = checkout
+    nb   = checkout -b # newbranch
+    br   = branch --verbose
     cp   = cherry-pick -x
-    d    = diff --color-words head
+    d    = diff --color-words --staged
+    dh   = diff --color-words head
+    two  = diff --color-words HEAD@{1} HEAD@{0}
+    vd   = difftool
     forget = rm --cached
     l    = log --oneline --decorate --graph
     last = log -n 10 --oneline
     mt   = mergetool
-    nb   = checkout -b # newbranch
     pu   = !git push && git push --tags
     rc   = rebase --continue
     rs   = rebase --skip
     rwt  = reset --hard HEAD # revert working tree
-    s    = status -sb
+    unci = reset --hard HEAD^ # uncommit
+    s    = status --short --branch
+    st   = status
     sadd = submodule add
     smaster = submodule foreach --recursive git checkout master
-    st   = status
     sup  = submodule foreach --recursive git pull
-    t    = tag -n1 -l
+    t    = tag -n1 -list
     tip  = log -n 1
-    two  = diff --color-words HEAD@{1} HEAD@{0}
-    unci = reset --hard HEAD^ # uncommit
-    vd   = difftool
 [url "git://github.com/"]
     insteadOf = gh:
 [url "git@github.com:myfreeweb/"]
