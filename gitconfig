@@ -45,6 +45,7 @@
     cp   = cherry-pick -x
     d    = diff --color-words --staged
     dh   = diff --color-words head
+    gwr  = !git remote -v | grep origin | grep push | sed -e 's/origin./ /' -e 's/https/git/' -e 's/com\\//com:/' -e 's/:\\/\\//@/' -e 's/ (push)//' | tail -c +2 | git remote set-url --push origin $(cat)
     two  = diff --color-words HEAD@{1} HEAD@{0}
     vd   = difftool
     forget = rm --cached

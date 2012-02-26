@@ -62,6 +62,9 @@ export PATH=$HOME/.rbenv/shims:$CODEDIR/dotfiles/bin:$CODEDIR:/usr/local/bin:/us
 [[ -d /opt/kindlegen ]] && export PATH=/opt/kindlegen:$PATH
 [[ -d /opt/gae_go    ]] && export GOROOT=/opt/gae_go/goroot \
   && export GOBIN=$GOROOT/bin && export PATH=/opt/gae_go:$GOBIN:$PATH
+[[ $IS_MAC -eq 1 ]] && BREWGO=$(brew --prefix go) && \
+  [[ -d $BREWGO ]] && export GOROOT=$BREWGO && export GOBIN=$BREWGO/bin \
+  && export GOPATH=$GOROOT && export PATH=$GOBIN:$PATH
 
 
 chpwd() {

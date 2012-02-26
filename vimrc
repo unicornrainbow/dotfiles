@@ -186,4 +186,5 @@ if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
 
-colorscheme monokai
+colorscheme solarized
+set background=dark
