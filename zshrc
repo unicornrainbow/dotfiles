@@ -34,11 +34,9 @@ alias collapse="sed -e 's/  */ /g'"
 alias v="vim"
 alias l="ls"
 alias g="git"
-alias t="todo.sh -d $CODEDIR/dotfiles/todo.cfg"
 alias p="popd"
 alias ci="git commit -am"
 alias gaes="dev_appserver.py -a 0.0.0.0 ."
-alias reply="USER_CP=$HOME/.lein/plugins:$HOME/.cljr/lib reply.sh"
 psack() {
   ps auxww | ack $* | ack -v ack | collapse | cut -d' ' -f 2,11-
 }
