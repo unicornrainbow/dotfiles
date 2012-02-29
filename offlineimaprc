@@ -1,0 +1,51 @@
+# thanks:
+# http://pbrisbin.com/posts/mutt_gmail_offlineimap
+# https://wiki.archlinux.org/index.php/OfflineIMAP
+# vim: ft=cfg tw=0
+
+[general]
+accounts = WM, iCloud
+
+[mbnames]
+enabled = yes
+filename = ~/.mailboxes.muttrc
+header = "mailboxes "
+peritem = "+%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"
+
+[Account WM]
+localrepository = WM-Local
+remoterepository = WM-Remote
+
+[Repository WM-Local]
+type = Maildir
+localfolders = ~/Mail/WM
+
+[Repository WM-Remote]
+type = IMAP
+ssl = yes
+remotehost = mail.wm.ru
+remoteuser = greg@wm.ru
+remoteport = 993
+realdelete = no
+nametrans = lambda f: re.sub('^inbox$', 'INBOX',
+                      re.sub('^inbox\.', '', f.lower()))
+
+[Account iCloud]
+localrepository = iCloud-Local
+remoterepository = iCloud-Remote
+
+[Repository iCloud-Local]
+type = Maildir
+localfolders = ~/Mail/iCloud
+
+[Repository iCloud-Remote]
+type = IMAP
+ssl = yes
+remotehost = imap.mail.me.com
+remoteuser = floatboth@me.com
+remoteport = 993
+realdelete = no
+nametrans = lambda f: re.sub('^inbox$', 'INBOX',
+                      re.sub('^inbox\.', '', f.lower()))

@@ -150,13 +150,14 @@ nnoremap <leader>w :silent !open <C-R>=escape("<C-R><C-F>", "#?&;\|%")<CR><CR>
 au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,Vagrantfile,Thorfile,Guardfile,config.ru} setf ruby
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setf markdown
 au BufRead,BufNewFile {SConstruct,SConscript,*.py} setf python.django
-au BufNewFile,BufRead *.{nu,nujson},Nukefile setf nu
+au BufRead,BufNewFile *.{nu,nujson},Nukefile setf nu
 au BufRead,BufNewFile *.json setf javascript
 au BufRead,BufNewFile *.conf setf config
 au BufRead,BufNewFile *.ledger setf ledger | comp ledger
 au BufRead,BufNewFile *gitconfig setf gitconfig
 au BufRead,BufNewFile nginx.conf setf nginx
 au BufRead,BufNewFile *.gradle setf groovy
+au BufRead,BufNewFile *.muttrc setf muttrc
 au BufRead,BufNewFile quakelive.cfg setf quake
 au BufRead,BufNewFile *.{css,sass,scss,less,styl} setlocal omnifunc=csscomplete#CompleteCSS
 au BufRead,BufNewFile {*.go,Makefile} setlocal noexpandtab
@@ -187,4 +188,4 @@ if filereadable(expand("~/.vimrc.local"))
 endif
 
 colorscheme solarized
-set background=dark
+set background=light

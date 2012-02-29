@@ -1,0 +1,83 @@
+# thanks:
+# http://pbrisbin.com/posts/mutt_gmail_offlineimap
+# https://github.com/sjl/dotfiles/blob/master/mutt
+
+# viewing, managing
+set folder = ~/Mail
+set mbox_type = Maildir
+set record = +sent
+set postponed = +drafts
+set nomove
+set delete = ask-yes
+set sort = threads
+set sort_aux = reverse-last-date-received
+set sort_re
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+""])"
+set nobeep
+set smart_wrap
+set tilde
+set nomarkers
+set menu_scroll
+set pager_stop
+alternative_order text/plain text/enriched text/html
+set sidebar_delim = '  │'
+set sidebar_visible
+set sidebar_width = 20
+
+## formats
+set date_format = "%m/%d"
+set index_format = "[%Z]  %D  %-20.20F  %s"
+set status_format = "-%r- %v ---[ Folder: %f, Msgs: %m%?n? New: %n?%?d? Del: %d?%?t? Tag: %t?%?l? %l? ]%?p?---- .: %p waiting to send :. ?--%>- (%P) ---"
+set alias_format = "%4n %t %-20a  %r"]
+
+## keys
+bind editor <space> noop # allows using IMAP folders w/ spaces!
+bind index,pager <down>   sidebar-next
+bind index,pager <up>     sidebar-prev
+bind index,pager <right>  sidebar-open
+bind index,pager R group-reply
+bind index <space> collapse-thread
+bind index k next-entry
+bind index j previous-entry
+bind index gg first-entry
+bind index G last-entry
+bind pager / search
+bind pager k next-line
+bind pager j previous-line
+bind pager gg top
+bind pager G bottom
+macro pager \Cu "|urlview<enter>"
+
+# attachments
+set mailcap_path = ~/.mutt/mailcap
+auto_view text/html
+
+# sending
+set sendmail = /usr/local/bin/msmtp
+set use_from
+set envelope_from
+unset mime_forward
+set include
+set forward_quote
+set forward_format = "Fwd: %s"
+set attribution = "On %d, %n wrote:"
+set reply_to
+set reverse_name
+set sig_dashes
+set edit_headers
+set fast_reply
+set askcc
+
+# identity
+alternates ^greg@wm\\.ru$ ^floatboth@me\\.com$
+set realname = "Grigory V."
+set reverse_name
+
+# accounts
+folder-hook iCloud/* source ~/.mutt/icloud.muttrc
+folder-hook WM/* source ~/.mutt/wm.muttrc
+
+source ~/.mutt/solarized/mutt-colors-solarized-light-16.muttrc
+source ~/.mailboxes.muttrc
+source ~/.local.muttrc

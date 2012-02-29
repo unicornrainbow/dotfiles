@@ -27,8 +27,11 @@ link pentadactylrc
 link gemrc
 link weechat
 link ledgerrc
-link todo.actions.d
-
+link urlview
+link offlineimaprc
+link msmtprc
+link mutt
+link_custom mutt/muttrc $HOME/.muttrc
 
 mkdir -p $HOME/.ssh
 link_custom ssh_config $HOME/.ssh/config
