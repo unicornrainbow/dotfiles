@@ -27,6 +27,7 @@ link pentadactylrc
 link gemrc
 link weechat
 link ledgerrc
+link lesskey
 link urlview
 link offlineimaprc
 link msmtprc
