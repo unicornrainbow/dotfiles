@@ -1,28 +1,30 @@
 # thanks:
-# Zachary Voase: https://github.com/zacharyvoase/dotfiles/blob/master/pythonrc
-# John Anderson: https://github.com/sontek/dotfiles/blob/master/_pythonrc.py
+# https://github.com/zacharyvoase/dotfiles/blob/master/pythonrc
+# https://github.com/sontek/dotfiles/blob/master/_pythonrc.py
+# http://brianlyttle.com/2011/10/python-interpreter-tab-completion-on-os-x/
 
 import inspect
 import sys
 import os
+home = os.environ["HOME"]
 
-try:
-    import rlcompleter
-    import readline
-    home = os.environ["HOME"]
-    readline.parse_and_bind(open("%s/.inputrc" % home).read())
-    if not "bpython" in os.environ["_"]:
+if not "bpython" in os.environ["_"]:
+    try:
+        import rlcompleter
+        import readline
+        readline.set_history_length(1000)
+        readline.parse_and_bind(open("%s/.inputrc" % home).read())
+        if sys.platform is "darwin":
+            readline.parse_and_bind("bind ^I rl_complete")
+            # screw you, libedit
         HISTFILE = "%s/.pyhistory." % home
-
-        if os.path.exists(HISTFILE):
+        try:
             readline.read_history_file(HISTFILE)
-        readline.set_history_length(300)
-        def savehist():
-            readline.write_history_file(HISTFILE)
+        except: pass
         import atexit
-        atexit.register(savehist)
-except:
-    print >>sys.stderr, "Couldn't get rlcompleter + readline working."
+        atexit.register(lambda: readline.write_history_file(HISTFILE))
+    except:
+        print >>sys.stderr, "Couldn't get rlcompleter + readline working."
 
 try:
     from see import see
@@ -41,5 +43,5 @@ if "DJANGO_SETTINGS_MODULE" in os.environ:
             for m in get_models():
                 setattr(self, m.__name__, m)
 
-    A = DjangoModels()
+    M = DjangoModels()
     C = Client()
