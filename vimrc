@@ -148,7 +148,7 @@ nnoremap <leader>w :silent !open <C-R>=escape("<C-R><C-F>", "#?&;\|%")<CR><CR>
 
 " Das Auto {{{
 au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,Vagrantfile,Thorfile,Guardfile,config.ru} setf ruby
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setf markdown
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,ronn} setf markdown
 au BufRead,BufNewFile {SConstruct,SConscript,*.py} setf python.django
 au BufRead,BufNewFile *.{nu,nujson},Nukefile setf nu
 au BufRead,BufNewFile *.json setf javascript
