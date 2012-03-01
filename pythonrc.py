@@ -14,7 +14,7 @@ if not "bpython" in os.environ["_"]:
         import readline
         readline.set_history_length(1000)
         readline.parse_and_bind(open("%s/.inputrc" % home).read())
-        if sys.platform is "darwin":
+        if sys.platform == "darwin":
             readline.parse_and_bind("bind ^I rl_complete")
             # screw you, libedit
         HISTFILE = "%s/.pyhistory." % home
