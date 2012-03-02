@@ -11,6 +11,13 @@ export PYTHONSTARTUP=$DOTFILES/pythonrc.py
 export CLICOLOR="yes"
 export EDITOR="vim"
 export PAGER="less"
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[38;5;246m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[04;33;146m'
+export LESS="-mNR"
 export LEDGER_FILE=$HOME/Documents/my.ledger
 # }}}
 # Loading plugins, setting PATH {{{
@@ -19,18 +26,21 @@ source $DOTFILES/bin/z/z.sh
 source $DOTFILES/vendor/zsh-hl/zsh-syntax-highlighting.zsh
 source $DOTFILES/vendor/zsh-hss/zsh-history-substring-search.zsh
 
-for dir in $DOTFILES/bin/*(/); do
-  export PATH=$dir:$PATH
-done
-export PATH=$HOME/.rbenv/shims:$DOTFILES/bin:/usr/local/bin:/usr/local/sbin:$HOME/.cljr/bin:$PATH
-[[ -d /opt/gradle    ]] && export PATH=/opt/gradle/bin:$PATH
-[[ -d /opt/reply     ]] && export PATH=/opt/reply/bin:$PATH
-[[ -d /opt/kindlegen ]] && export PATH=/opt/kindlegen:$PATH
-[[ -d /opt/gae_go    ]] && export GOROOT=/opt/gae_go/goroot \
-  && export GOBIN=$GOROOT/bin && export PATH=/opt/gae_go:$GOBIN:$PATH
-[[ $IS_MAC -eq 1 ]] && BREWGO=$(brew --prefix go) && \
-  [[ -d $BREWGO ]] && export GOROOT=$BREWGO && export GOBIN=$BREWGO/bin \
-  && export GOPATH=$GOROOT && export PATH=$GOBIN:$PATH
+if [[ $SETPATH -ne 1 ]]; then
+  for dir in $DOTFILES/bin/*(/); do
+    export PATH=$dir:$PATH
+  done
+  export PATH=$HOME/.rbenv/shims:$DOTFILES/bin:/usr/local/bin:/usr/local/sbin:$HOME/.cljr/bin:$PATH
+  [[ -d /opt/gradle    ]] && export PATH=/opt/gradle/bin:$PATH
+  [[ -d /opt/reply     ]] && export PATH=/opt/reply/bin:$PATH
+  [[ -d /opt/kindlegen ]] && export PATH=/opt/kindlegen:$PATH
+  [[ -d /opt/gae_go    ]] && export GOROOT=/opt/gae_go/goroot \
+    && export GOBIN=$GOROOT/bin && export PATH=/opt/gae_go:$GOBIN:$PATH
+  [[ $IS_MAC -eq 1 ]] && BREWGO=$(brew --prefix go) && \
+    [[ -d $BREWGO ]] && export GOROOT=$BREWGO && export GOBIN=$BREWGO/bin \
+    && export GOPATH=$GOROOT && export PATH=$GOBIN:$PATH
+  export SETPATH=1
+fi
 
 load_defaults
 load_aliases
