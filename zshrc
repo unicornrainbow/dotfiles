@@ -1,17 +1,23 @@
 export CODEDIR=$HOME/Code
+if [[ -e $HOME/.dotfiles_location ]]; then
+    export DOTFILES=$(cat $HOME/.dotfiles_location)
+else
+    export DOTFILES=$HOME/Code/dotfiles
+    echo "~/.dotfiles_location not found, reinstall dotfiles"
+fi
 export PYTHONDONTWRITEBYTECODE="yeah"
-export PYTHONSTARTUP=$CODEDIR/dotfiles/pythonrc.py
+export PYTHONSTARTUP=$DOTFILES/pythonrc.py
 export CLICOLOR="yes"
 export EDITOR="vim"
 export PAGER="less"
 
-for dir in $CODEDIR/dotfiles/bin/*; export PATH=$dir:$PATH
-source $CODEDIR/dotfiles/zshuery/zshuery.sh
-source $CODEDIR/dotfiles/bin/z/z.sh
+for dir in $DOTFILES/bin/*; export PATH=$dir:$PATH
+source $DOTFILES/zshuery/zshuery.sh
+source $DOTFILES/bin/z/z.sh
 load_defaults
 load_aliases
 load_lol_aliases
-load_completion $CODEDIR/dotfiles/zshuery/completion
+load_completion $DOTFILES/zshuery/completion
 load_correction
 
 prompts '%{$fg_bold[green]%}$(COLLAPSED_DIR)%{$reset_color%}$(virtualenv_info) %{$fg[yellow]%}$(prompt_char)%{$reset_color%} ' '%{$fg[red]%}$(ruby_version)%{$reset_color%}'
@@ -52,9 +58,9 @@ ale() {
 alea() { ale $1 Expenses:Apps $2 Assets:QIWI }
 aleg() { ale $1 Expenses:Games $2 Assets:QIWI }
 
-source $CODEDIR/dotfiles/vendor/zsh-hl/zsh-syntax-highlighting.zsh
-source $CODEDIR/dotfiles/vendor/zsh-hss/zsh-history-substring-search.zsh
-export PATH=$HOME/.rbenv/shims:$CODEDIR/dotfiles/bin:$CODEDIR:/usr/local/bin:/usr/local/sbin:$HOME/.cljr/bin:$PATH
+source $DOTFILES/vendor/zsh-hl/zsh-syntax-highlighting.zsh
+source $DOTFILES/vendor/zsh-hss/zsh-history-substring-search.zsh
+export PATH=$HOME/.rbenv/shims:$DOTFILES/bin:/usr/local/bin:/usr/local/sbin:$HOME/.cljr/bin:$PATH
 [[ -d /opt/gradle    ]] && export PATH=/opt/gradle/bin:$PATH
 [[ -d /opt/reply     ]] && export PATH=/opt/reply/bin:$PATH
 [[ -d /opt/kindlegen ]] && export PATH=/opt/kindlegen:$PATH

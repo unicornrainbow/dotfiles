@@ -1,4 +1,5 @@
 #!/bin/zsh
+pwd > ~/.dotfiles_location
 
 link() {
   rm $HOME/.$1
@@ -15,6 +16,7 @@ link zshrc
 link hgrc
 link ctags
 link gitconfig
+git config --global core.excludesfile $(pwd)/gitignore
 link teamocil
 link tmux.conf
 link vim
@@ -66,3 +68,4 @@ if [[ -d $QUAKE ]]; then
   link_custom quakelive.cfg $QUAKE/quakelive.cfg
   echo 'exec "quakelive.cfg"' > $QUAKE/autoexec.cfg
 fi
+echo "Installed dotfiles!"

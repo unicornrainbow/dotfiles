@@ -2,75 +2,76 @@
 # https://github.com/ornicar/dotfiles/blob/master/gitconfig
 
 [core]
-    excludesfile = ~/Code/dotfiles/gitignore
-    whitespace = fix,space-before-tab,tab-in-indent,trailing-space
-    legacyheaders = false
-    quotepath = false
-    pager = $PAGER
+	               # this path is changed by dotfiles installer
+	excludesfile = /Users/myfreeweb/Code/dotfiles/gitignore
+	whitespace = fix,space-before-tab,tab-in-indent,trailing-space
+	legacyheaders = false
+	quotepath = false
+	pager = $PAGER
 [repack]
-    usedeltabaseoffset = true
+	usedeltabaseoffset = true
 [apply]
-    whitespace = fix
+	whitespace = fix
 [user]
-    name = myfreeweb
-    email = floatboth@me.com
+	name = myfreeweb
+	email = floatboth@me.com
 [github]
-    user = myfreeweb
+	user = myfreeweb
 [difftool]
-    prompt = false
+	prompt = false
 [diff]
-    renames = copy
-    tool = vimdiff
-    wordRegex = [^[:space:]]
-    mnemonicprefix = true
+	renames = copy
+	tool = vimdiff
+	wordRegex = [^[:space:]]
+	mnemonicprefix = true
 [mergetool "threesome"]
-    cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
-    trustExitCode = true
+	cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
+	trustExitCode = true
 [merge]
-    summary = true
-    tool = threesome
+	summary = true
+	tool = threesome
 [push]
-    default = tracking
+	default = tracking
 [branch]
-    autosetupmerge = always
-    autosetuprebase = always
+	autosetupmerge = always
+	autosetuprebase = always
 [color]
-    ui = auto
-    interactive = auto
+	ui = auto
+	interactive = auto
 [alias]
-    a    = !git add --all && git status --short --branch
-    ca   = commit --amend
-    ci   = commit --all
-    cm   = commit --all -m
-    co   = checkout
-    nb   = checkout -b # newbranch
-    br   = branch --verbose
-    cp   = cherry-pick -x
-    d    = diff --color-words --staged
-    dh   = diff --color-words head
-    gwr  = !git remote -v | grep origin | grep push | sed -e 's/origin./ /' -e 's/https/git/' -e 's/com\\//com:/' -e 's/:\\/\\//@/' -e 's/ (push)//' | tail -c +2 | git remote set-url --push origin $(cat)
-    two  = diff --color-words HEAD@{1} HEAD@{0}
-    vd   = difftool
-    forget = rm --cached
-    l    = log --oneline --decorate --graph
-    last = log -n 10 --oneline
-    mt   = mergetool
-    pu   = !git push && git push --tags
-    rc   = rebase --continue
-    rs   = rebase --skip
-    rwt  = reset --hard HEAD # revert working tree
-    unci = reset --hard HEAD^ # uncommit
-    s    = status --short --branch --untracked-files=no --ignore-submodules=untracked
-    st   = status
-    sadd    = submodule add
-    smaster = submodule foreach --recursive git checkout master
-    spull   = submodule foreach --recursive git pull
-    sreset  = !git submodule foreach --recursive git checkout -- . && git submodule foreach --recursive git clean -f
-    sup     = !git submodule sync && git submodule update --init --recursive
-    sbr     = submodule foreach --recursive git rev-parse --abbrev-ref HEAD
-    t    = tag -n1 -list
-    tip  = log -n 1
+	a       = !git add --all && git status --short --branch
+	ca      = commit --amend
+	ci      = commit --all
+	cm      = commit --all -m
+	co      = checkout
+	nb      = checkout -b # newbranch
+	br      = branch --verbose
+	cp      = cherry-pick -x
+	d       = diff --color-words --staged
+	dh      = diff --color-words head
+	gwr     = !git remote -v | grep origin | grep push | sed -e 's/origin./ /' -e 's/https/git/' -e 's/com\\//com:/' -e 's/:\\/\\//@/' -e 's/ (push)//' | tail -c +2 | git remote set-url --push origin $(cat)
+	two     = diff --color-words HEAD@{1} HEAD@{0}
+	vd      = difftool
+	forget  = rm --cached
+	l       = log --oneline --decorate --graph
+	last    = log -n 10 --oneline
+	mt      = mergetool
+	pu      = !git push && git push --tags
+	rc      = rebase --continue
+	rs      = rebase --skip
+	rwt     = reset --hard HEAD  # revert working tree
+	unci    = reset --hard HEAD^ # uncommit
+	s       = status --short --branch --untracked-files=no --ignore-submodules=untracked
+	st      = status
+	sadd    = submodule add
+	smaster = submodule foreach --recursive git checkout master
+	spull   = submodule foreach --recursive git pull
+	sreset  = !git submodule foreach --recursive git checkout -- . && git submodule foreach --recursive git clean -f
+	sup     = !git submodule sync && git submodule update --init --recursive
+	sbr     = submodule foreach --recursive git rev-parse --abbrev-ref HEAD
+	t       = tag -n1 -list
+	tip     = log -n 1
 [url "git://github.com/"]
-    insteadOf = gh:
+	insteadOf = gh:
 [url "git@github.com:myfreeweb/"]
-    insteadOf = my:
+	insteadOf = my:
