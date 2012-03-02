@@ -21,21 +21,10 @@ export LESS="-mNR"
 export LEDGER_FILE=$HOME/Documents/my.ledger
 # }}}
 # Loading plugins, setting PATH {{{
-source $DOTFILES/zshuery/zshuery.sh
-source $DOTFILES/bin/z/z.sh
-source $DOTFILES/vendor/zsh-hl/zsh-syntax-highlighting.zsh
-
-load_defaults
-load_aliases
-load_lol_aliases
-load_completion $DOTFILES/zshuery/completion
-load_correction
-
 if [[ $SETPATH -ne 1 ]]; then
   for dir in $DOTFILES/bin/*(/); do
     export PATH=$dir:$PATH
   done
-  export PATH=$HOME/.rbenv/shims:$DOTFILES/bin:/usr/local/bin:/usr/local/sbin:$HOME/.cljr/bin:$PATH
   [[ -d /opt/gradle    ]] && export PATH=/opt/gradle/bin:$PATH
   [[ -d /opt/reply     ]] && export PATH=/opt/reply/bin:$PATH
   [[ -d /opt/kindlegen ]] && export PATH=/opt/kindlegen:$PATH
@@ -44,8 +33,20 @@ if [[ $SETPATH -ne 1 ]]; then
   [[ $IS_MAC -eq 1 ]] && BREWGO=$(brew --prefix go) && \
     [[ -d $BREWGO ]] && export GOROOT=$BREWGO && export GOBIN=$BREWGO/bin \
     && export GOPATH=$GOROOT && export PATH=$GOBIN:$PATH
+  export PATH=$DOTFILES/bin:/usr/local/bin:/usr/local/sbin:$HOME/.cljr/bin:$PATH
   export SETPATH=1
 fi
+
+source $DOTFILES/bin/z/z.sh
+source $DOTFILES/vendor/zsh-hl/zsh-syntax-highlighting.zsh
+source $DOTFILES/vendor/zsh-hss/zsh-history-substring-search.zsh
+source $DOTFILES/zshuery/zshuery.sh
+
+load_defaults
+load_aliases
+load_lol_aliases
+load_completion $DOTFILES/zshuery/completion
+load_correction
 # }}}
 # Custom settings, aliases and functions {{{
 if [[ $IS_MAC -eq 1 ]]; then
@@ -88,6 +89,5 @@ prompts '%{$fg_bold[green]%}$(COLLAPSED_DIR)%{$reset_color%}$(virtualenv_info) %
 setopt auto_pushd
 bindkey -e
 
-source $DOTFILES/vendor/zsh-hss/zsh-history-substring-search.zsh
 source $HOME/.zshrc.local
 # }}}
