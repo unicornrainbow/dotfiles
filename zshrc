@@ -24,7 +24,6 @@ export LEDGER_FILE=$HOME/Documents/my.ledger
 source $DOTFILES/zshuery/zshuery.sh
 source $DOTFILES/bin/z/z.sh
 source $DOTFILES/vendor/zsh-hl/zsh-syntax-highlighting.zsh
-source $DOTFILES/vendor/zsh-hss/zsh-history-substring-search.zsh
 
 if [[ $SETPATH -ne 1 ]]; then
   for dir in $DOTFILES/bin/*(/); do
@@ -89,5 +88,6 @@ prompts '%{$fg_bold[green]%}$(COLLAPSED_DIR)%{$reset_color%}$(virtualenv_info) %
 setopt auto_pushd
 bindkey -e
 
+source $DOTFILES/vendor/zsh-hss/zsh-history-substring-search.zsh
 source $HOME/.zshrc.local
 # }}}
