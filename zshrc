@@ -25,6 +25,12 @@ source $DOTFILES/zshuery/zshuery.sh
 source $DOTFILES/bin/z/z.sh
 source $DOTFILES/vendor/zsh-hl/zsh-syntax-highlighting.zsh
 
+load_defaults
+load_aliases
+load_lol_aliases
+load_completion $DOTFILES/zshuery/completion
+load_correction
+
 if [[ $SETPATH -ne 1 ]]; then
   for dir in $DOTFILES/bin/*(/); do
     export PATH=$dir:$PATH
@@ -40,12 +46,6 @@ if [[ $SETPATH -ne 1 ]]; then
     && export GOPATH=$GOROOT && export PATH=$GOBIN:$PATH
   export SETPATH=1
 fi
-
-load_defaults
-load_aliases
-load_lol_aliases
-load_completion $DOTFILES/zshuery/completion
-load_correction
 # }}}
 # Custom settings, aliases and functions {{{
 if [[ $IS_MAC -eq 1 ]]; then
