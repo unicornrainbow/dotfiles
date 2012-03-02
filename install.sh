@@ -16,7 +16,7 @@ link zshrc
 link hgrc
 link ctags
 link gitconfig
-git config --global core.excludesfile $(pwd)/gitignore
+link gitignore
 link teamocil
 link tmux.conf
 link vim

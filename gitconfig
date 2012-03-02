@@ -2,8 +2,7 @@
 # https://github.com/ornicar/dotfiles/blob/master/gitconfig
 
 [core]
-	               # this path is changed by dotfiles installer
-	excludesfile = /Users/myfreeweb/Code/dotfiles/gitignore
+	excludesfile = ~/.gitignore
 	whitespace = fix,space-before-tab,tab-in-indent,trailing-space
 	legacyheaders = false
 	quotepath = false
