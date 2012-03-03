@@ -1,4 +1,9 @@
+# thanks:
 # https://github.com/aziz/dotfiles/blob/master/irbrc
+# https://gist.github.com/807492
+# http://pastie.org/179534
+# https://github.com/rafmagana/irbrc/blob/master/dot_irbrc
+# https://github.com/cjameshuff/irbrc/blob/master/irbrc.rb
 
 require 'rubygems'
 require 'irb/completion'
@@ -28,8 +33,35 @@ class Object
   end
 end
 
+class Array
+  def self.toy(n=10, &block)
+    block_given? ? Array.new(n,&block) : Array.new(n) {|i| i+1}
+  end
+end
+
+class Hash
+  def self.toy(n=10)
+    Hash[Array.toy(n).zip(Array.toy(n){|c| (96+(c+1)).chr})]
+  end
+end
+
+def hex(x)
+  case x
+  when Numeric
+    "0x%x" % x
+  when Array
+    x.map{|y| hex(y)}
+  when Hash
+    x.keys.inject({}){|h, k| h[hex(k)] = hex(x[k]); h}
+  end
+end
+
+# Convert a value to a binary string, in groups of 4 bits separated by spaces
+def bin(x)
+  x.to_s(16).chars.to_a.map{|d| d.to_i(16).to_s(2).rjust(4, '0')}.join(' ')
+end
+
 # quick benchmarking
-# based on rue's irbrc => http://pastie.org/179534
 def bm(repetitions=100, &block)
   require 'benchmark'
   Benchmark.bmbm do |b|
@@ -59,32 +91,17 @@ def clear
 end
 alias c clear
 
-begin
-  require 'wirble'
-  Wirble.init
-  Wirble.colorize
-rescue LoadError => err
-  warn "Couldn't load Wirble: #{err}"
+%w{wirble sketches hirb hirb/import_object ap pp}.each do |lib|
+  begin
+    require lib
+  rescue LoadError => err
+    $stderr.puts "Couldn't load #{lib}: #{err}"
+  end
 end
 
-begin
-  require 'sketches'
-  Sketches.config :editor => ENV["EDITOR"]
-rescue LoadError => err
-  warn "Couldn't load Sketches: #{err}"
-end
-
-begin
-  require 'hirb'
-  require 'hirb/import_object'
-  Hirb.enable
-  extend Hirb::Console
-rescue LoadError => err
-  warn "Couldn't load Hirb: #{err}"
-end
-
-begin
-  require 'ap'
-rescue LoadError => err
-  warn "Couldn't load awesome_print: #{err}"
-end
+Wirble.init
+Wirble.colorize
+Sketches.config :editor => ENV["EDITOR"]
+Hirb.enable
+extend Hirb::Console
+IRB_START_TIME = Time.now
