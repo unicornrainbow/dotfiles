@@ -1,2 +1,0 @@
-#!/usr/bin/env zsh
-curl -s clojars.org/$1 | grep version | sed -e "s/<[a-z\/=\" ]*>//g" -e "s/&lt;[\/a-z]*&gt;//g"

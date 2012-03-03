@@ -79,6 +79,9 @@ ale() {
 }
 alea() { ale $1 Expenses:Apps $2 Assets:QIWI }
 aleg() { ale $1 Expenses:Games $2 Assets:QIWI }
+cljv() {
+  curl -s clojars.org/$1 | grep version | sed -e "s/<[a-z\/=\" ]*>//g" -e "s/&lt;[\/a-z]*&gt;//g"
+}
 
 chpwd() {
   update_terminal_cwd
