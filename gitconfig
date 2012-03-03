@@ -1,5 +1,6 @@
 # thanks:
 # https://github.com/ornicar/dotfiles/blob/master/gitconfig
+# https://github.com/paulirish/dotfiles/blob/master/.gitconfig
 
 [core]
 	excludesfile = ~/.gitignore
@@ -72,5 +73,7 @@
 	tip     = log -n 1
 [url "git://github.com/"]
 	insteadOf = gh:
+[url "git@github.com:"]
+	pushInsteadOf = "git://github.com/"
 [url "git@github.com:myfreeweb/"]
 	insteadOf = my:
