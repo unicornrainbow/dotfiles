@@ -91,7 +91,7 @@ def clear
 end
 alias c clear
 
-%w{wirble sketches hirb hirb/import_object ap pp}.each do |lib|
+%w{wirble sketches hirb hirb/import_object ap pp what_methods map_by_method}.each do |lib|
   begin
     require lib
   rescue LoadError => err
