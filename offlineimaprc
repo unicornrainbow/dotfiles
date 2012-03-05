@@ -5,6 +5,8 @@
 
 [general]
 accounts = WM, iCloud
+ui = Basic
+maxsyncaccounts = 1
 
 [mbnames]
 enabled = yes
@@ -17,35 +19,41 @@ footer = "\n"
 [Account WM]
 localrepository = WM-Local
 remoterepository = WM-Remote
+autorefresh = 5
+quick = 10
 
 [Repository WM-Local]
 type = Maildir
 localfolders = ~/Mail/WM
 
 [Repository WM-Remote]
+keepalive = 60
 type = IMAP
 ssl = yes
 remotehost = mail.wm.ru
 remoteuser = greg@wm.ru
 remoteport = 993
 realdelete = no
-nametrans = lambda f: re.sub('^inbox$', 'INBOX',
-                      re.sub('^inbox\.', '', f.lower()))
+nametrans = lambda f: re.sub('^INBOX$', 'INBOX',
+                      re.sub('^INBOX\.', '', f))
 
 [Account iCloud]
 localrepository = iCloud-Local
 remoterepository = iCloud-Remote
+autorefresh = 5
+quick = 10
 
 [Repository iCloud-Local]
 type = Maildir
 localfolders = ~/Mail/iCloud
 
 [Repository iCloud-Remote]
+keepalive = 60
 type = IMAP
 ssl = yes
 remotehost = imap.mail.me.com
 remoteuser = floatboth@me.com
 remoteport = 993
 realdelete = no
-nametrans = lambda f: re.sub('^inbox$', 'INBOX',
-                      re.sub('^inbox\.', '', f.lower()))
+nametrans = lambda f: re.sub('^INBOX$', 'INBOX',
+                      re.sub('^INBOX.', '', f))

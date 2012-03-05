@@ -18,6 +18,7 @@ export LESS_TERMCAP_so=$'\E[38;5;246m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[04;33;146m'
 export LESS="-mNR"
+export LANG="en_US.UTF-8"
 export LEDGER_FILE=$HOME/Documents/my.ledger
 # }}}
 # Loading plugins, setting PATH {{{
@@ -39,7 +40,6 @@ fi
 
 source $DOTFILES/bin/z/z.sh
 source $DOTFILES/vendor/zsh-hl/zsh-syntax-highlighting.zsh
-source $DOTFILES/vendor/zsh-hss/zsh-history-substring-search.zsh
 source $DOTFILES/zshuery/zshuery.sh
 
 load_defaults
@@ -92,5 +92,6 @@ prompts '%{$fg_bold[green]%}$(COLLAPSED_DIR)%{$reset_color%}$(virtualenv_info) %
 setopt auto_pushd
 bindkey -e
 
+source $DOTFILES/vendor/zsh-hss/zsh-history-substring-search.zsh
 source $HOME/.zshrc.local
 # }}}

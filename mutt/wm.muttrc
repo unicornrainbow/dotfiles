@@ -1,7 +1,7 @@
-set sendmail = "/usr/local/bin/msmtp -a WM"
+set sendmail = "/usr/local/bin/msmtp -a WM -d"
 set from = "greg@wm.ru"
-set postponed = "+WM/drafts"
-set record = "+WM/sent"
+set postponed = "+WM/Drafts"
+set record = "+WM/Sent"
 
-macro index A "<save-message>+WM/archive<enter>" "archive"
-macro index D "<save-message>+WM/deleted messages<enter>" "trash"
+macro index A "<save-message>+WM/Archive<enter>" "archive"
+macro index D "<save-message>+WM/Deleted Messages<enter>" "trash"

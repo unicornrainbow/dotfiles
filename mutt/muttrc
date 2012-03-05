@@ -24,6 +24,11 @@ alternative_order text/plain text/enriched text/html
 set sidebar_delim = '  │'
 set sidebar_visible
 set sidebar_width = 20
+set rfc2047_parameters
+charset-hook US-ASCII     ISO-8859-1
+charset-hook x-unknown    ISO-8859-1
+charset-hook windows-1251 CP1251
+set config_charset = utf-8
 
 ## formats
 set date_format = "%m/%d"
@@ -55,7 +60,6 @@ auto_view text/html
 
 # sending
 set sendmail = /usr/local/bin/msmtp
-set use_from
 set envelope_from
 unset mime_forward
 set include
@@ -68,6 +72,7 @@ set sig_dashes
 set edit_headers
 set fast_reply
 set askcc
+set send_charset = "utf-8:windows-1251:us-ascii:iso-8859-1"
 
 # identity
 alternates ^greg@wm\\.ru$ ^floatboth@me\\.com$

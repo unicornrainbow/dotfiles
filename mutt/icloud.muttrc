@@ -1,7 +1,7 @@
 set sendmail = "/usr/local/bin/msmtp -a iCloud"
 set from = "floatboth@me.com"
-set postponed = "+iCloud/drafts"
-set record = "+iCloud/sent messages"
+set postponed = "+iCloud/Drafts"
+set record = "+iCloud/Sent Messages"
 
-macro index A "<save-message>+iCloud/archive<enter>" "archive"
-macro index D "<save-message>+iCloud/deleted messages<enter>" "trash"
+macro index A "<save-message>+iCloud/Archive<enter>" "archive"
+macro index D "<save-message>+iCloud/Deleted Messages<enter>" "trash"

@@ -1,7 +1,8 @@
 # thanks:
 # http://linsec.ca/files/d/dc/Mailcap
+# http://www.linux.org.ru/forum/desktop/4369866
 
-text/html; lynx -dump %s; nametemplate=%s.html; copiousoutput
+text/html; cat '%s' | iconv -f %{charset} -t utf8 | w3m -dump -T text/html; nametemplate=%s.html; copiousoutput
 image/jpeg; open %s
 image/pjpeg; open %s
 image/png; open %s
