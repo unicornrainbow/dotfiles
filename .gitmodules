@@ -175,6 +175,3 @@
 [submodule "zshuery"]
 	path = zshuery
 	url = https://github.com/myfreeweb/zshuery
-[submodule "vim/bundle/python-mode"]
-	path = vim/bundle/python-mode
-	url = https://github.com/klen/python-mode.git
