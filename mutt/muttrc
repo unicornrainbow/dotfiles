@@ -83,6 +83,6 @@ set reverse_name
 folder-hook iCloud/* source ~/.mutt/icloud.muttrc
 folder-hook WM/* source ~/.mutt/wm.muttrc
 
-source ~/.mutt/solarized/mutt-colors-solarized-light-16.muttrc
+source ~/.mutt/solarized/mutt-colors-solarized-`if [[ $SOLARIZED == "" ]]; then echo "light"; else echo $SOLARIZED; fi`-16.muttrc
 source ~/.mailboxes.muttrc
 source ~/.local.muttrc

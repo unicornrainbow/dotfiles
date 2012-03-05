@@ -2,6 +2,7 @@ set sendmail = "/usr/local/bin/msmtp -a WM -d"
 set from = "greg@wm.ru"
 set postponed = "+WM/Drafts"
 set record = "+WM/Sent"
+set user_agent = no # WTF
 
 macro index A "<save-message>+WM/Archive<enter>" "archive"
 macro index D "<save-message>+WM/Deleted Messages<enter>" "trash"

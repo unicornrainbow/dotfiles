@@ -38,8 +38,9 @@
 [color]
 	ui = auto
 	interactive = auto
+
 [alias]
-	a       = !git add --all && git status --short --branch
+	a       = !git add --all && git s
 	ca      = commit --amend
 	ci      = commit --all
 	cm      = commit --all -m
@@ -47,7 +48,8 @@
 	nb      = checkout -b # newbranch
 	br      = branch --verbose
 	cp      = cherry-pick -x
-	d       = diff --color-words --staged
+	d       = diff --color-words
+	dc      = diff --color-words --cached
 	dh      = diff --color-words head
 	gwr     = !git remote -v | grep origin | grep push | sed -e 's/origin./ /' -e 's/https/git/' -e 's/com\\//com:/' -e 's/:\\/\\//@/' -e 's/ (push)//' | tail -c +2 | git remote set-url --push origin $(cat)
 	two     = diff --color-words HEAD@{1} HEAD@{0}
@@ -61,7 +63,7 @@
 	rs      = rebase --skip
 	rwt     = reset --hard HEAD  # revert working tree
 	unci    = reset --hard HEAD^ # uncommit
-	s       = status --short --branch --untracked-files=no --ignore-submodules=untracked
+	s       = status --short --branch --ignore-submodules=untracked
 	st      = status
 	sadd    = submodule add
 	smaster = submodule foreach --recursive git checkout master
@@ -71,6 +73,7 @@
 	sbr     = submodule foreach --recursive git rev-parse --abbrev-ref HEAD
 	t       = tag -n1 -list
 	tip     = log -n 1
+
 [url "git://github.com/"]
 	insteadOf = gh:
 [url "git@github.com:"]

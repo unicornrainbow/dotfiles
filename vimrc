@@ -184,9 +184,12 @@ let g:Powerline_symbols='fancy'
 let delimitMate_excluded_ft='clojure'
 " }}}
 
+colorscheme solarized
+set background=light
+if $SOLARIZED != ""
+  set background="{$SOLARIZED}"
+endif
+
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
-
-colorscheme solarized
-set background=light
