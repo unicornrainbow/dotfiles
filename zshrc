@@ -64,6 +64,7 @@ alias v="vim"
 alias l="ls"
 alias g="git"
 alias p="popd"
+alias r="rails"
 alias ci="git commit -am"
 alias gaes="dev_appserver.py -a 0.0.0.0 ."
 psack() {

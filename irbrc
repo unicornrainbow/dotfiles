@@ -99,9 +99,12 @@ alias c clear
   end
 end
 
-Wirble.init
-Wirble.colorize
-Sketches.config :editor => ENV["EDITOR"]
-Hirb.enable
-extend Hirb::Console
+begin
+  Wirble.init
+  Wirble.colorize
+  Sketches.config :editor => ENV["EDITOR"]
+  Hirb.enable
+  extend Hirb::Console
+rescue LoadError => err
+end
 IRB_START_TIME = Time.now
