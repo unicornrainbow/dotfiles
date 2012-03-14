@@ -1,5 +1,6 @@
 .DS_Store
 *.pyc
+*.pyo
 *.rbc
 *.class
 .rake_tasks
@@ -10,6 +11,16 @@
 *.swo
 *.o
 *.bak
+*.a
+*.so
+*.mo
+.coverage
+.tox
+.lein-deps-sum
+*.egg
+*.egg-info
+node_modules
+npm-debug.log
 tags
 TAGS
 .netrwhist
