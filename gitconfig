@@ -40,7 +40,8 @@
 	interactive = auto
 
 [alias] # object -> verb -> option
-	# common verbs: [c]reate, [l]ist, [d]iff, [r]eset
+	# like vim commands
+	# common verbs: [c]reate, [l]ist, [d]iff, [r]eset/[r]emove
 	# [b]ranch
 	bc  = checkout -b
 	bl  = branch --verbose
@@ -58,13 +59,13 @@
 	cr  = reset --hard HEAD^
 	# [f]ile
 	fa  = !git add --all && git ws
-	ff  = rm --cached
-	fm  = mv
+	ff  = rm --cached # [f]orget
+	fm  = mv # [m]ove
 	fr  = rm
 	# [r]emote
 	r   = remote
-	ra  = remote add
-	rao = remote add origin
+	rc  = remote add
+	rco = remote add origin
 	rr  = remote rm
 	rp  = !git push && git push --tags
 	# [s]ubmodule
@@ -72,8 +73,8 @@
 	scm = submodule foreach --recursive git checkout master
 	sl  = submodule --quiet foreach --recursive echo $path  on  $(git rev-parse --abbrev-ref HEAD)
 	sr  = !git submodule foreach --recursive git checkout -- . && git submodule foreach --recursive git clean -f
-	ss  = !git submodule sync && git submodule update --init --recursive
-	su  = submodule foreach --recursive git pull
+	ss  = !git submodule sync && git submodule update --init --recursive # [s]ync
+	su  = submodule foreach --recursive git pull # [u]pdate
 	# [t]ag
 	tc  = tag
 	tl  = tag -n1 -list
