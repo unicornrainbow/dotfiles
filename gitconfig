@@ -39,40 +39,49 @@
 	ui = auto
 	interactive = auto
 
-[alias]
-	a       = !git add --all && git s
-	ca      = commit --amend
-	ci      = commit --all
-	cm      = commit --all -m
-	co      = checkout
-	nb      = checkout -b # newbranch
-	br      = branch --verbose
-	cp      = cherry-pick -x
-	d       = diff --color-words
-	dc      = diff --color-words --cached
-	dh      = diff --color-words head
-	gwr     = !git remote -v | grep origin | grep push | sed -e 's/origin./ /' -e 's/https/git/' -e 's/com\\//com:/' -e 's/:\\/\\//@/' -e 's/ (push)//' | tail -c +2 | git remote set-url --push origin $(cat)
-	two     = diff --color-words HEAD@{1} HEAD@{0}
-	vd      = difftool
-	forget  = rm --cached
-	l       = log --oneline --decorate --graph
-	last    = log -n 10 --oneline
-	mt      = mergetool
-	pu      = !git push && git push --tags
-	rc      = rebase --continue
-	rs      = rebase --skip
-	rwt     = reset --hard HEAD  # revert working tree
-	unci    = reset --hard HEAD^ # uncommit
-	s       = status --short --branch --ignore-submodules=untracked
-	st      = status
-	sadd    = submodule add
-	smaster = submodule foreach --recursive git checkout master
-	spull   = submodule foreach --recursive git pull
-	sreset  = !git submodule foreach --recursive git checkout -- . && git submodule foreach --recursive git clean -f
-	sup     = !git submodule sync && git submodule update --init --recursive
-	sbr     = submodule foreach --recursive git rev-parse --abbrev-ref HEAD
-	t       = tag -n1 -list
-	tip     = log -n 1
+[alias] # object -> verb -> option
+	# common verbs: [c]reate, [l]ist, [d]iff, [r]eset
+	# [b]ranch
+	bc  = checkout -b
+	bl  = branch --verbose
+	bm  = merge
+	bmt = mergetool
+	brc = rebase --continue
+	brs = rebase --skip
+	bs  = checkout # [s]witch
+	# [c]ommit
+	ca  = commit --amend
+	cc  = commit
+	cd  = diff --color-words
+	cl  = log --oneline --decorate --graph
+	cp  = cherry-pick -x
+	cr  = reset --hard HEAD^
+	# [f]ile
+	fa  = !git add --all && git ws
+	ff  = rm --cached
+	fm  = mv
+	fr  = rm
+	# [r]emote
+	r   = remote
+	ra  = remote add
+	rao = remote add origin
+	rr  = remote rm
+	rp  = !git push && git push --tags
+	# [s]ubmodule
+	sc  = submodule add
+	scm = submodule foreach --recursive git checkout master
+	sl  = submodule --quiet foreach --recursive echo $path  on  $(git rev-parse --abbrev-ref HEAD)
+	sr  = !git submodule foreach --recursive git checkout -- . && git submodule foreach --recursive git clean -f
+	ss  = !git submodule sync && git submodule update --init --recursive
+	su  = submodule foreach --recursive git pull
+	# [t]ag
+	tc  = tag
+	tl  = tag -n1 -list
+	tr  = tag -d
+	# [w]orking copy
+	wd  = diff --color-words --cached
+	wr  = reset --hard HEAD
+	ws  = status --short --branch --ignore-submodules=untracked
 
 [url "git://github.com/"]
 	insteadOf = gh:
