@@ -59,6 +59,10 @@ if [[ $IS_MAC -eq 1 ]]; then
   alias kindlegen="nolib kindlegen"
 fi
 
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '\C-x\C-e' edit-command-line
+
 alias rmswp="rm ~/.vim/tmp/swap/*"
 alias collapse="sed -e 's/  */ /g'"
 alias v="vim"
