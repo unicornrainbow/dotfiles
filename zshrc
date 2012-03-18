@@ -59,10 +59,6 @@ if [[ $IS_MAC -eq 1 ]]; then
   alias kindlegen="nolib kindlegen"
 fi
 
-autoload -U edit-command-line
-zle -N edit-command-line
-bindkey '\C-x\C-e' edit-command-line
-
 alias rmswp="rm ~/.vim/tmp/swap/*"
 alias collapse="sed -e 's/  */ /g'"
 alias v="vim"
@@ -98,7 +94,10 @@ chpwd() {
 
 prompts '%{$fg_bold[green]%}$(COLLAPSED_DIR)%{$reset_color%} %{$fg[yellow]%}$(prompt_char)%{$reset_color%} ' '%{$fg[red]%}$(ruby_version)%{$reset_color%}'
 setopt auto_pushd
-bindkey -e
+bindkey -v
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
 
 source $DOTFILES/vendor/zsh-hss/zsh-history-substring-search.zsh
 source $HOME/.zshrc.local
