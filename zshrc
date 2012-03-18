@@ -6,7 +6,8 @@ else
   export DOTFILES=$HOME/Code/dotfiles
   echo "~/.dotfiles_location not found, reinstall dotfiles"
 fi
-export PYTHONDONTWRITEBYTECODE="yeah"
+export PYTHONDONTWRITEBYTECODE=true
+export VIRTUALENV_DISTRIBUTE=true
 export PYTHONSTARTUP=$DOTFILES/pythonrc.py
 export CLICOLOR="yes"
 export EDITOR="vim"
