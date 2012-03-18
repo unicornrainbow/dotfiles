@@ -57,7 +57,8 @@
 	cp  = cherry-pick -x
 	cr  = reset --hard HEAD^
 	# [f]ile
-	fa  = !git add --all && git ws
+	fa  = add
+	faa = !git add --all && git ws
 	ff  = rm --cached # [f]orget
 	fm  = mv # [m]ove
 	fr  = rm
