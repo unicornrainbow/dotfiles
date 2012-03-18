@@ -40,7 +40,6 @@
 	interactive = auto
 
 [alias] # object -> verb -> option
-	# like vim commands
 	# common verbs: [c]reate, [l]ist, [d]iff, [r]eset/[r]emove
 	# [b]ranch
 	bc  = checkout -b
