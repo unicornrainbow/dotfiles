@@ -79,7 +79,7 @@
 	su  = submodule foreach --recursive git pull # [u]pdate
 	# [t]ag
 	tc  = tag
-	tl  = tag -n1 -list
+	tl  = tag -n1 --list
 	tr  = tag -d
 	# [w]orking copy
 	wd  = diff --color-words --cached
