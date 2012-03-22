@@ -29,6 +29,7 @@ charset-hook US-ASCII     ISO-8859-1
 charset-hook x-unknown    ISO-8859-1
 charset-hook windows-1251 CP1251
 set config_charset = utf-8
+set editor = "$EDITOR +/^$"
 
 ## formats
 set date_format = "%m/%d"
@@ -55,6 +56,12 @@ bind pager n next-entry
 bind pager gg top
 bind pager G bottom
 macro pager \Cu "|urlview<enter>"
+macro index / \
+      "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch --prompt search<enter><change-folder-readonly>~/.cache/mutt_results<enter>" \
+      "search mail (using notmuch)"
+macro index T \
+      "<enter-command>unset wait_key<enter><pipe-message>mutt-notmuch thread<enter><change-folder-readonly>~/.cache/mutt_results<enter><enter-command>set wait_key<enter>" \
+      "search and reconstruct owning thread (using notmuch)"
 
 # attachments
 set mailcap_path = ~/.mutt/mailcap

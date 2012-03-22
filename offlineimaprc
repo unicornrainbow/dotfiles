@@ -17,6 +17,7 @@ sep = " "
 footer = "\n"
 
 [Account WM]
+postsynchook = notmuch new
 localrepository = WM-Local
 remoterepository = WM-Remote
 autorefresh = 5
@@ -38,6 +39,7 @@ nametrans = lambda f: re.sub('^INBOX$', 'INBOX',
                       re.sub('^INBOX\.', '', f))
 
 [Account iCloud]
+postsynchook = notmuch new
 localrepository = iCloud-Local
 remoterepository = iCloud-Remote
 autorefresh = 5
