@@ -46,6 +46,8 @@
 	bl  = branch --verbose
 	bm  = merge
 	bmt = mergetool
+	br  = branch -d
+	bR  = branch -D
 	brc = rebase --continue
 	brs = rebase --skip
 	bs  = checkout # [s]witch

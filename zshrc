@@ -8,6 +8,7 @@ else
 fi
 export PYTHONDONTWRITEBYTECODE=true
 export VIRTUALENV_DISTRIBUTE=true
+export PIP_USE_MIRRORS=true
 export PYTHONSTARTUP=$DOTFILES/pythonrc.py
 export CLICOLOR="yes"
 export EDITOR="vim"
