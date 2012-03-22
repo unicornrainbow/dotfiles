@@ -50,6 +50,8 @@ bind index G last-entry
 bind pager / search
 bind pager k next-line
 bind pager j previous-line
+bind pager p previous-entry
+bind pager n next-entry
 bind pager gg top
 bind pager G bottom
 macro pager \Cu "|urlview<enter>"
