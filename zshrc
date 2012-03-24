@@ -102,4 +102,8 @@ bindkey -M vicmd v edit-command-line
 
 source $DOTFILES/vendor/zsh-hss/zsh-history-substring-search.zsh
 source $HOME/.zshrc.local
+
+if [[ -e $(which fortune) ]]; then
+  fortune | (cowsay || cat) 2&> /dev/null | (lolcat || cat) 2&>/dev/null
+fi
 # }}}
