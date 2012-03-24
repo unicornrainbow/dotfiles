@@ -25,6 +25,7 @@ backup_last_file() {
 APPSUP=$HOME/Library/Application\ Support
 
 backup_file $HOME/Documents/my.ledger
-backup_dir private-code $CODEDIR/private
 backup_last_file textexpander $APPSUP/TextExpander/Backups
 backup_last_file 1password $APPSUP/1Password/Backups
+get_ohlife.py > $HOME/.ohlife.txt
+backup_file $HOME/.ohlife.txt
