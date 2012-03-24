@@ -8,7 +8,10 @@ set mbox_type = Maildir
 set record = +sent
 set postponed = +drafts
 set nomove
-set delete = ask-yes
+set delete
+set noconfirmappend
+set nomark_old
+set quit
 set sort = threads
 set sort_aux = reverse-last-date-received
 set sort_re
@@ -60,10 +63,10 @@ bind pager gg top
 bind pager G bottom
 macro pager \Cu "|urlview<enter>"
 macro index / \
-      "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch --prompt search<enter><change-folder-readonly>~/.cache/mutt_results<enter>" \
+      "<enter-command>set nowait_key<enter><shell-escape>mutt-notmuch --prompt search<enter><change-folder-readonly>~/.cache/mutt_results<enter>" \
       "search mail (using notmuch)"
 macro index T \
-      "<enter-command>unset wait_key<enter><pipe-message>mutt-notmuch thread<enter><change-folder-readonly>~/.cache/mutt_results<enter><enter-command>set wait_key<enter>" \
+      "<enter-command>set nowait_key<enter><pipe-message>mutt-notmuch thread<enter><change-folder-readonly>~/.cache/mutt_results<enter><enter-command>set wait_key<enter>" \
       "search and reconstruct owning thread (using notmuch)"
 
 # attachments
@@ -74,7 +77,7 @@ auto_view text/html
 set query_command = '~/Code/dotfiles/bin/addressbook.py | grep %s'
 set sendmail = /usr/local/bin/msmtp
 set envelope_from
-unset mime_forward
+set nomime_forward
 set include
 set forward_quote
 set forward_format = "Fwd: %s"

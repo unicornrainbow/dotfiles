@@ -20,15 +20,12 @@ footer = "\n"
 postsynchook = notmuch new
 localrepository = WM-Local
 remoterepository = WM-Remote
-autorefresh = 5
-quick = 10
 
 [Repository WM-Local]
 type = Maildir
 localfolders = ~/Mail/WM
 
 [Repository WM-Remote]
-keepalive = 60
 type = IMAP
 ssl = yes
 remotehost = mail.wm.ru
@@ -42,15 +39,12 @@ nametrans = lambda f: re.sub('^INBOX$', 'INBOX',
 postsynchook = notmuch new
 localrepository = iCloud-Local
 remoterepository = iCloud-Remote
-autorefresh = 5
-quick = 10
 
 [Repository iCloud-Local]
 type = Maildir
 localfolders = ~/Mail/iCloud
 
 [Repository iCloud-Remote]
-keepalive = 60
 type = IMAP
 ssl = yes
 remotehost = imap.mail.me.com
