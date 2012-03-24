@@ -30,6 +30,7 @@ charset-hook x-unknown    ISO-8859-1
 charset-hook windows-1251 CP1251
 set config_charset = utf-8
 set editor = "$EDITOR +/^$"
+set auto_tag
 
 ## formats
 set date_format = "%m/%d"
@@ -48,6 +49,8 @@ bind index k next-entry
 bind index j previous-entry
 bind index gg first-entry
 bind index G last-entry
+bind attach k next-entry
+bind attach j previous-entry
 bind pager / search
 bind pager k next-line
 bind pager j previous-line
@@ -68,6 +71,7 @@ set mailcap_path = ~/.mutt/mailcap
 auto_view text/html
 
 # sending
+set query_command = '~/Code/dotfiles/bin/addressbook.py | grep %s'
 set sendmail = /usr/local/bin/msmtp
 set envelope_from
 unset mime_forward

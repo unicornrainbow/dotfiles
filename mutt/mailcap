@@ -14,5 +14,6 @@ application/excel; open %s
 application/vnd.ms-exc; open %s
 application/vnd.ms-excel; open %s
 application/msword; open %s
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; open %s
 application/pdf; open %s
 application/octet-stream; open %s
