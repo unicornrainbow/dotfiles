@@ -1,4 +1,7 @@
 #!/usr/bin/env zsh
+# This came from Greg V's dotfiles:
+#      https://github.com/myfreeweb/dotfiles
+# Feel free to steal it, but attribution is nice
 BACKUP_DIR=$HOME/.backup_cache
 mkdir -p $BACKUP_DIR
 cachepath() {

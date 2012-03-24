@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+# This came from Greg V's dotfiles:
+#      https://github.com/myfreeweb/dotfiles
+# Feel free to steal it, but attribution is nice
 import os
 import sys
 import urllib2
