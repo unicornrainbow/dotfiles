@@ -62,6 +62,7 @@ fi
 
 alias rmswp="rm ~/.vim/tmp/swap/*"
 alias collapse="sed -e 's/  */ /g'"
+alias iaw="open -a 'iA Writer'"
 alias v="vim"
 alias l="ls"
 alias g="git"
