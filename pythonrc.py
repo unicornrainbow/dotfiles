@@ -1,3 +1,7 @@
+# This came from Greg V's dotfiles:
+#      https://github.com/myfreeweb/dotfiles
+# Feel free to steal it, but attribution is nice
+#
 # thanks:
 # https://github.com/zacharyvoase/dotfiles/blob/master/pythonrc
 # https://github.com/sontek/dotfiles/blob/master/_pythonrc.py

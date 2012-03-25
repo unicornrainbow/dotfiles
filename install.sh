@@ -22,7 +22,6 @@ link tmux.conf
 link vim
 link vimrc
 link gvimrc
-link irbrc
 link inputrc
 link nethackrc
 link pentadactylrc
@@ -35,6 +34,7 @@ link offlineimaprc
 link msmtprc
 link mutt
 link_custom mutt/muttrc $HOME/.muttrc
+link_custom irbrc.rb $HOME/.irbrc
 
 mkdir -p $HOME/.ssh
 link_custom ssh_config $HOME/.ssh/config

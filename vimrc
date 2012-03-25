@@ -1,3 +1,7 @@
+" This came from Greg V's dotfiles:
+"      https://github.com/myfreeweb/dotfiles
+" Feel free to steal it, but attribution is nice
+"
 " thanks:
 " http://bitbucket.org/sjl/dotfiles
 " https://github.com/daveray/vimfiles
