@@ -164,7 +164,7 @@ au BufRead,BufNewFile *.gradle setf groovy
 au BufRead,BufNewFile *.muttrc setf muttrc
 au BufRead,BufNewFile quakelive.cfg setf quake
 au BufRead,BufNewFile *.{css,sass,scss,less,styl} setlocal omnifunc=csscomplete#CompleteCSS
-au BufRead,BufNewFile {*.go,Makefile} setlocal noexpandtab
+au BufRead,BufNewFile {*.go,Makefile,.git*,gitconfig} setlocal noexpandtab
 au BufRead,BufNewFile *.{jar,war,ear,sar} setf zip
 au BufRead,BufNewFile {,.}zshrc setlocal foldmethod=marker
 au BufWritePost {g,.g,,.}vimrc source $MYVIMRC
