@@ -175,3 +175,15 @@
 [submodule "vim/bundle/commentary"]
 	path = vim/bundle/commentary
 	url = git://github.com/tpope/vim-commentary.git
+[submodule "vim/bundle/eunuch"]
+	path = vim/bundle/eunuch
+	url = git://github.com/tpope/vim-eunuch.git
+[submodule "vim/bundle/bundler"]
+	path = vim/bundle/bundler
+	url = git://github.com/tpope/vim-bundler.git
+[submodule "vim/bundle/rails"]
+	path = vim/bundle/rails
+	url = git://github.com/tpope/vim-rails.git
+[submodule "vim/bundle/git"]
+	path = vim/bundle/git
+	url = git://github.com/tpope/vim-git.git
