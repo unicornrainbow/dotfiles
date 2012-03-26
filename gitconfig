@@ -78,7 +78,7 @@
 	sc  = submodule add
 	scm = submodule foreach --recursive git checkout master
 	sl  = submodule --quiet foreach --recursive echo $path  on  $(git rev-parse --abbrev-ref HEAD)
-	sr  = !git submodule foreach --recursive git checkout -- . && git submodule foreach --recursive git clean -f
+	sr  = submodulerm
 	ss  = !git submodule sync && git submodule update --init --recursive # [s]ync
 	su  = submodule foreach --recursive git pull # [u]pdate
 	# [t]ag
