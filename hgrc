@@ -33,8 +33,30 @@ threesome.priority = 1
 
 [defaults]
 rebase = --keepbranches
-addremove = --similarity 100
+addremove = --similarity 95
 
-[alias]
-ignore = ![ -n "$@" ] && echo '$@' >> `$HG root`/.hgignore && \
-          $HG commit `$HG root`/.hgignore -Am 'Add "$@" to .hgignore.'
+[alias] # object -> verb -> option
+# common verbs: [c]reate, [l]ist, [d]iff, [r]eset/[r]emove
+# [b]ranch
+bc  = branch
+bl  = branches
+bm  = merge
+bmt = merge -t threesome
+br  = !export OLDBR=`hg branch` && hg update $1 && hg commit --close-branch -m 'Close $1' && hg update $OLDBR
+bs  = update # [s]witch
+# [c]ommit
+cc  = commit
+cd  = diff
+cl  = glog --style compact
+cr  = rollback
+# [f]ile
+fa  = add
+faa = add
+ff  = forget
+fi  = ![ -n "$@" ] && echo '$@' >> `$HG root`/.hgignore && $HG commit `$HG root`/.hgignore -Am 'Add "$@" to .hgignore.'
+fm  = mv
+fr  = rm
+# [w]orking copy
+wd  = diff
+wr  = update --clean
+ws  = status

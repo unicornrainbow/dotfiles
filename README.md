@@ -10,7 +10,7 @@ There are many. And most of them can be installed with [babushka](http://babushk
 But are you really going to use all my dotfiles? No. You're not me. You should steal the good parts instead :-)
 
 ## The good parts
-- git alias system, one letter == one thing, like vi commands, but the object comes before the verb, which makes more sense for version control
+- git&hg alias system, one letter == one thing, like vi commands, but the object comes before the verb, which makes more sense for version control
 - extremely awesome `irb` (ruby), `python`, `lein` (clojure), `re.pl` (perl) configs
 - [powerline](https://github.com/Lokaltog/vim-powerline) in vim and a similar thing for tmux, stolen from [sjl/dotfiles](https://github.com/sjl/dotfiles/), but with keyboard layout instead of music and mail. cool if you're bilingual. customize `bin/keylayout.sh` for your language if it's not russian.
 - [Tarsnap](http://www.tarsnap.com/)-based backup script `bin/backup.sh` and backup deletion script `bin/rmbackups.sh`
