@@ -1,3 +1,10 @@
+# This came from Greg V's dotfiles:
+#      https://github.com/myfreeweb/dotfiles
+# Feel free to steal it, but attribution is nice
+#
+# thanks:
+# http://selena.deckelmann.usesthis.com/
+
 # Variables {{{
 export CODEDIR=$HOME/Code
 if [[ -e $HOME/.dotfiles_location ]]; then
@@ -94,7 +101,16 @@ chpwd() {
   z --add "$(pwd -P)"
 }
 
-prompts '%{$fg_bold[green]%}$(COLLAPSED_DIR)%{$reset_color%} %{$fg[yellow]%}$(prompt_char)%{$reset_color%} ' '%{$fg[red]%}$(ruby_version)%{$reset_color%}'
+precmd() {
+  if [[ $? == 0 ]]; then
+    SMILEY=')'
+  else
+    SMILEY='('
+  fi
+}
+
+
+prompts '%{$fg_bold[green]%}$(COLLAPSED_DIR)%{$reset_color%} %{$fg[yellow]%}:$SMILEY%{$reset_color%} ' '%{$fg[red]%}$(ruby_version)%{$reset_color%}'
 setopt auto_pushd
 bindkey -v
 autoload -U edit-command-line
