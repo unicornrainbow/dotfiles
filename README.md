@@ -1,5 +1,7 @@
 # myfreeweb/dotfiles
 
+![Screenshot](http://mfwb.us/xDUL+)
+
 ## Installation
     git submodule update --init --recursive
     ./install.sh
