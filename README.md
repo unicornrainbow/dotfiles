@@ -1,6 +1,6 @@
 # myfreeweb/dotfiles
 
-![Screenshot](http://mfwb.us/xDUL+)
+![Screenshot](http://cdn.lts.cr/files/0207c6695206e018dce8/Screenshot.png)
 
 ## Installation
     git submodule update --init --recursive
