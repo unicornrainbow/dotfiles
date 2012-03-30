@@ -189,8 +189,8 @@ let delimitMate_excluded_ft='clojure'
 " }}}
 
 set background=light
-if $SOLARIZED != ""
-  set background="{$SOLARIZED}"
+if $SOLARIZED == "dark"
+  set background=dark
 endif
 colorscheme solarized
 

@@ -29,6 +29,9 @@ export LESS_TERMCAP_us=$'\E[04;33;146m'
 export LESS="-mNR"
 export LANG="en_US.UTF-8"
 export LEDGER_FILE=$HOME/Documents/my.ledger
+if [[ $IS_MAC -eq 1 ]]; then
+  export HAXE_LIBRARY_PATH="$(brew --prefix)/share/haxe/std"
+fi
 # }}}
 # Loading plugins, setting PATH {{{
 if [[ $SETPATH -ne 1 ]]; then
@@ -36,7 +39,6 @@ if [[ $SETPATH -ne 1 ]]; then
     export PATH=$dir:$PATH
   done
   [[ -d /opt/gradle    ]] && export PATH=/opt/gradle/bin:$PATH
-  [[ -d /opt/reply     ]] && export PATH=/opt/reply/bin:$PATH
   [[ -d /opt/kindlegen ]] && export PATH=/opt/kindlegen:$PATH
   [[ -d /opt/gae_go    ]] && export GOROOT=/opt/gae_go/goroot \
     && export GOBIN=$GOROOT/bin && export PATH=/opt/gae_go:$GOBIN:$PATH
@@ -46,7 +48,9 @@ if [[ $SETPATH -ne 1 ]]; then
   export PATH=$DOTFILES/bin:/usr/local/bin:/usr/local/sbin:$HOME/.cljr/bin:$PATH
   export SETPATH=1
 fi
-
+if [[ $IS_MAC -eq 1 ]]; then
+  source "$(brew --prefix grc)/etc/grc.bashrc"
+fi
 source $DOTFILES/bin/z/z.sh
 source $DOTFILES/vendor/zsh-hl/zsh-syntax-highlighting.zsh
 source $DOTFILES/zshuery/zshuery.sh
@@ -58,72 +62,50 @@ load_completion $DOTFILES/zshuery/completion
 load_correction
 # }}}
 # Custom settings, aliases and functions {{{
-if [[ $IS_MAC -eq 1 ]]; then
-  export HAXE_LIBRARY_PATH="$(brew --prefix)/share/haxe/std"
-  source "$(brew --prefix grc)/etc/grc.bashrc"
-  [[ -e /usr/local/lib/stderred.so ]] && export DYLD_INSERT_LIBRARIES=/usr/local/lib/stderred.so DYLD_FORCE_FLAT_NAMESPACE=1
-  alias nolib="DYLD_INSERT_LIBRARIES= "
-  alias cabal="nolib cabal"
-  alias kindlegen="nolib kindlegen"
-fi
-
-alias rmswp="rm ~/.vim/tmp/swap/*"
-alias collapse="sed -e 's/  */ /g'"
-alias iaw="open -a 'iA Writer'"
-alias v="vim"
-alias l="ls"
+alias b="bundle"
+alias be="bundle exec"
+alias ci="git commit -am"
 alias g="git"
+alias gaes="dev_appserver.py -a 0.0.0.0 ."
+alias gi="gem install"
+alias iaw="open -a 'iA Writer'"
+alias l="ls"
 alias p="popd"
 alias r="rails"
-alias ci="git commit -am"
-alias gaes="dev_appserver.py -a 0.0.0.0 ."
-psack() {
-  ps auxww | ack $* | ack -v ack | collapse | cut -d' ' -f 2,11-
-}
+alias v="vim"
+alias collapse="sed -e 's/  */ /g'"
+psack() { ps auxww | ack $* | ack -v ack | collapse | cut -d' ' -f 2,11- }
 alias "ps?"=psack
 alias P="$PAGER"
-
 alias ele="$EDITOR $LEDGER_FILE"
 alias ass="ledger -s bal Assets"
-ale() {
-  echo "\n$(date +%m/%d) $1\n    $2    $3 RUR\n    $4" >> $LEDGER_FILE
-}
-alea() { ale $1 Expenses:Apps $2 Assets:QIWI }
-aleg() { ale $1 Expenses:Games $2 Assets:QIWI }
-aleq() { ale "QIWI adding" Assets:QIWI $1 $2 }
-aleqa(){ aleq $1 Assets:Wallet }
-cljv() {
-  curl -s clojars.org/$1 | grep version | sed -e "s/<[a-z\/=\" ]*>//g" -e "s/&lt;[\/a-z]*&gt;//g"
-}
-dighost() {
-  host $(dig $1 | grep ANSWER -C 1 | tail -n 1 | awk '{ print $5 }')
+cljv() { curl -s clojars.org/$1 | grep version | sed -e "s/<[a-z\/=\" ]*>//g" -e "s/&lt;[\/a-z]*&gt;//g" }
+dighost() { host $(dig $1 | grep ANSWER -C 1 | tail -n 1 | awk '{ print $5 }') }
+echoarrow() { echo "$fg_bold[black]====> $fg_no_bold[yellow]$*$reset_color" }
+updatestuff() {
+  echoarrow "Updating dotfiles w/ submodules" && (cd $DOTFILES && git pull && git su)
+  [[ $HAS_BREW -eq 1 ]] && echoarrow "Updating Homebrew" && brew update
+  [[ -e $HOME/.rbenv ]] && echoarrow "Updating rbenv"    && (cd $HOME/.rbenv && git pull)
 }
 
-chpwd() {
-  update_terminal_cwd
-  z --add "$(pwd -P)"
-}
-
+chpwd() { update_terminal_cwd; z --add "$(pwd -P)" }
 precmd() {
-  if [[ $? == 0 ]]; then
-    SMILEY=')'
-  else
-    SMILEY='('
-  fi
+  # $? in prompt is wrong, can't pass %? to conditionals
+  if [[ $? == 0 ]]; then SMILEY=')'; else SMILEY='('; fi
 }
 
-
-prompts '%{$fg_bold[green]%}$(COLLAPSED_DIR)%{$reset_color%} %{$fg[yellow]%}:$SMILEY%{$reset_color%} ' '%{$fg[red]%}$(ruby_version)%{$reset_color%}'
+prompts '%{$fg_bold[green]%}$(COLLAPSED_DIR)%{$reset_color%} %{$fg_no_bold[yellow]%}:$SMILEY%{$reset_color%} ' '%{$fg[red]%}$(ruby_version)%{$reset_color%}'
 setopt auto_pushd
 bindkey -v
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
+# }}}
 
+# Have to load these plugins after... something
 source $DOTFILES/vendor/zsh-hss/zsh-history-substring-search.zsh
 source $HOME/.zshrc.local
 
 if [[ -e $(which fortune) ]]; then
   fortune | (cowsay || cat) 2&> /dev/null | (lolcat || cat) 2&>/dev/null
 fi
-# }}}
