@@ -26,6 +26,7 @@ link inputrc
 link nethackrc
 link pentadactylrc
 link gemrc
+link railsrc
 link weechat
 link ledgerrc
 link lesskey
