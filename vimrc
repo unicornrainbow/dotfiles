@@ -172,7 +172,10 @@ au BufReadPost fugitive://* setlocal bufhidden=delete
 au VimResized * exe "normal! \<c-w>="
 au FileType vim setlocal foldmethod=marker
 au FileType help setlocal textwidth=78
+au FileType javascript setlocal foldmethod=marker
 au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
+au InsertEnter * set number
+au InsertLeave * set relativenumber
 " }}}
 
 " Vars {{{

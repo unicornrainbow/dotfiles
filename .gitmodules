@@ -181,3 +181,6 @@
 [submodule "vim/bundle/git"]
 	path = vim/bundle/git
 	url = git://github.com/tpope/vim-git.git
+[submodule "vim/bundle/pig"]
+	path = vim/bundle/pig
+	url = git://github.com/vim-scripts/pig.vim.git

@@ -32,6 +32,7 @@ export LEDGER_FILE=$HOME/Documents/my.ledger
 if [[ $IS_MAC -eq 1 ]]; then
   export HAXE_LIBRARY_PATH="$(brew --prefix)/share/haxe/std"
 fi
+export JAVA_HOME=/Library/Java/Home
 # }}}
 # Loading plugins, setting PATH {{{
 if [[ $SETPATH -ne 1 ]]; then

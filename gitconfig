@@ -65,6 +65,7 @@
 	# [f]ile
 	fa  = add
 	faa = !git add --all && git ws
+	fc  = !touch $@ && git add $@ && $EDITOR $1
 	ff  = rm --cached # [f]orget
 	fm  = mv # [m]ove
 	fr  = rm
