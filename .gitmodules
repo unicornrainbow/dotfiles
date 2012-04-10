@@ -184,3 +184,6 @@
 [submodule "vim/bundle/pig"]
 	path = vim/bundle/pig
 	url = git://github.com/vim-scripts/pig.vim.git
+[submodule "vim/bundle/scala"]
+	path = vim/bundle/scala
+	url = git://github.com/derekwyatt/vim-scala.git

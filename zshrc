@@ -35,20 +35,17 @@ fi
 export JAVA_HOME=/Library/Java/Home
 # }}}
 # Loading plugins, setting PATH {{{
-if [[ $SETPATH -ne 1 ]]; then
-  for dir in $DOTFILES/bin/*(/); do
-    export PATH=$dir:$PATH
-  done
-  [[ -d /opt/gradle    ]] && export PATH=/opt/gradle/bin:$PATH
-  [[ -d /opt/kindlegen ]] && export PATH=/opt/kindlegen:$PATH
-  [[ -d /opt/gae_go    ]] && export GOROOT=/opt/gae_go/goroot \
-    && export GOBIN=$GOROOT/bin && export PATH=/opt/gae_go:$GOBIN:$PATH
-  [[ $IS_MAC -eq 1 ]] && BREWGO=$(brew --prefix go) && \
-    [[ -d $BREWGO ]] && export GOROOT=$BREWGO && export GOBIN=$BREWGO/bin \
-    && export GOPATH=$GOROOT && export PATH=$GOBIN:$PATH
-  export PATH=$DOTFILES/bin:/usr/local/bin:/usr/local/sbin:$HOME/.cljr/bin:$PATH
-  export SETPATH=1
-fi
+for dir in $DOTFILES/bin/*(/); do
+  export PATH=$dir:$PATH
+done
+[[ -d /opt/gradle    ]] && export PATH=/opt/gradle/bin:$PATH
+[[ -d /opt/kindlegen ]] && export PATH=/opt/kindlegen:$PATH
+[[ -d /opt/gae_go    ]] && export GOROOT=/opt/gae_go/goroot \
+  && export GOBIN=$GOROOT/bin && export PATH=/opt/gae_go:$GOBIN:$PATH
+[[ $IS_MAC -eq 1 ]] && BREWGO=$(brew --prefix go) && \
+  [[ -d $BREWGO ]] && export GOROOT=$BREWGO && export GOBIN=$BREWGO/bin \
+  && export GOPATH=$GOROOT && export PATH=$GOBIN:$PATH
+export PATH=$DOTFILES/bin:/usr/local/bin:/usr/local/sbin:$HOME/.cljr/bin:$HOME/.cabal/bin:$PATH
 if [[ $IS_MAC -eq 1 ]]; then
   source "$(brew --prefix grc)/etc/grc.bashrc"
 fi
