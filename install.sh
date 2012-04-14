@@ -52,16 +52,6 @@ if [[ $(uname) = 'Linux' ]]; then
   QUAKE=$HOME/.quakelive/quakelive/home/baseq3
 elif [[ $(uname) = 'Darwin' ]]; then
   cat ./crontab ./crontab_mac | crontab
-  chflags nohidden ~/Library
-  defaults write -g AppleKeyboardUIMode -int 3
-  defaults write -g NSNavPanelExpandedStateForSaveMode -bool true
-  defaults write -g PMPrintingExpandedStateForPrint -bool true
-  defaults write com.apple.LaunchServices LSQuarantine -bool false
-  defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-  defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
-  defaults write com.apple.finder WarnOnEmptyTrash -bool false
-  defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
-  echo "0x08000100:0" > $HOME/.CFUserTextEncoding
   mkdir -p $HOME/Library/KeyBindings
   link_custom keybindings/DefaultKeyBinding.dict $HOME/Library/KeyBindings/DefaultKeyBinding.dict
   QUAKE=$HOME/Library/Application\ Support/QuakeLive/quakelive/home/baseq3
