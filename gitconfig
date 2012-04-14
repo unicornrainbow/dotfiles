@@ -73,6 +73,7 @@
 	r   = remote
 	rc  = remote add
 	rco = remote add origin
+	rl  = remote -v
 	rr  = remote rm
 	rp  = !git push && git push --tags
 	# [s]ubmodule

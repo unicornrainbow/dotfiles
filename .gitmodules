@@ -187,3 +187,12 @@
 [submodule "vim/bundle/scala"]
 	path = vim/bundle/scala
 	url = git://github.com/derekwyatt/vim-scala.git
+[submodule "vim/bundle/vitality"]
+	path = vim/bundle/vitality
+	url = git://github.com/sjl/vitality.vim.git
+[submodule "vim/bundle/vimux"]
+	path = vim/bundle/vimux
+	url = git://github.com/benmills/vimux.git
+[submodule "vim/bundle/vimux-ruby"]
+	path = vim/bundle/vimux-ruby
+	url = git://github.com/pgr0ss/vimux-ruby-test.git
