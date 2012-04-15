@@ -196,3 +196,6 @@
 [submodule "vim/bundle/vimux-ruby"]
 	path = vim/bundle/vimux-ruby
 	url = git://github.com/pgr0ss/vimux-ruby-test.git
+[submodule "vim/bundle/vroom"]
+	path = vim/bundle/vroom
+	url = git://github.com/skalnik/vim-vroom.git

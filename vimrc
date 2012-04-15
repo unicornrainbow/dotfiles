@@ -9,6 +9,7 @@
 " https://github.com/rmurphey/dotfiles
 " https://github.com/holman/dotfiles
 " https://github.com/spf13/spf13-vim
+" https://github.com/garybernhardt/dotfiles
 
 set nocompatible
 set runtimepath+=$HOME/.vim/pathogen
@@ -37,7 +38,8 @@ set whichwrap+=<,>,[,]
 set virtualedit=block
 " }}}
 " ui {{{
-set nohlsearch
+set number
+set hlsearch
 set backspace=indent,eol,start
 set noerrorbells
 set showbreak=↪
@@ -69,7 +71,7 @@ set wildignore+=*.sw?                              " Vim swap files
 set wildignore+=.DS_Store,Thumbs.db                " Shit
 " }}}
 " paths {{{
-set shell=/bin/zsh
+set shell=zsh
 set formatprg=par\ -eq
 set tags=./tags;
 set dictionary=/usr/share/dict/words
@@ -79,29 +81,25 @@ set undodir=~/.vim/tmp/undo/
 " }}}
 
 " Bindings
-" stuff {{{
+" basics {{{
+" j and k inverted for colemak
 noremap k gj
 noremap j gk
 noremap ' i
 noremap U <C-r>
-cmap w!! w !sudo tee % >/dev/null
 nnoremap ; :
 nnoremap <Space> za
 vnoremap <Space> za
-noremap! <C-Y> <Esc>klyWjpa
 map <Leader><CR> o<ESC>
 nnoremap Y y$
-nnoremap <CR> zvzz " center line
-" }}}
-" moving lines around {{{
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
+nnoremap <CR> :nohlsearch<CR>
+imap <C-l> <Space>=><Space>
 " }}}
 " windows {{{
-map  <C-h> <C-w>h
-map  <C-k> <C-w>j
-map  <C-j> <C-w>k
-map  <C-l> <C-w>l
+map <C-h> <C-w>h
+map <C-k> <C-w>j
+map <C-j> <C-w>k
+map <C-l> <C-w>l
 " }}}
 " case-insensitive {{{
 cab E e
@@ -114,15 +112,11 @@ cab Wq wq
 inoremap <C-a> <home>
 inoremap <C-e> <end>
 " }}}
-" indent block {{{
-nnoremap <Leader>] >i{<CR>
-nnoremap <Leader>[ <i{<CR>
-" }}}
 " buffer nav {{{
 map <Right> :bnext<CR>
 map <Left>  :bprev<CR>
 " }}}
-" plugins {{{
+" plugins and stuff {{{
 nmap <Leader>T= :Tabularize /=<CR>
 vmap <Leader>T= :Tabularize /=<CR>
 nmap <Leader>T<Space> :Tabularize /<Space><CR>
@@ -131,26 +125,14 @@ nmap <Leader>T: :Tabularize /:\zs<CR>
 vmap <Leader>T: :Tabularize /:\zs<CR>
 nmap sj :SplitjoinSplit<CR>
 nmap sk :SplitjoinJoin<CR>
-map <Leader>A :Ack! 
-nnoremap <silent> <Leader>a :set opfunc=<SID>AckMotion<CR>g@
-xnoremap <silent> <Leader>a :<C-U>call <SID>AckMotion(visualmode())<CR>
-function! s:CopyMotionForType(type)
-    if a:type ==# 'v'
-        silent execute "normal! `<" . a:type . "`>y"
-    elseif a:type ==# 'char'
-        silent execute "normal! `[v`]y"
-    endif
-endfunction
-function! s:AckMotion(type) abort
-    let reg_save = @@
-    call s:CopyMotionForType(a:type)
-    execute "normal! :Ack! --literal " . shellescape(@@) . "\<cr>"
-    let @@ = reg_save
-endfunction
-nnoremap <leader>w :silent !open <C-R>=escape("<C-R><C-F>", "#?&;\|%")<CR><CR>
+map <Leader>w :w<CR>
+map <Leader>W :SudoWrite<CR>
+map <Leader>a :Ack! 
+map <Leader>m :Rename 
+nnoremap <Leader>b :silent !open <C-R>=escape("<C-R><C-F>", "#?&;\|%")<CR><CR> " open URLs
 " }}}
 
-" Das Auto {{{
+" Autocommands {{{
 au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,Vagrantfile,Thorfile,Guardfile,config.ru} setf ruby
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,ronn} setf markdown
 au BufRead,BufNewFile {SConstruct,SConscript,*.py} setf python.django
@@ -169,6 +151,7 @@ au BufRead,BufNewFile *.{jar,war,ear,sar} setf zip
 au BufRead,BufNewFile {,.}zshrc setlocal foldmethod=marker
 au BufWritePost {g,.g,,.}vimrc source $MYVIMRC
 au BufReadPost fugitive://* setlocal bufhidden=delete
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 au VimResized * exe "normal! \<c-w>="
 au FileType vim setlocal foldmethod=marker
 au FileType help setlocal textwidth=78
@@ -177,7 +160,6 @@ au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
 au InsertEnter * set number
 au InsertLeave * set relativenumber
 " }}}
-
 " Vars {{{
 let mapleader=','
 let maplocalleader=','

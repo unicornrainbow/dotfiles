@@ -5,6 +5,31 @@
 # thanks:
 # http://selena.deckelmann.usesthis.com/
 
+# Loading plugins, setting PATH {{{
+source $DOTFILES/bin/z/z.sh
+source $DOTFILES/vendor/zsh-hl/zsh-syntax-highlighting.zsh
+source $DOTFILES/zshuery/zshuery.sh
+load_defaults
+load_aliases
+load_lol_aliases
+load_completion $DOTFILES/zshuery/completion
+load_correction
+
+for dir in $DOTFILES/bin/*(/); do
+  export PATH=$dir:$PATH
+done
+[[ -d /opt/gradle    ]] && export PATH=/opt/gradle/bin:$PATH
+[[ -d /opt/kindlegen ]] && export PATH=/opt/kindlegen:$PATH
+[[ -d /opt/gae_go    ]] && export GOROOT=/opt/gae_go/goroot \
+  && export GOBIN=$GOROOT/bin && export PATH=/opt/gae_go:$GOBIN:$PATH
+export PATH=$DOTFILES/bin:/usr/local/bin:/usr/local/sbin:$HOME/.cljr/bin:$HOME/.cabal/bin:$PATH
+if [[ $HAS_BREW == 1 ]]; then
+  BREWGO=$(brew --prefix go)
+  [[ -d $BREWGO ]] && export GOROOT=$BREWGO && export GOBIN=$BREWGO/bin \
+    && export GOPATH=$GOROOT && export PATH=$GOBIN:$PATH
+  source "$(brew --prefix grc)/etc/grc.bashrc"
+fi
+# }}}
 # Variables {{{
 export CODEDIR=$HOME/Code
 if [[ -e $HOME/.dotfiles_location ]]; then
@@ -30,35 +55,10 @@ export LESS="-mNR"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export LEDGER_FILE=$HOME/Documents/my.ledger
-if [[ $IS_MAC -eq 1 ]]; then
+if [[ $IS_MAC == 1 ]]; then
   export HAXE_LIBRARY_PATH="$(brew --prefix)/share/haxe/std"
   export JAVA_HOME=/Library/Java/Home
 fi
-# }}}
-# Loading plugins, setting PATH {{{
-for dir in $DOTFILES/bin/*(/); do
-  export PATH=$dir:$PATH
-done
-[[ -d /opt/gradle    ]] && export PATH=/opt/gradle/bin:$PATH
-[[ -d /opt/kindlegen ]] && export PATH=/opt/kindlegen:$PATH
-[[ -d /opt/gae_go    ]] && export GOROOT=/opt/gae_go/goroot \
-  && export GOBIN=$GOROOT/bin && export PATH=/opt/gae_go:$GOBIN:$PATH
-[[ $IS_MAC -eq 1 ]] && BREWGO=$(brew --prefix go) && \
-  [[ -d $BREWGO ]] && export GOROOT=$BREWGO && export GOBIN=$BREWGO/bin \
-  && export GOPATH=$GOROOT && export PATH=$GOBIN:$PATH
-export PATH=$DOTFILES/bin:/usr/local/bin:/usr/local/sbin:$HOME/.cljr/bin:$HOME/.cabal/bin:$PATH
-if [[ $IS_MAC -eq 1 ]]; then
-  source "$(brew --prefix grc)/etc/grc.bashrc"
-fi
-source $DOTFILES/bin/z/z.sh
-source $DOTFILES/vendor/zsh-hl/zsh-syntax-highlighting.zsh
-source $DOTFILES/zshuery/zshuery.sh
-
-load_defaults
-load_aliases
-load_lol_aliases
-load_completion $DOTFILES/zshuery/completion
-load_correction
 # }}}
 # Custom settings, aliases and functions {{{
 alias b="bundle"
@@ -87,7 +87,7 @@ vidposter() {
 echoarrow() { echo "$fg_bold[black]====> $fg_no_bold[yellow]$*$reset_color" }
 updatestuff() {
   echoarrow "Updating dotfiles w/ submodules" && (cd $DOTFILES && git pull && git su)
-  [[ $HAS_BREW -eq 1 ]] && echoarrow "Updating Homebrew" && brew update
+  [[ $HAS_BREW == 1 ]] && echoarrow "Updating Homebrew" && brew update
   [[ -e $HOME/.rbenv ]] && echoarrow "Updating rbenv"    && (cd $HOME/.rbenv && git pull)
 }
 
