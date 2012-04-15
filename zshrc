@@ -5,7 +5,14 @@
 # thanks:
 # http://selena.deckelmann.usesthis.com/
 
-# Loading plugins, setting PATH {{{
+# Loading plugins, setting variables{{{
+export CODEDIR=$HOME/Code
+if [[ -e $HOME/.dotfiles_location ]]; then
+  export DOTFILES=$(cat $HOME/.dotfiles_location)
+else
+  export DOTFILES=$HOME/Code/dotfiles
+  echo "~/.dotfiles_location not found, reinstall dotfiles"
+fi
 source $DOTFILES/bin/z/z.sh
 source $DOTFILES/vendor/zsh-hl/zsh-syntax-highlighting.zsh
 source $DOTFILES/zshuery/zshuery.sh
@@ -29,15 +36,7 @@ if [[ $HAS_BREW == 1 ]]; then
     && export GOPATH=$GOROOT && export PATH=$GOBIN:$PATH
   source "$(brew --prefix grc)/etc/grc.bashrc"
 fi
-# }}}
-# Variables {{{
-export CODEDIR=$HOME/Code
-if [[ -e $HOME/.dotfiles_location ]]; then
-  export DOTFILES=$(cat $HOME/.dotfiles_location)
-else
-  export DOTFILES=$HOME/Code/dotfiles
-  echo "~/.dotfiles_location not found, reinstall dotfiles"
-fi
+
 export PYTHONDONTWRITEBYTECODE=true
 export VIRTUALENV_DISTRIBUTE=true
 export PIP_USE_MIRRORS=true
