@@ -37,9 +37,6 @@
 [submodule "vim/bundle/html5"]
 	path = vim/bundle/html5
 	url = git://github.com/othree/html5.vim.git
-[submodule "vim/bundle/css-color"]
-	path = vim/bundle/css-color
-	url = git://github.com/skammer/vim-css-color.git
 [submodule "vim/bundle/css3"]
 	path = vim/bundle/css3
 	url = git://github.com/hail2u/vim-css3-syntax.git
@@ -49,9 +46,6 @@
 [submodule "vim/bundle/delimitMate"]
 	path = vim/bundle/delimitMate
 	url = git://github.com/vim-scripts/delimitMate.vim.git
-[submodule "vim/bundle/selfdot"]
-	path = vim/bundle/selfdot
-	url = git://github.com/narfdotpl/selfdot.vim.git
 [submodule "vim/bundle/snipmate_nodejs"]
 	path = vim/bundle/snipmate_nodejs
 	url = git://github.com/jamescarr/snipmate-nodejs.git

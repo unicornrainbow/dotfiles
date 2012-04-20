@@ -38,7 +38,7 @@ set whichwrap+=<,>,[,]
 set virtualedit=block
 " }}}
 " ui {{{
-set number
+set relativenumber
 set hlsearch
 set backspace=indent,eol,start
 set noerrorbells

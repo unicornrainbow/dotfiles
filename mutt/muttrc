@@ -92,7 +92,6 @@ set send_charset = "utf-8:windows-1251:us-ascii:iso-8859-1"
 
 # identity
 alternates ^greg@wm\\.ru$ ^floatboth@me\\.com$
-set realname = "Grigory V."
 set reverse_name
 
 # accounts
