@@ -143,19 +143,20 @@ au BufRead,BufNewFile *.ledger setf ledger | comp ledger
 au BufRead,BufNewFile *gitconfig setf gitconfig
 au BufRead,BufNewFile nginx.conf setf nginx
 au BufRead,BufNewFile *.gradle setf groovy
+au BufRead,BufNewFile *.sbt setf scala
+au BufRead,BufNewFile *.scaml setf haml
 au BufRead,BufNewFile *.muttrc setf muttrc
 au BufRead,BufNewFile quakelive.cfg setf quake
 au BufRead,BufNewFile *.{css,sass,scss,less,styl} setlocal omnifunc=csscomplete#CompleteCSS
-au BufRead,BufNewFile {*.go,Makefile,.git*,gitconfig} setlocal noexpandtab
+au BufRead,BufNewFile {*.go,Makefile,.git*,*gitconfig} setlocal noexpandtab
 au BufRead,BufNewFile *.{jar,war,ear,sar} setf zip
 au BufRead,BufNewFile {,.}zshrc setlocal foldmethod=marker
 au BufWritePost {g,.g,,.}vimrc source $MYVIMRC
 au BufReadPost fugitive://* setlocal bufhidden=delete
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 au VimResized * exe "normal! \<c-w>="
-au FileType vim setlocal foldmethod=marker
+au FileType {vim,javascript} setlocal foldmethod=marker
 au FileType help setlocal textwidth=78
-au FileType javascript setlocal foldmethod=marker
 au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
 au InsertEnter * set number
 au InsertLeave * set relativenumber

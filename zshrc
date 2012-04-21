@@ -13,7 +13,10 @@ else
   export DOTFILES=$HOME/Code/dotfiles
   echo "~/.dotfiles_location not found, reinstall dotfiles"
 fi
-source $DOTFILES/bin/z/z.sh
+
+# brew must be in path before zshuery
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
 source $DOTFILES/vendor/zsh-hl/zsh-syntax-highlighting.zsh
 source $DOTFILES/zshuery/zshuery.sh
 load_defaults
@@ -29,7 +32,7 @@ done
 [[ -d /opt/kindlegen ]] && export PATH=/opt/kindlegen:$PATH
 [[ -d /opt/gae_go    ]] && export GOROOT=/opt/gae_go/goroot \
   && export GOBIN=$GOROOT/bin && export PATH=/opt/gae_go:$GOBIN:$PATH
-export PATH=$DOTFILES/bin:/usr/local/bin:/usr/local/sbin:$HOME/.cljr/bin:$HOME/.cabal/bin:$PATH
+export PATH=$DOTFILES/bin:$HOME/.cljr/bin:$HOME/.cabal/bin:$PATH
 if [[ $HAS_BREW == 1 ]]; then
   BREWGO=$(brew --prefix go)
   [[ -d $BREWGO ]] && export GOROOT=$BREWGO && export GOBIN=$BREWGO/bin \
@@ -70,7 +73,8 @@ alias iaw="open -a 'iA Writer'"
 alias l="ls"
 alias p="popd"
 alias r="rails"
-alias v="vim"
+alias vi="vim"
+alias v="v -e vim"
 alias collapse="sed -e 's/  */ /g'"
 psack() { ps auxww | ack $* | ack -v ack | collapse | cut -d' ' -f 2,11- }
 alias "ps?"=psack
@@ -92,7 +96,7 @@ updatestuff() {
   [[ -e $HOME/.rbenv ]] && echoarrow "Updating rbenv"    && (cd $HOME/.rbenv && git pull)
 }
 
-chpwd() { update_terminal_cwd; z --add "$(pwd -P)" }
+chpwd() { update_terminal_cwd; }
 precmd() {
   # $? in prompt is wrong, can't pass %? to conditionals
   if [[ $? == 0 ]]; then SMILEY=')'; else SMILEY='('; fi
@@ -110,6 +114,7 @@ bindkey "\e[3~" delete-char # Del
 
 # Have to load these plugins after... something
 source $DOTFILES/vendor/zsh-hss/zsh-history-substring-search.zsh
+eval "$($DOTFILES/bin/fasd/fasd --init auto)"
 source $HOME/.zshrc.local
 
 if [[ -e $(which fortune) ]]; then

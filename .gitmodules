@@ -58,9 +58,6 @@
 [submodule "vim/bundle/unimpaired"]
 	path = vim/bundle/unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
-[submodule "bin/z"]
-	path = bin/z
-	url = git://github.com/sjl/z-zsh
 [submodule "vim/bundle/slim"]
 	path = vim/bundle/slim
 	url = git://github.com/bbommarito/vim-slim.git
@@ -193,3 +190,6 @@
 [submodule "vim/bundle/vroom"]
 	path = vim/bundle/vroom
 	url = git://github.com/skalnik/vim-vroom.git
+[submodule "bin/fasd"]
+	path = bin/fasd
+	url = git://github.com/clvv/fasd.git
