@@ -94,6 +94,7 @@ map <Leader><CR> o<ESC>
 nnoremap Y y$
 nnoremap <CR> :nohlsearch<CR>
 imap <C-l> <Space>=><Space>
+map <Leader>d :bd<CR>
 " }}}
 " windows {{{
 map <C-h> <C-w>h
@@ -151,7 +152,7 @@ au BufRead,BufNewFile *.{css,sass,scss,less,styl} setlocal omnifunc=csscomplete#
 au BufRead,BufNewFile {*.go,Makefile,.git*,*gitconfig} setlocal noexpandtab
 au BufRead,BufNewFile *.{jar,war,ear,sar} setf zip
 au BufRead,BufNewFile {,.}zshrc setlocal foldmethod=marker
-au BufWritePost {g,.g,,.}vimrc source $MYVIMRC
+au BufWritePost {g,.g,,.}vimrc source $MYVIMRC | exe ":PowerlineReloadColorscheme"
 au BufReadPost fugitive://* setlocal bufhidden=delete
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 au VimResized * exe "normal! \<c-w>="
