@@ -28,12 +28,12 @@
 	tool = vimdiff
 	wordRegex = [^[:space:]]
 	mnemonicprefix = true
-[mergetool "threesome"]
-	cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
+[mergetool "splice"]
+	cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
 	trustExitCode = true
 [merge]
 	summary = true
-	tool = threesome
+	tool = splice
 [push]
 	default = tracking
 [branch]

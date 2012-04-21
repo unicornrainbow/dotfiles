@@ -91,9 +91,6 @@
 [submodule "vim/bundle/strftimedammit"]
 	path = vim/bundle/strftimedammit
 	url = git://github.com/sjl/strftimedammit.vim.git
-[submodule "vim/bundle/threesome"]
-	path = vim/bundle/threesome
-	url = git://github.com/sjl/threesome.vim.git
 [submodule "vim/bundle/gundo"]
 	path = vim/bundle/gundo
 	url = git://github.com/sjl/gundo.vim.git
@@ -193,3 +190,6 @@
 [submodule "bin/fasd"]
 	path = bin/fasd
 	url = git://github.com/clvv/fasd.git
+[submodule "vim/bundle/splice"]
+	path = vim/bundle/splice
+	url = git://github.com/sjl/splice.vim.git

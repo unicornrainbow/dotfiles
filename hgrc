@@ -27,10 +27,10 @@ cmd.vd = vimdiff
 opts.vd =
 
 [merge-tools]
-threesome.executable = vim
-threesome.args = -f $base $local $other $output -c 'ThreesomeInit'
-threesome.premerge = keep
-threesome.priority = 1
+splice.executable = vim
+splice.args = -f $base $local $other $output -c 'SpliceInit'
+splice.premerge = keep
+splice.priority = 1
 
 [defaults]
 rebase = --keepbranches
@@ -42,7 +42,7 @@ addremove = --similarity 95
 bc  = branch
 bl  = branches
 bm  = merge
-bmt = merge -t threesome
+bmt = merge -t splice
 br  = !export OLDBR=`$HG branch` && $HG update $1 && $HG commit --close-branch -m 'Close $1' && $HG update $OLDBR
 bs  = update # [s]witch
 # [c]ommit
