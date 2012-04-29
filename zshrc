@@ -74,7 +74,8 @@ alias l="ls"
 alias p="popd"
 alias r="rails"
 alias vi="vim"
-alias v="v -e vim"
+alias e="vim" # ;e -- semicolon gets eaten
+alias v="fasd -e vim"
 alias collapse="sed -e 's/  */ /g'"
 psack() { ps auxww | ack $* | ack -v ack | collapse | cut -d' ' -f 2,11- }
 alias "ps?"=psack
