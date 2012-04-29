@@ -5,6 +5,7 @@
 # thanks:
 # https://github.com/ornicar/dotfiles/blob/master/gitconfig
 # https://github.com/paulirish/dotfiles/blob/master/.gitconfig
+# https://github.com/garybernhardt/dotfiles/blob/master/.githelpers
 
 [core]
 	excludesfile = ~/.gitignore
@@ -59,7 +60,7 @@
 	ca  = commit --amend
 	cc  = commit
 	cd  = diff --color-words
-	cl  = log --oneline --decorate --graph
+	cl  = !git log --decorate --graph --abbrev-commit --date=relative --pretty='tformat:%C(yellow)%h%Creset}%Cgreen(%ar)%Creset}%C(bold blue)<%an>%Creset}%C(red)%d%Creset %s' $* | sed -Ee 's/(^[^<]*) ago)/\\1)/' | sed -Ee 's/(^[^<]*), [[:digit:]]+ .*months?)/\\1)/' | column -t -s '}' | less -FXRS
 	cp  = cherry-pick -x
 	cr  = reset --hard HEAD^
 	# [f]ile
