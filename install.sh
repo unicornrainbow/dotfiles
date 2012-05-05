@@ -54,6 +54,8 @@ elif [[ $(uname) = 'Darwin' ]]; then
   cat ./crontab ./crontab_mac | crontab
   mkdir -p $HOME/Library/KeyBindings
   link_custom keybindings/DefaultKeyBinding.dict $HOME/Library/KeyBindings/DefaultKeyBinding.dict
+  LAUNCHBAR=$HOME/Library/Application\ Support/LaunchBar
+  [[ -d $LAUNCHBAR ]] && link_custom launchbar.plist.xml $LAUNCHBAR/Configuration.plist
   QUAKE=$HOME/Library/Application\ Support/QuakeLive/quakelive/home/baseq3
 fi
 if [[ -d $QUAKE ]]; then
