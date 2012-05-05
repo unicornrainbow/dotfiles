@@ -4,16 +4,41 @@
 # Feel free to steal it, but attribution is nice
 import os
 import sys
-import urllib2
-from xml.dom.minidom import parse
-res = '''<!DOCTYPE NETSCAPE-Bookmark-file-1>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pinboard bookmarks</title>
-<dl>'''
-feed = urllib2.urlopen("http://feeds.pinboard.in/rss/u:myfreeweb/")
-for item in parse(feed).getElementsByTagName('item'):
-    res += '<dt><a href="%s">%s</a></dt>\n' % \
-    (item.getAttribute('rdf:about').encode('utf-8'),
-     item.getElementsByTagName('title')[0].firstChild.data.encode('utf-8'))
-res += '</dl>'
-open(os.environ['HOME']+'/.bookmarks.html', 'w').write(res)
+import json
+import netrc
+import errno
+import requests
+
+def die(msg, err):
+    sys.stderr.write(msg)
+    sys.exit(err)
+
+login = netrc.netrc().authenticators('pinboard.in')
+if not login:
+    die('pinboard.in not found in netrc', errno.ENODATA)
+
+try:
+    getreq = requests.get('https://api.pinboard.in/v1/posts/all?format=json',
+            auth=(login[0], login[2]))
+
+    if getreq.status_code == 429:
+        die('too often', errno.EPERM)
+    if getreq.status_code != requests.codes.ok:
+        die('http error %s on getting, maybe wrong password?' %
+                getreq.status_code, errno.EACCES)
+
+    items = json.loads(getreq.text)
+
+    res = '''<!DOCTYPE NETSCAPE-Bookmark-file-1>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Pinboard bookmarks</title>
+    <dl>'''
+
+    for item in items:
+        res += '<dt><a href="%s">%s</a></dt>\n' % \
+        (item['href'].encode('utf-8'), item['description'].encode('utf-8'))
+    res += '</dl>'
+
+    open(os.environ['HOME']+'/.bookmarks.html', 'w').write(res)
+except requests.exceptions.RequestException:
+    die('connection error', errno.ECONNREFUSED)

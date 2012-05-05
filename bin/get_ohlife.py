@@ -26,7 +26,7 @@ try:
     getreq = requests.get('https://ohlife.com/export/save', cookies=cookies)
     if getreq.status_code != requests.codes.ok:
         die('http error %s on getting, maybe wrong password?' %
-                getreq.status_code, errno.EREMOTEIO)
+                getreq.status_code, errno.EACCES)
     print getreq.text
 except requests.exceptions.RequestException:
     die('connection error', errno.ECONNREFUSED)
