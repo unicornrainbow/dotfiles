@@ -22,6 +22,8 @@ link tmux.conf
 link vim
 link vimrc
 link gvimrc
+link emacs
+link emacs.d
 link inputrc
 link nethackrc
 link pentadactylrc

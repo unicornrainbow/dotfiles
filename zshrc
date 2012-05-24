@@ -16,6 +16,7 @@ fi
 
 # brew must be in path before zshuery
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
 
 source $DOTFILES/vendor/zsh-hl/zsh-syntax-highlighting.zsh
 source $DOTFILES/zshuery/zshuery.sh

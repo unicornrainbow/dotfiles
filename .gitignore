@@ -7,3 +7,4 @@ vim/tmp
 weechat/weechat.log
 weechat/logs
 cache
+emacs.d/history

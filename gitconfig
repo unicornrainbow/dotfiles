@@ -13,6 +13,7 @@
 	legacyheaders = false
 	quotepath = false
 	pager = $PAGER
+	trustctime = false
 [repack]
 	usedeltabaseoffset = true
 [apply]
@@ -48,6 +49,7 @@
 	# common verbs: [c]reate, [l]ist, [d]iff, [r]eset/[r]emove
 	# [b]ranch
 	bc  = checkout -b
+	bce = checkout --orphan
 	bl  = branch --verbose
 	bm  = merge
 	bmt = mergetool
@@ -63,6 +65,7 @@
 	cl  = !git log --decorate --graph --abbrev-commit --date=relative --pretty='tformat:%C(yellow)%h%Creset}%Cgreen(%ar)%Creset}%C(bold blue)<%an>%Creset}%C(red)%d%Creset %s' $* | sed -Ee 's/(^[^<]*) ago)/\\1)/' | sed -Ee 's/(^[^<]*), [[:digit:]]+ .*months?)/\\1)/' | column -t -s '}' | less -FXRS
 	cp  = cherry-pick -x
 	cr  = reset --hard HEAD^
+	cs  = show
 	# [f]ile
 	fa  = add
 	faa = !git add --all && git ws

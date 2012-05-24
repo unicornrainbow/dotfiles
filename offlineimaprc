@@ -24,6 +24,7 @@ remoterepository = WM-Remote
 [Repository WM-Local]
 type = Maildir
 localfolders = ~/Mail/WM
+nametrans = lambda f: f if f == 'INBOX' else 'INBOX.' + f
 
 [Repository WM-Remote]
 type = IMAP
@@ -32,8 +33,7 @@ remotehost = mail.wm.ru
 remoteuser = greg@wm.ru
 remoteport = 993
 realdelete = no
-nametrans = lambda f: re.sub('^INBOX$', 'INBOX',
-                      re.sub('^INBOX\.', '', f))
+nametrans = lambda f: re.sub('^INBOX$', 'INBOX', re.sub('^INBOX\.', '', f))
 
 [Account iCloud]
 postsynchook = notmuch new
