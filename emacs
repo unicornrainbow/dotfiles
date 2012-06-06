@@ -4,6 +4,8 @@
 
 (setq emacs-dir "~/.emacs.d")
 (add-to-list 'load-path emacs-dir)
+(defun addpath (dir)
+  (add-to-list 'load-path (concat emacs-dir "/" dir)))
 
 ;;; Encoding, input
 (set-terminal-coding-system 'utf-8)
@@ -53,7 +55,7 @@
                                         kill-buffer-query-functions)
       redisplay-dont-pause t)
 (setq-default indent-tabs-mode nil
-              tab-width 4)
+              tab-width 2)
 
 ;;; Aliases
 (defalias 'eb 'eval-buffer)
@@ -68,25 +70,47 @@
 (global-set-key (kbd "C-k") 'kill-whole-line)
 
 ;;; Plugins
-(add-to-list 'load-path (concat emacs-dir "/vimvars"))
+(addpath "evil")
+(addpath "evil/lib")
+(require 'cl)
+(require 'evil)
+(evil-mode t)
+(define-key evil-normal-state-map (kbd "k") 'evil-next-line)
+(define-key evil-normal-state-map (kbd "j") 'evil-previous-line)
+(define-key evil-normal-state-map [escape] 'keyboard-quit)
+(define-key evil-visual-state-map [escape] 'keyboard-quit)
+(define-key minibuffer-local-map [escape] 'minibuffer-keyboard-quit)
+(define-key minibuffer-local-ns-map [escape] 'minibuffer-keyboard-quit)
+(define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
+(define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
+(define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
+
+(addpath "surround")
+(require 'surround)
+(global-surround-mode t)
+
+(addpath "vimvars")
 (require 'vimvars)
 (add-hook 'find-file-hook 'vimvars-obey-vim-modeline)
 
-(add-to-list 'load-path (concat emacs-dir "/smart-tab"))
+(addpath "smart-tab")
 (require 'smart-tab)
 (global-smart-tab-mode t)
 
-(add-to-list 'load-path (concat emacs-dir "/popwin"))
+(addpath "popwin")
 (require 'popwin)
 (setq display-buffer-function 'popwin:display-buffer)
 
-(add-to-list 'load-path (concat emacs-dir "/autopair"))
+(addpath "autopair")
 (require 'autopair)
 (autopair-global-mode)
 
-(add-to-list 'load-path (concat emacs-dir "/color-theme"))
-(add-to-list 'load-path (concat emacs-dir "/color-theme-solarized"))
+(addpath "color-theme")
+(addpath "color-theme-solarized")
 (require 'color-theme)
 (require 'color-theme-solarized)
 (color-theme-initialize)
 (color-theme-solarized-light)
+
+(addpath "clojure")
+(require 'clojure-mode)

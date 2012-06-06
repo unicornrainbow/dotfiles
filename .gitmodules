@@ -214,3 +214,9 @@
 [submodule "emacs.d/clojure"]
 	path = emacs.d/clojure
 	url = git://github.com/technomancy/clojure-mode.git
+[submodule "emacs.d/evil"]
+	path = emacs.d/evil
+	url = git://gitorious.org/evil/evil.git
+[submodule "emacs.d/surround"]
+	path = emacs.d/surround
+	url = git://github.com/timcharper/evil-surround.git
