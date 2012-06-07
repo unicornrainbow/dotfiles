@@ -73,6 +73,7 @@
 	ff  = rm --cached # [f]orget
 	fm  = mv # [m]ove
 	fr  = rm
+	fu  = reset HEAD
 	# [r]emote
 	r   = remote
 	rc  = remote add
