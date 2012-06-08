@@ -85,6 +85,7 @@ alias ele="$EDITOR $LEDGER_FILE"
 alias ass="ledger -s bal Assets"
 alias pipup="pip freeze --local | cut -d = -f 1 | xargs pip install -U"
 alias pipfr="pip freeze --local > requirements.txt"
+alias emacs="TERM=xterm-256color emacs"
 cljv() { curl -s clojars.org/$1 | grep version | sed -e "s/<[a-z\/=\" ]*>//g" -e "s/&lt;[\/a-z]*&gt;//g" }
 dighost() { host $(dig $1 | grep ANSWER -C 1 | tail -n 1 | awk '{ print $5 }') }
 vidposter() {
