@@ -29,6 +29,7 @@ nametrans = lambda f: f if f == 'INBOX' else 'INBOX.' + f
 [Repository WM-Remote]
 type = IMAP
 ssl = yes
+cert_fingerprint = bb117fe204afd0523a6c3fa54bc22c3aec06fbb3
 remotehost = mail.wm.ru
 remoteuser = greg@wm.ru
 remoteport = 993
@@ -47,6 +48,7 @@ localfolders = ~/Mail/iCloud
 [Repository iCloud-Remote]
 type = IMAP
 ssl = yes
+cert_fingerprint = 98e4fcbda3e111db6ccd7d85ba85d35afa2cc8c5
 remotehost = imap.mail.me.com
 remoteuser = floatboth@me.com
 remoteport = 993
