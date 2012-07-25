@@ -23,10 +23,14 @@ set tilde
 set nomarkers
 set menu_scroll
 set pager_stop
+set pager_context = 3
+ignore *
+unignore from: to: cc: date: subject:
+hdr_order from: to: cc: date: subject:
 alternative_order text/plain text/enriched text/html
 set sidebar_delim = '  │'
 set sidebar_visible
-set sidebar_width = 20
+set sidebar_width = 30
 set rfc2047_parameters
 charset-hook US-ASCII     ISO-8859-1
 charset-hook x-unknown    ISO-8859-1
@@ -43,6 +47,8 @@ set alias_format = "%4n %t %-20a  %r"]
 
 ## keys
 bind editor <space> noop # allows using IMAP folders w/ spaces!
+bind editor <tab> complete-query
+bind editor ^T    complete
 bind index,pager <down>   sidebar-next
 bind index,pager <up>     sidebar-prev
 bind index,pager <right>  sidebar-open
@@ -52,8 +58,18 @@ bind index k next-entry
 bind index j previous-entry
 bind index gg first-entry
 bind index G last-entry
+macro index / \
+      "<enter-command>set nowait_key<enter><shell-escape>mutt-notmuch --prompt search<enter><change-folder-readonly>~/.cache/mutt_results<enter>" \
+      "search mail (using notmuch)"
+macro index T \
+      "<enter-command>set nowait_key<enter><pipe-message>mutt-notmuch thread<enter><change-folder-readonly>~/.cache/mutt_results<enter><enter-command>set wait_key<enter>" \
+      "search and reconstruct owning thread (using notmuch)"
+macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
+macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+macro index a "<limit>all\n" "show all messages (undo limit)"
 bind attach k next-entry
 bind attach j previous-entry
+bind attach <return> view-mailcap
 bind pager / search
 bind pager k next-line
 bind pager j previous-line
@@ -62,20 +78,15 @@ bind pager n next-entry
 bind pager gg top
 bind pager G bottom
 macro pager \Cu "|urlview<enter>"
-macro index / \
-      "<enter-command>set nowait_key<enter><shell-escape>mutt-notmuch --prompt search<enter><change-folder-readonly>~/.cache/mutt_results<enter>" \
-      "search mail (using notmuch)"
-macro index T \
-      "<enter-command>set nowait_key<enter><pipe-message>mutt-notmuch thread<enter><change-folder-readonly>~/.cache/mutt_results<enter><enter-command>set wait_key<enter>" \
-      "search and reconstruct owning thread (using notmuch)"
 
 # attachments
 set mailcap_path = ~/.mutt/mailcap
 auto_view text/html
 
 # sending
-set query_command = '~/Code/dotfiles/bin/addressbook.py | grep %s'
+set query_command = '~/Code/dotfiles/bin/addressbook.py %s'
 set sendmail = /usr/local/bin/msmtp
+set sendmail_wait = 0
 set envelope_from
 set nomime_forward
 set include

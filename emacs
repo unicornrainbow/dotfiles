@@ -77,6 +77,7 @@
 (evil-mode t)
 (define-key evil-normal-state-map (kbd "k") 'evil-next-line)
 (define-key evil-normal-state-map (kbd "j") 'evil-previous-line)
+(define-key evil-normal-state-map (kbd ";") 'evil-ex)
 (define-key evil-normal-state-map [escape] 'keyboard-quit)
 (define-key evil-visual-state-map [escape] 'keyboard-quit)
 (define-key minibuffer-local-map [escape] 'minibuffer-keyboard-quit)
