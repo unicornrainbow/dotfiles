@@ -124,8 +124,8 @@ nmap <Leader>T<Space> :Tabularize /<Space><CR>
 vmap <Leader>T<Space> :Tabularize /<Space><CR>
 nmap <Leader>T: :Tabularize /:\zs<CR>
 vmap <Leader>T: :Tabularize /:\zs<CR>
-nmap sj :SplitjoinSplit<CR>
-nmap sk :SplitjoinJoin<CR>
+nmap sk :SplitjoinSplit<CR>
+nmap sj :SplitjoinJoin<CR>
 map <Leader>w :w<CR>
 map <Leader>W :SudoWrite<CR>
 map <Leader>a :Ack! 

@@ -18,3 +18,14 @@
 
 --langmap=Lisp:+.clj
 --langmap=Lisp:+.cljs
+
+--exclude=venv
+--exclude=vendor
+--exclude=migrations
+--exclude=coverage
+--exclude=tmp
+--exclude=doc
+--exclude=docs
+--exclude=build
+--exclude=dist
+--exclude=log

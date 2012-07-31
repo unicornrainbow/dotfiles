@@ -5,6 +5,7 @@
 --ignore-case
 --smart-case
 --ignore-dir=log
+--ignore-dir=venv
 --ignore-dir=vendor
 --ignore-dir=autodoc
 --ignore-dir=doc

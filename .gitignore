@@ -1,10 +1,10 @@
 *~
 .DS_Store
 myshows
-conkerorrc/accounts.js
 vim/.netrwhist
 vim/tmp
 weechat/weechat.log
 weechat/logs
 cache
 emacs.d/history
+emacs.d/swank
