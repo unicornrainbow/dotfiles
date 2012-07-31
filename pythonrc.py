@@ -38,28 +38,27 @@ def src(obj):
     pager.communicate(highlight(source))
     pager.wait()
 
-if not "bpython" in os.environ["_"]:
+try:
+    class TabCompleter(rlcompleter.Completer):
+        """Completer that supports indenting"""
+        def complete(self, text, state):
+            if not text:
+                return ('    ', None)[state]
+            else:
+                return rlcompleter.Completer.complete(self, text, state)
+    readline.set_completer(TabCompleter().complete)
+    readline.set_history_length(1000)
+    if 'libedit' in readline.__doc__:
+        readline.parse_and_bind("bind '\t' rl_complete")
+    else:
+        readline.parse_and_bind(open("%s/.inputrc" % home).read())
+    HISTFILE = "%s/.pyhistory." % home
     try:
-        class TabCompleter(rlcompleter.Completer):
-            """Completer that supports indenting"""
-            def complete(self, text, state):
-                if not text:
-                    return ('    ', None)[state]
-                else:
-                    return rlcompleter.Completer.complete(self, text, state)
-        readline.set_completer(TabCompleter().complete)
-        readline.set_history_length(1000)
-        if 'libedit' in readline.__doc__:
-            readline.parse_and_bind("bind '\t' rl_complete")
-        else:
-            readline.parse_and_bind(open("%s/.inputrc" % home).read())
-        HISTFILE = "%s/.pyhistory." % home
-        try:
-            readline.read_history_file(HISTFILE)
-        except: pass
-        atexit.register(readline.write_history_file, HISTFILE)
-    except:
-        print >>sys.stderr, "Couldn't get rlcompleter + readline working."
+        readline.read_history_file(HISTFILE)
+    except: pass
+    atexit.register(readline.write_history_file, HISTFILE)
+except:
+    print >>sys.stderr, "Couldn't get rlcompleter + readline working."
 
 if "DJANGO_SETTINGS_MODULE" in os.environ:
     from django.db.models.loading import get_models

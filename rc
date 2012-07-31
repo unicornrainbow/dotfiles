@@ -1,0 +1,48 @@
+# This came from Greg V's dotfiles:
+#      https://github.com/myfreeweb/dotfiles
+# Feel free to steal it, but attribution is nice
+#
+# thanks:
+# https://bitbucket.org/sjl/dotfiles/src/cbbbc897e9b3/fish/config.fish
+
+alias b="bundle"
+alias be="bundle exec"
+alias ci="git commit -am"
+alias g="git"
+alias gaes="dev_appserver.py -a 0.0.0.0 ."
+alias gi="gem install"
+alias iaw="open -a 'iA Writer'"
+alias l="ls"
+alias p="popd"
+alias r="rails"
+alias vi="vim"
+alias e="vim" # ;e -- semicolon gets eaten
+alias v="fasd -e vim"
+alias collapse="sed -e 's/  */ /g'"
+alias P="$PAGER"
+alias ele="$EDITOR $LEDGER_FILE"
+alias ass="ledger -s bal Assets"
+alias pipup="pip freeze --local | cut -d = -f 1 | xargs pip install -U"
+alias pipfr="pip freeze --local > requirements.txt"
+alias emacs="TERM=xterm-256color emacs"
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias l1="tree --dirsfirst -ChFL 1"
+alias l2="tree --dirsfirst -ChFL 2"
+alias l3="tree --dirsfirst -ChFL 3"
+alias l4="tree --dirsfirst -ChFL 4"
+alias l5="tree --dirsfirst -ChFL 5"
+alias ll1="tree --dirsfirst -ChFupDaL 1"
+alias ll2="tree --dirsfirst -ChFupDaL 2"
+alias ll3="tree --dirsfirst -ChFupDaL 3"
+alias ll4="tree --dirsfirst -ChFupDaL 4"
+alias ll5="tree --dirsfirst -ChFupDaL 5"
+alias l="l1"
+alias ll="ll1"
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
+alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
+alias s_http="python -m SimpleHTTPServer"
+alias s_smtp="python -m smtpd -n -c DebuggingServer localhost:1025"
+alias pinst="sudo python setup.py install; and sudo rm -r build dist *egg-info"

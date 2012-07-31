@@ -1,14 +1,15 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 # This came from Greg V's dotfiles:
 #      https://github.com/myfreeweb/dotfiles
 # Feel free to steal it, but attribution is nice
 if [[ $(uname) == 'Darwin' ]]; then
+  export PATH=$PATH:$(cat ~/.dotfiles_location)/bin/tmux-osx-paste-fix
   if [[ -e $(which reattach-to-user-namespace) ]]; then
-    reattach-to-user-namespace -l zsh
+    reattach-to-user-namespace -l $1
   else
     echo 'install reattach-to-user-namespace!'
-    zsh
+    $1
   fi
 else
-  zsh
+  $1
 fi

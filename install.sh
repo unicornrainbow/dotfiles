@@ -37,6 +37,8 @@ link mutt
 link_custom mutt/muttrc $HOME/.muttrc
 link_custom irbrc.rb $HOME/.irbrc
 
+mkdir -p $HOME/.config/fish
+link_custom config.fish $HOME/.config/fish/config.fish
 mkdir -p $HOME/.ssh
 link_custom ssh_config $HOME/.ssh/config
 mkdir -p $HOME/.lein

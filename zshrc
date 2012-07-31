@@ -64,28 +64,9 @@ if [[ $IS_MAC == 1 ]]; then
 fi
 # }}}
 # Custom settings, aliases and functions {{{
-alias b="bundle"
-alias be="bundle exec"
-alias ci="git commit -am"
-alias g="git"
-alias gaes="dev_appserver.py -a 0.0.0.0 ."
-alias gi="gem install"
-alias iaw="open -a 'iA Writer'"
-alias l="ls"
-alias p="popd"
-alias r="rails"
-alias vi="vim"
-alias e="vim" # ;e -- semicolon gets eaten
-alias v="fasd -e vim"
-alias collapse="sed -e 's/  */ /g'"
+source $DOTFILES/rc
 psack() { ps auxww | ack $* | ack -v ack | collapse | cut -d' ' -f 2,11- }
 alias "ps?"=psack
-alias P="$PAGER"
-alias ele="$EDITOR $LEDGER_FILE"
-alias ass="ledger -s bal Assets"
-alias pipup="pip freeze --local | cut -d = -f 1 | xargs pip install -U"
-alias pipfr="pip freeze --local > requirements.txt"
-alias emacs="TERM=xterm-256color emacs"
 cljv() { curl -s https://clojars.org/$1 | grep version | head -n 1 | sed -e "s/<[a-z\/=\" ]*>//g" -e "s/&lt;[\/a-z]*&gt;//g" }
 dighost() { host $(dig $1 | grep ANSWER -C 1 | tail -n 1 | awk '{ print $5 }') }
 vidposter() {
