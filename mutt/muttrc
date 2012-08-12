@@ -84,7 +84,7 @@ set mailcap_path = ~/.mutt/mailcap
 auto_view text/html
 
 # sending
-set query_command = '~/Code/dotfiles/bin/addressbook.py %s'
+set query_command = '~/Code/dotfiles/bin/addressbook %s'
 set sendmail = /usr/local/bin/msmtp
 set sendmail_wait = 0
 set envelope_from

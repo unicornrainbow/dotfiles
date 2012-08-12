@@ -1,3 +1,3 @@
 #min hour day  mon  wday
-*/30 *    *    *    *    ~/Code/dotfiles/bin/pinboard_html.py
+*/30 *    *    *    *    ~/Code/dotfiles/bin/pinboard_html
 30   *    *    *    *    purge

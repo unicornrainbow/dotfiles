@@ -27,6 +27,7 @@ set autoread autowrite
 set magic
 set nojoinspaces
 set modelines=3
+set synmaxcol=500 " don't highlight minified js and stuff
 " }}}
 " formatting {{{
 set nowrap
@@ -38,14 +39,15 @@ set whichwrap+=<,>,[,]
 set virtualedit=block
 " }}}
 " ui {{{
+set notimeout ttimeout ttimeoutlen=10
 set relativenumber
 set hlsearch
 set backspace=indent,eol,start
 set noerrorbells
 set showbreak=↪
 set list listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
-set fillchars+=vert:│
-set ttyfast title
+set fillchars=diff:⣿,vert:│
+set ttyfast lazyredraw title
 set cursorline
 set hidden
 set mouse=a
@@ -57,6 +59,7 @@ set showmatch
 set mat=5
 set virtualedit=onemore
 set viewoptions=folds,options,cursor,unix,slash
+set t_ti= t_te= " http://www.shallowsky.com/linux/noaltscreen.html
 " }}}
 " completion {{{
 set completeopt=longest,menuone,preview
@@ -95,6 +98,7 @@ nnoremap Y y$
 nnoremap <CR> :nohlsearch<CR>
 imap <C-l> <Space>=><Space>
 map <Leader>d :bd<CR>
+nnoremap <leader>u :syntax sync fromstart<cr>:redraw!<cr> " Unfuck my screen
 " }}}
 " windows {{{
 map <C-h> <C-w>h
@@ -132,9 +136,31 @@ map <Leader>a :Ack!
 map <Leader>m :Rename 
 nnoremap <Leader>b :silent !open <C-R>=escape("<C-R><C-F>", "#?&;\|%")<CR><CR> " open URLs
 " }}}
+" motion for numbers {{{
+" Motion for numbers.  Great for CSS.  Lets you do things like this:
+" margin-top: 200px; -> daN -> margin-top: px;
+onoremap N :<c-u>call <SID>NumberTextObject(0)<cr>
+xnoremap N :<c-u>call <SID>NumberTextObject(0)<cr>
+onoremap aN :<c-u>call <SID>NumberTextObject(1)<cr>
+xnoremap aN :<c-u>call <SID>NumberTextObject(1)<cr>
+onoremap iN :<c-u>call <SID>NumberTextObject(1)<cr>
+xnoremap iN :<c-u>call <SID>NumberTextObject(1)<cr>
+function! s:NumberTextObject(whole)
+    normal! v
+    while getline('.')[col('.')] =~# '\v[0-9]'
+        normal! l
+    endwhile
+    if a:whole
+        normal! o
+        while col('.') > 1 && getline('.')[col('.') - 2] =~# '\v[0-9]'
+            normal! h
+        endwhile
+    endif
+endfunction
+" }}}
 
 " Autocommands {{{
-au BufRead,BufNewFile {Gemfile,Rakefile,Capfile,Vagrantfile,Thorfile,Guardfile,config.ru} setf ruby
+au BufRead,BufNewFile {Gem,Rake,Cap,Vagrant,Thor,Guard}file,config.ru setf ruby
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,ronn} setf markdown
 au BufRead,BufNewFile {SConstruct,SConscript,*.py} setf python.django
 au BufRead,BufNewFile *.{nu,nujson},Nukefile setf nu
@@ -146,27 +172,24 @@ au BufRead,BufNewFile nginx.conf setf nginx
 au BufRead,BufNewFile *.gradle setf groovy
 au BufRead,BufNewFile *.sbt setf scala
 au BufRead,BufNewFile *.scaml setf haml
-au BufRead,BufNewFile *.muttrc setf muttrc
+au BufRead,BufNewFile *muttrc setf muttrc
 au BufRead,BufNewFile quakelive.cfg setf quake
 au BufRead,BufNewFile *.{css,sass,scss,less,styl} setlocal omnifunc=csscomplete#CompleteCSS
+au BufRead,BufNewFile *.{css,sass,scss,less,styl} setlocal iskeyword+=-
 au BufRead,BufNewFile {*.go,Makefile,.git*,*gitconfig} setlocal noexpandtab
 au BufRead,BufNewFile *.{jar,war,ear,sar} setf zip
-au BufRead,BufNewFile {,.}zshrc setlocal foldmethod=marker
+au BufRead,BufNewFile {,.}zshrc,*.fish setlocal foldmethod=marker
+au BufRead,BufNewFile *.fish setf tcsh
 au BufWritePost {g,.g,,.}vimrc source $MYVIMRC | exe ":PowerlineReloadColorscheme"
 au BufReadPost fugitive://* setlocal bufhidden=delete
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 au VimResized * exe "normal! \<c-w>="
 au FileType {vim,javascript} setlocal foldmethod=marker
-au FileType help setlocal textwidth=78
 au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
 au InsertEnter * set number
 au InsertLeave * set relativenumber
 " }}}
 " Vars {{{
-let mapleader=','
-let maplocalleader=','
-let g:mapleader=','
-let g:CommandTMaxHeight=20
 let g:maintainer='{"name": "Greg V", "web": "http://floatboth.com"}'
 let vimclojure#SplitPos='bottom'
 let g:vimclojure#DynamicHighlighting=1

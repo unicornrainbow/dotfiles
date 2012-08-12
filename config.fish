@@ -32,12 +32,18 @@ set -gx PYTHONSTARTUP "$DOTFILES/pythonrc.py"
 set -gx WORKON_HOME "$CODEDIR"
 
 # Ruby
+set -gx RUBY_HEAP_MIN_SLOTS 1000000
+set -gx RUBY_HEAP_SLOTS_INCREMENT 1000000
+set -gx RUBY_HEAP_SLOTS_GROWTH_FACTOR 1
+set -gx RUBY_GC_MALLOC_LIMIT 1000000000
+set -gx RUBY_HEAP_FREE_MIN 500000
 set PATH "$HOME/.rbenv/bin" $PATH
 set PATH "$HOME/.rbenv/shims" $PATH
 rbenv rehash 2>/dev/null
 
 # Java
 set -gx JAVA_HOME "/Library/Java/Home"
+set PATH "/Library/Java/Home/bin" $PATH
 
 # Fish
 set -gx fish_greeting ''
@@ -63,6 +69,7 @@ set -gx LEDGER_FILE "$HOME/Documents/my.ledger"
 
 # Functions {{{
 . $DOTFILES/rc
+alias z 'pushd (fasd -d $argv)'
 
 function mcd
   mkdir -p "$argv"
@@ -125,6 +132,7 @@ end
 
 # Prompt {{{
 function fish_prompt
+  command fasd --proc (fasd --sanitize $1)
   set last_status $status
   echo
 
@@ -145,6 +153,13 @@ function fish_prompt
     printf ' (%s)' (basename "$VIRTUAL_ENV")
     set_color normal
   end
+
+  if test -s $HOME/.rbenv/version
+    set_color red
+    printf ' <%s>' (cat $HOME/.rbenv/version)
+    set_color normal
+  end
+
   if test $last_status -eq 0
     set_color green -o
     printf ' :) '

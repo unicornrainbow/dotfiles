@@ -6,3 +6,5 @@ setlocal smarttab
 setlocal expandtab
 setlocal nosmartindent
 setlocal wrap
+setlocal define=^\s*\\(def\\\\|class\\)
+inoremap <buffer> <c-b> """"""<left><left><left>
