@@ -8,3 +8,5 @@ set show-all-if-unmodified on
 control-j: menu-complete
 control-k: menu-complete-backward
 tab: complete
+'\e\[O': ''
+'\e\[I': ''

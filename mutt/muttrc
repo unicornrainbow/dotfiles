@@ -1,3 +1,7 @@
+# This came from Greg V's dotfiles:
+#      https://github.com/myfreeweb/dotfiles
+# Feel free to steal it, but attribution is nice
+#
 # thanks:
 # http://pbrisbin.com/posts/mutt_gmail_offlineimap
 # https://github.com/sjl/dotfiles/blob/master/mutt
@@ -28,7 +32,7 @@ ignore *
 unignore from: to: cc: date: subject:
 hdr_order from: to: cc: date: subject:
 alternative_order text/plain text/enriched text/html
-set sidebar_delim = '  │'
+set sidebar_delim = ' | '
 set sidebar_visible
 set sidebar_width = 30
 set rfc2047_parameters

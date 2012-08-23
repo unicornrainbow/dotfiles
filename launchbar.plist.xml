@@ -736,7 +736,7 @@
 		</dict>
 		<dict>
 			<key>definition</key>
-			<string>c, cpp, h, java, m, nib, php, php3, php4, pl</string>
+			<string>c, cpp, h, java, m, nib, php, php3, php4, pl, py, rb, ru, go, js, coffee, sass, scss, css, less, styl, clj, el, feature</string>
 			<key>identifier</key>
 			<string>2</string>
 			<key>name</key>

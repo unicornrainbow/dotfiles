@@ -76,6 +76,13 @@ function mcd
   cd "$argv"
 end
 
+function emacs
+  set OLDTERM $TERM
+  set -gx TERM 'xterm-256color'
+  command emacs $argv
+  set -gx TERM $OLDTERM
+end
+
 function latrus
   echo "$argv" | tr "qwertyuiop[]asdfghjkl;'zxcvbnm,.QWERTYUIOP{}ASDFGHJKL:\"ZXCVBNM" "йцукенгшщзхъфывапролджэячсмитьбюЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ"
 end
@@ -132,8 +139,8 @@ end
 
 # Prompt {{{
 function fish_prompt
-  command fasd --proc (fasd --sanitize $1)
   set last_status $status
+  command fasd --proc (fasd --sanitize $1)
   echo
 
   set_color black
@@ -169,6 +176,9 @@ function fish_prompt
   end
 end
 # }}}
+
+bind \e\[O true
+bind \e\[I true
 
 if status --is-interactive
   command fortune -s | cowsay -n | lolcat

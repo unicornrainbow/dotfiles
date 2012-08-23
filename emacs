@@ -57,17 +57,10 @@
 (setq-default indent-tabs-mode nil
               tab-width 2)
 
-;;; Aliases
-(defalias 'eb 'eval-buffer)
-(defalias 'er 'eval-region)
-(defalias 'qrr 'query-replace-regexp)
-(defalias 'ind 'indent-according-to-mode)
-(defalias 'lcs 'downcase-region)
-
-;;; Keyboard shortcuts
-(global-set-key (kbd "C-c C-f") 'find-grep-dired)
-(global-set-key (kbd "C-'") 'comment-or-uncomment-region)
-(global-set-key (kbd "C-k") 'kill-whole-line)
+;;; Functions
+(defun comment-or-uncomment-line ()
+  (interactive)
+  (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
 
 ;;; Plugins
 (addpath "evil")
@@ -76,8 +69,18 @@
 (require 'evil)
 (evil-mode t)
 (define-key evil-normal-state-map (kbd "k") 'evil-next-line)
+(define-key evil-visual-state-map (kbd "k") 'evil-next-line)
 (define-key evil-normal-state-map (kbd "j") 'evil-previous-line)
+(define-key evil-visual-state-map (kbd "j") 'evil-previous-line)
+(define-key evil-normal-state-map (kbd "C-h") 'windmove-left)
+(define-key evil-normal-state-map (kbd "C-k") 'windmove-down)
+(define-key evil-normal-state-map (kbd "C-j") 'windmove-up)
+(define-key evil-normal-state-map (kbd "C-l") 'windmove-right)
 (define-key evil-normal-state-map (kbd ";") 'evil-ex)
+(define-key evil-normal-state-map "\\" 'comment-or-uncomment-line)
+(define-key evil-visual-state-map "\\" 'comment-or-uncomment-region)
+(define-key evil-normal-state-map (kbd "<left>") 'previous-buffer)
+(define-key evil-normal-state-map (kbd "<right>") 'next-buffer)
 (define-key evil-normal-state-map [escape] 'keyboard-quit)
 (define-key evil-visual-state-map [escape] 'keyboard-quit)
 (define-key minibuffer-local-map [escape] 'minibuffer-keyboard-quit)
