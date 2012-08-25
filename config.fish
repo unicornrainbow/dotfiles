@@ -31,12 +31,6 @@ set -gx fish_greeting ''
 set -gx COMMAND_MODE unix2003
 
 # Less
-set -gx LESS_TERMCAP_mb '\E[01;31m'
-set -gx LESS_TERMCAP_me '\E[0m'
-set -gx LESS_TERMCAP_se '\E[0m'
-set -gx LESS_TERMCAP_so '\E[38;5;246m'
-set -gx LESS_TERMCAP_ue '\E[0m'
-set -gx LESS_TERMCAP_us '\E[04;33;146m'
 set -gx LESS "-R"
 
 # Generic settings

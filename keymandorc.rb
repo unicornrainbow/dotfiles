@@ -2,32 +2,37 @@
 #      https://github.com/myfreeweb/dotfiles
 # Feel free to steal it, but attribution is nice
 
-# keymando works as if it's on qwerty
-# even if i'm using colemak
+# Functions ------------------------------------------------------------
 def colemak(s)
-  s.tr("qwfpgjluy;arstdhneiozxcvbkmQWFPGJLUY;ARSTDHNEIOZXCVBKM", "qwertyuiopasdfghjkl;zxcvbnmQWERTYUIOPASDFGHJKL;ZXCVBNM")
+  # keymando works as if it's on qwerty
+  # even if i'm using colemak
+  s.tr("qwfpgjluy;arstdhneiozxcvbkmQWFPGJLUY;ARSTDHNEIOZXCVBKM",
+       "qwertyuiopasdfghjkl;zxcvbnmQWERTYUIOPASDFGHJKL;ZXCVBNM")
 end
 
+def ctrlshift(k, &block)
+  map "<Ctrl-Shift-#{colemak k}>", block
+end
+
+# Apps -----------------------------------------------------------------
 $browser = "Google Chrome"
 $term = "iTerm"
 
-# Stuff ----------------------------------------------------------------
+# Basic settings -------------------------------------------------------
 start_at_login
 disable "Remote Desktop Connection"
 disable /VirtualBox/
 
-map "<Ctrl-Shift-#{colemak "r"}>" { reload }
-
 # App switching --------------------------------------------------------
-map "<Ctrl-Shift-#{colemak "n"}>" { activate $browser }
-map "<Ctrl-Shift-#{colemak "e"}>" { activate $term }
-map "<Ctrl-Shift-#{colemak "i"}>" { activate "ForkLift" }
-map "<Ctrl-Shift-#{colemak "o"}>" { activate "MacVim" }
-map "<Ctrl-Shift-#{colemak "y"}>" { activate "Pixelmator" }
-map "<Ctrl-Shift-m>" { activate "Messages" }
+ctrlshift "n" { activate $browser }
+ctrlshift "e" { activate $term }
+ctrlshift "i" { activate "ForkLift" }
+ctrlshift "o" { activate "MacVim" }
+ctrlshift "y" { activate "Pixelmator" }
+ctrlshift "m" { activate "Messages" }
 
 # Automation -----------------------------------------------------------
-map "<Ctrl-Shift-#{colemak ";"}>" {
+ctrlshift ";" {
   activate $browser
   sleep 1
   send "<Cmd-#{colemak "r"}>"

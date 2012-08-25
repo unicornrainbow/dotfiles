@@ -1,9 +1,0 @@
-windows:
-- name: clj_scratch
-  splits:
-  - cmd:
-    - sleep 7 && vim /tmp/scratch.clj
-  - cmd:
-    - cd $HOME/.cljr
-    - lein vimclojure
-    height: 1
