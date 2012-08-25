@@ -5,7 +5,6 @@
 # thanks:
 # https://bitbucket.org/sjl/dotfiles/src/cbbbc897e9b3/fish/config.fish
 # http://selena.deckelmann.usesthis.com/
-# http://coderseye.com/2010/using-virtualenv-with-fish-shell.html
 
 # Setting env {{{
 set CODEDIR $HOME/Code
@@ -22,24 +21,6 @@ for dir in $DOTFILES/bin/*/
   set PATH $dir $PATH
 end
 set PATH "$DOTFILES/bin" $PATH
-
-# Python
-set -gx PYTHONPATH "/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
-set -gx PYTHONDONTWRITEBYTECODE true
-set -gx VIRTUALENV_DISTRIBUTE true
-set -gx PIP_USE_MIRRORS true
-set -gx PYTHONSTARTUP "$DOTFILES/pythonrc.py"
-set -gx WORKON_HOME "$CODEDIR"
-
-# Ruby
-set -gx RUBY_HEAP_MIN_SLOTS 1000000
-set -gx RUBY_HEAP_SLOTS_INCREMENT 1000000
-set -gx RUBY_HEAP_SLOTS_GROWTH_FACTOR 1
-set -gx RUBY_GC_MALLOC_LIMIT 1000000000
-set -gx RUBY_HEAP_FREE_MIN 500000
-set PATH "$HOME/.rbenv/bin" $PATH
-set PATH "$HOME/.rbenv/shims" $PATH
-rbenv rehash 2>/dev/null
 
 # Java
 set -gx JAVA_HOME "/Library/Java/Home"
@@ -90,52 +71,10 @@ end
 function ruslat
   echo "$argv" | tr "йцукенгшщзхъфывапролджэячсмитьбюЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ" "qwertyuiop[]asdfghjkl;'zxcvbnm,.QWERTYUIOP{}ASDFGHJKL:\"ZXCVBNM"
 end
-
-# Virtualenv
-function workon -d "Activate virtual environment in $WORKON_HOME"
-  set tgt {$WORKON_HOME}/$argv[1]
-
-  if [ ! -d $tgt ]
-    mkdir -p "$WORKON_HOME"
-    virtualenv $tgt/venv
-  end
-
-  if [ -d $tgt ]
-    cd $tgt
-
-    deactivate
-
-    set -gx VIRTUAL_ENV "$tgt/venv"
-    set -gx _OLD_VIRTUAL_PATH $PATH
-    set -gx PATH "$VIRTUAL_ENV/bin" $PATH
-
-    # unset PYTHONHOME if set
-    if set -q PYTHONHOME
-       set -gx _OLD_VIRTUAL_PYTHONHOME $PYTHONHOME
-       set -e PYTHONHOME
-    end
-
-    echo "activated $tgt"
-  else
-    echo "$tgt not found"
-  end
-end
-
-complete -c workon -a "(cd $WORKON_HOME; ls -d *)"
-
-function deactivate -d "Exit virtualenv and return to normal shell environment"
-    # reset old environment variables
-    if test -n "$_OLD_VIRTUAL_PATH"
-        set -gx PATH $_OLD_VIRTUAL_PATH
-        set -e _OLD_VIRTUAL_PATH
-    end
-    if test -n "$_OLD_VIRTUAL_PYTHONHOME"
-        set -gx PYTHONHOME $_OLD_VIRTUAL_PYTHONHOME
-        set -e _OLD_VIRTUAL_PYTHONHOME
-    end
-    set -e VIRTUAL_ENV
-end
 # }}}
+
+. $DOTFILES/python.fish
+. $DOTFILES/ruby.fish
 
 # Prompt {{{
 function fish_prompt
@@ -155,17 +94,8 @@ function fish_prompt
     set_color normal
   end
 
-  if [ -n "$VIRTUAL_ENV" ]
-    set_color cyan
-    printf ' (%s)' (basename "$VIRTUAL_ENV")
-    set_color normal
-  end
-
-  if test -s $HOME/.rbenv/version
-    set_color red
-    printf ' <%s>' (cat $HOME/.rbenv/version)
-    set_color normal
-  end
+  venv_prompt
+  rbenv_prompt
 
   if test $last_status -eq 0
     set_color green -o

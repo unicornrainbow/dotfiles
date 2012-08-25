@@ -28,9 +28,9 @@ map "<Ctrl-Shift-m>" { activate "Messages" }
 
 # Automation -----------------------------------------------------------
 map "<Ctrl-Shift-#{colemak ";"}>" {
-  activate browser
+  activate $browser
   sleep 1
   send "<Cmd-#{colemak "r"}>"
   sleep 1
-  activate term
+  activate $term
 }
