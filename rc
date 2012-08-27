@@ -5,6 +5,7 @@
 # thanks:
 # https://bitbucket.org/sjl/dotfiles/src/cbbbc897e9b3/fish/config.fish
 
+alias s="spot.sh"
 alias b="bundle"
 alias be="bundle exec"
 alias ci="git commit -am"

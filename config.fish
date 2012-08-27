@@ -103,7 +103,3 @@ end
 
 bind \e\[O true
 bind \e\[I true
-
-if status --is-interactive
-  command fortune -s | cowsay -n | lolcat
-end

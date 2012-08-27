@@ -134,6 +134,10 @@ map <Leader>w :w<CR>
 map <Leader>W :SudoWrite<CR>
 map <Leader>a :Ack! 
 map <Leader>m :Rename 
+map <Leader>rb :RunRubyFocusedTest<CR>
+map <Leader>c :VimuxPromptCommand<CR>
+map <Leader>vq :VimuxCloseRunner<CR>
+map <Leader>vx :VimuxInterruptRunner<CR>
 nnoremap <Leader>b :silent !open <C-R>=escape("<C-R><C-F>", "#?&;\|%")<CR><CR> " open URLs
 " }}}
 " motion for numbers {{{
