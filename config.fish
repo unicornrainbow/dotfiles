@@ -20,6 +20,7 @@ set PATH "/usr/local/sbin" $PATH
 for dir in $DOTFILES/bin/*/
   set PATH $dir $PATH
 end
+set PATH (brew --prefix coreutils)/libexec/gnubin $PATH
 set PATH "$DOTFILES/bin" $PATH
 
 # Java

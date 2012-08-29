@@ -30,6 +30,7 @@ ctrlshift "i" { activate "ForkLift" }
 ctrlshift "o" { activate "MacVim" }
 ctrlshift "y" { activate "Pixelmator" }
 ctrlshift "m" { activate "Messages" }
+ctrlshift "/" { activate "WrapTunes"; send "<Cmd-0>" }
 
 # Automation -----------------------------------------------------------
 ctrlshift ";" {
