@@ -1,6 +1,6 @@
 # myfreeweb/dotfiles
 
-![Screenshot](http://mfwb.us/GxET+)
+![Screenshot](http://mfwb.us/e9NJ+)
 
 ## Installation
     git submodule update --init --recursive
@@ -15,10 +15,10 @@ But are you really going to use all my dotfiles? No. You're not me. You should s
 - git&hg alias system, one letter == one thing, like vi commands, but the object comes before the verb, which makes more sense for version control
 - extremely awesome `irb` (ruby), `python`, `lein` (clojure)
 - [powerline](https://github.com/Lokaltog/vim-powerline) in vim and a similar thing for tmux, stolen from [sjl/dotfiles](https://github.com/sjl/dotfiles/), but with keyboard layout instead of music and mail. cool if you're bilingual. customize `bin/keylayout` for your language if it's not russian.
+- powerline style also in fish and irb
 - [Tarsnap](http://www.tarsnap.com/)-based backup script `bin/backup` and backup deletion script `bin/rmbackups`
 - `bin/pinboard_html` writes my recent [Pinboard](http://pinboard.in) bookmarks to ~/.bookmarks.html, I add it to LaunchBar, I can search it
 - solid, robust, UNIX-way mail configuration: mutt + offlineimap + msmtp + notmuch + urlview + `bin/addressbook` work together. like a boss!
-- zsh from the future! [zshuery](https://github.com/myfreeweb/zshuery), [history search](https://github.com/zsh-users/zsh-history-substring-search) and [syntax highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
 ## The weird parts
 - I use the [Colemak](http://colemak.com/) keyboard layout instead of QWERTY, so in all the curses-based apps (vim, mutt, less, tmux) j and k are swapped so it's more reasonable (`k` is lower than `j` so `k` should mean down)
