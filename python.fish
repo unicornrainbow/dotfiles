@@ -12,14 +12,6 @@ set -gx PIP_USE_MIRRORS true
 set -gx PYTHONSTARTUP "$DOTFILES/pythonrc.py"
 set -gx WORKON_HOME "$CODEDIR"
 
-function venv_prompt
-  if [ -n "$VIRTUAL_ENV" ]
-    set_color cyan
-    printf ' (%s)' (basename "$VIRTUAL_ENV")
-    set_color normal
-  end
-end
-
 # Virtualenv
 function workon -d "Activate virtual environment in $WORKON_HOME"
   set tgt {$WORKON_HOME}/$argv[1]

@@ -10,11 +10,3 @@ set -gx RUBY_HEAP_FREE_MIN 500000
 set PATH "$HOME/.rbenv/bin" $PATH
 set PATH "$HOME/.rbenv/shims" $PATH
 rbenv rehash 2>/dev/null
-
-function rbenv_prompt
-  if test -s $HOME/.rbenv/version
-    set_color red
-    printf ' <%s>' (cat $HOME/.rbenv/version)
-    set_color normal
-  end
-end

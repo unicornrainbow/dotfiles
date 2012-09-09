@@ -72,33 +72,49 @@ end
 . $DOTFILES/ruby.fish
 
 # Prompt {{{
+function p_arrow
+  set_color $lastc --background=$argv[1]
+  printf '⮀'
+  set_color white --background=$argv[1]
+end
+
 function fish_prompt
   set last_status $status
   command fasd --proc (fasd --sanitize $1)
   echo
 
-  set_color black
-  printf '%s' (prompt_pwd)
-  set_color normal
+  set_color white --background=green
+  printf '%s ' (prompt_pwd)
+  set -g lastc green
 
   if git rev-parse --show-toplevel >/dev/null 2>&1
-    set_color normal
-    printf ' on '
-    set_color magenta
-    printf '%s' (git branch --contains HEAD ^/dev/null | grep '*' | tr -s ' ' | cut -d ' ' -f2)
-    set_color normal
+    p_arrow blue
+    printf ' \u2b60 '
+    printf '%s ' (git branch --contains HEAD ^/dev/null | grep '*' | tr -s ' ' | cut -d ' ' -f2)
+    set -g lastc blue
   end
 
-  venv_prompt
-  rbenv_prompt
-
-  if test $last_status -eq 0
-    set_color green -o
-    printf ' :) '
-  else
-    set_color red -o
-    printf ' [%d] :( ' $last_status
+  if [ -n "$VIRTUAL_ENV" ]
+    p_arrow yellow
+    printf ' %s ' (basename "$VIRTUAL_ENV")
+    set -g lastc yellow
   end
+
+  if test -s $HOME/.rbenv/version
+    p_arrow purple
+    printf ' %s ' (cat $HOME/.rbenv/version)
+    set -g lastc purple
+  end
+
+  if test $last_status -ne 0
+    p_arrow red
+    printf ' %d ' $last_status
+    set -g lastc red
+  end
+
+  p_arrow normal
+  set_color normal
+  printf ' '
 end
 # }}}
 
