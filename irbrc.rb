@@ -12,9 +12,47 @@
 require 'rubygems'
 require 'irb/completion'
 
+def ansi(*codes)
+  "\033[" + codes*";" + "m"
+end
+
+FGS = {
+  :black   => '30',
+  :red     => '31',
+  :green   => '32',
+  :yellow  => '33',
+  :blue    => '34',
+  :magenta => '35',
+  :cyan    => '36',
+  :white   => '37',
+  :default => '39',
+}
+BGS = {
+  :black   => '40',
+  :red     => '41',
+  :green   => '42',
+  :yellow  => '43',
+  :blue    => '44',
+  :magenta => '45',
+  :cyan    => '46',
+  :white   => '47',
+  :default => '49',
+}
+
+def color(bg, fg)
+  ansi(BGS[bg]) + ansi(FGS[fg])
+end
+
 IRB.conf[:USE_READLINE] = true
 IRB.conf[:AUTO_INDENT]  = true
-IRB.conf[:PROMPT_MODE]  = :SIMPLE
+IRB.conf[:PROMPT][:CUSTOM] = {
+    :PROMPT_N => "#{color :blue, :white}... #{color :default, :blue}\u2b80#{color :default, :default} ",
+    :PROMPT_I => "#{color :blue, :white}irb #{color :default, :blue}\u2b80#{color :default, :default} ",
+    :PROMPT_S => nil,
+    :PROMPT_C => "#{color :blue, :white}... #{color :default, :blue}\u2b80#{color :default, :default} ",
+    :RETURN => "#{color :default, :green}\u2b82#{color :green, :white} %s #{color :default, :default}\n"
+}
+IRB.conf[:PROMPT_MODE] = :CUSTOM
 
 def IRB.reload
   load __FILE__
@@ -95,7 +133,7 @@ def clear
 end
 alias c clear
 
-%w{wirble sketches hirb hirb/import_object ap pp what_methods map_by_method}.each do |lib|
+%w{sketches hirb hirb/import_object ap pp what_methods map_by_method}.each do |lib|
   begin
     require lib
   rescue LoadError => err
@@ -104,8 +142,6 @@ alias c clear
 end
 
 begin
-  Wirble.init
-  Wirble.colorize
   Sketches.config :editor => ENV["EDITOR"]
   Hirb.enable
   extend Hirb::Console
