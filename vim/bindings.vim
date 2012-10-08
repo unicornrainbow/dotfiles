@@ -1,6 +1,8 @@
 " This came from Greg V's dotfiles:
 "      https://github.com/myfreeweb/dotfiles
 " Feel free to steal it, but attribution is nice
+" 
+" Thanks: see vimrc
 
 let mapleader = ","
 let maplocalleader = "\\"
@@ -9,17 +11,28 @@ let maplocalleader = "\\"
 noremap k gj
 noremap j gk
 
-noremap ' i
-noremap U <C-r>
+" less keystrokes
 nnoremap ; :
+vnoremap ; :
+nnoremap ' i
+vnoremap ' i
+nnoremap U <C-r>
+nnoremap Y y$
+map <Leader>d :bd<CR>
+
+" http://vimbits.com/bits/16
+noremap H ^
+noremap L $
+
+" folds
 nnoremap <Space> za
 vnoremap <Space> za
-map <Leader><CR> o<ESC>
-nnoremap Y y$
+
+" remove search highlights
 nnoremap <CR> :nohlsearch<CR>
-imap <C-l> <Space>=><Space>
-map <Leader>d :bd<CR>
-nnoremap <leader>u :syntax sync fromstart<cr>:redraw!<cr> " Unfuck my screen
+
+" unfuck the screen
+nnoremap <leader>u :syntax sync fromstart<cr>:redraw!<cr> 
 
 " windows
 map <C-h> <C-w>h
@@ -28,13 +41,13 @@ map <C-j> <C-w>k
 map <C-l> <C-w>l
 
 " case-insensitive
-cab E e
-cab W w
-cab Q q
-cab WQ wq
-cab Wq wq
+command! E e
+command! W w
+command! Q q
+command! Wq wq
+command! WQ wq
 
-" emacs bindings
+" emacs bindings in insert
 inoremap <C-a> <home>
 inoremap <C-e> <end>
 

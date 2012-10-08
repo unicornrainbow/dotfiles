@@ -1,6 +1,8 @@
 " This came from Greg V's dotfiles:
 "      https://github.com/myfreeweb/dotfiles
 " Feel free to steal it, but attribution is nice
+"
+" Thanks: see vimrc
 
 au BufRead,BufNewFile {Gem,Rake,Cap,Vagrant,Thor,Guard}file,config.ru setf ruby
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,ronn} setf markdown
