@@ -1,0 +1,22 @@
+#!/usr/bin/ruby
+# Find MODX Revolution (tm) login emails with notmuch, show only URL-username-password
+#
+# This came from Greg V's dotfiles:
+#      https://github.com/myfreeweb/dotfiles
+# Feel free to steal it, but attribution is nice
+
+%w{rubygems json}.map { |m| require m }
+
+JSON.parse(`notmuch show --format=json subject:"Your login details"`).flatten.map do |m|
+  # read files because notmuch doesn't inline HTML emails
+  # kill HTML and indentation
+  lines = File.read(m["filename"]).gsub(/<[^>]+>/, '').gsub(/^\s+/, '').split("\n").select do |l|
+    l.start_with?("Username") || l.start_with?("Password") || l.start_with?("Once you log")
+  end
+  if lines.length > 0
+    username = lines[0].gsub("Username: ", "")
+    password = lines[1].gsub("Password: ", "")
+    url = lines[2].gsub("Once you log into the MODX Manager at ", "").gsub(", you can change your password.", "").gsub(", =", "")
+    puts "#{url} | #{username} | #{password}"
+  end
+end
