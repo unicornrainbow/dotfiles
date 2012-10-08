@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#!/usr/bin/env ruby
 # Find MODX Revolution (tm) login emails with notmuch, show only URL-username-password
 #
 # This came from Greg V's dotfiles:
