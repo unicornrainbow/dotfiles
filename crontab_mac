@@ -1,3 +1,4 @@
 #min hour day  mon  wday
 */30 *    *    *    *    ~/Code/dotfiles/bin/pinboard_html
 30   *    *    *    *    purge
+0    0    */5  *    *    brew cleanup

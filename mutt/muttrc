@@ -9,23 +9,25 @@
 # viewing, managing
 set folder = ~/Mail
 set mbox_type = Maildir
-set record = +sent
 set postponed = +drafts
-set nomove
+unset move
 set delete
-set noconfirmappend
-set nomark_old
+unset confirmappend
+unset mark_old
 set quit
 set sort = threads
 set sort_aux = reverse-last-date-received
 set sort_re
 set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+""])"
-set nobeep
+unset beep
 set smart_wrap
 set tilde
-set nomarkers
+unset markers
 set menu_scroll
+set uncollapse_jump
+set timeout = 3
+set mail_check = 0
 set pager_stop
 set pager_context = 3
 ignore *
@@ -63,10 +65,10 @@ bind index j previous-entry
 bind index gg first-entry
 bind index G last-entry
 macro index / \
-      "<enter-command>set nowait_key<enter><shell-escape>mutt-notmuch --prompt search<enter><change-folder-readonly>~/.cache/mutt_results<enter>" \
+      "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch --prompt search<enter><change-folder-readonly>~/.cache/mutt_results<enter>" \
       "search mail (using notmuch)"
 macro index T \
-      "<enter-command>set nowait_key<enter><pipe-message>mutt-notmuch thread<enter><change-folder-readonly>~/.cache/mutt_results<enter><enter-command>set wait_key<enter>" \
+      "<enter-command>unset wait_key<enter><pipe-message>mutt-notmuch thread<enter><change-folder-readonly>~/.cache/mutt_results<enter><enter-command>set wait_key<enter>" \
       "search and reconstruct owning thread (using notmuch)"
 macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
 macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
@@ -82,6 +84,8 @@ bind pager n next-entry
 bind pager gg top
 bind pager G bottom
 macro pager \Cu "|urlview<enter>"
+bind compose p postpone-message
+bind index p recall-message
 
 # attachments
 set mailcap_path = ~/.mutt/mailcap
@@ -92,7 +96,7 @@ set query_command = '~/Code/dotfiles/bin/addressbook %s'
 set sendmail = /usr/local/bin/msmtp
 set sendmail_wait = 0
 set envelope_from
-set nomime_forward
+unset mime_forward
 set include
 set forward_quote
 set forward_format = "Fwd: %s"
@@ -108,6 +112,10 @@ set send_charset = "utf-8:windows-1251:us-ascii:iso-8859-1"
 # identity
 alternates ^greg@wm\\.ru$ ^floatboth@me\\.com$
 set reverse_name
+
+# misc
+set pipe_decode
+set thorough_search
 
 # accounts
 folder-hook iCloud/* source ~/.mutt/icloud.muttrc

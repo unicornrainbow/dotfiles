@@ -85,6 +85,8 @@ set undodir=~/.vim/tmp/undo/
 
 " Bindings
 " basics {{{
+let mapleader = ","
+let maplocalleader = "\\"
 " j and k inverted for colemak
 noremap k gj
 noremap j gk

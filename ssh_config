@@ -7,3 +7,9 @@ HashKnownHosts no
 
 Host nfsn
   Hostname ssh.phx.nearlyfreespeech.net
+
+Host floatboth-me-com
+    HostName git01.phpfog.com
+    User git
+    IdentityFile /Users/myfreeweb/.ssh/floatboth-me-com
+

@@ -40,7 +40,6 @@
 	default = tracking
 [branch]
 	autosetupmerge = always
-	autosetuprebase = always
 [color]
 	ui = auto
 	interactive = auto

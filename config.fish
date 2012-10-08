@@ -17,8 +17,10 @@ end
 
 set PATH "/usr/local/bin" $PATH
 set PATH "/usr/local/sbin" $PATH
-for dir in $DOTFILES/bin/*/
-  set PATH $dir $PATH
+for dir in $DOTFILES/bin/*
+  if test -d $dir
+    set PATH $dir $PATH
+  end
 end
 set PATH (brew --prefix coreutils)/libexec/gnubin $PATH
 set PATH "$DOTFILES/bin" $PATH
@@ -87,9 +89,9 @@ function fish_prompt
   printf '%s ' (prompt_pwd)
   set -g lastc green
 
-  if git rev-parse --show-toplevel >/dev/null 2>&1
+  if git root >/dev/null 2>&1
     p_arrow blue
-    printf ' \u2b60 '
+    printf ' ⭠ '
     printf '%s ' (git branch --contains HEAD ^/dev/null | grep '*' | tr -s ' ' | cut -d ' ' -f2)
     set -g lastc blue
   end
