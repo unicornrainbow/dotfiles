@@ -80,127 +80,14 @@ set backupdir=~/.vim/tmp/backups/
 set undodir=~/.vim/tmp/undo/
 " }}}
 
-" Bindings
-" basics {{{
-let mapleader = ","
-let maplocalleader = "\\"
-" j and k inverted for colemak
-noremap k gj
-noremap j gk
-noremap ' i
-noremap U <C-r>
-nnoremap ; :
-nnoremap <Space> za
-vnoremap <Space> za
-map <Leader><CR> o<ESC>
-nnoremap Y y$
-nnoremap <CR> :nohlsearch<CR>
-imap <C-l> <Space>=><Space>
-map <Leader>d :bd<CR>
-nnoremap <leader>u :syntax sync fromstart<cr>:redraw!<cr> " Unfuck my screen
-" }}}
-" windows {{{
-map <C-h> <C-w>h
-map <C-k> <C-w>j
-map <C-j> <C-w>k
-map <C-l> <C-w>l
-" }}}
-" case-insensitive {{{
-cab E e
-cab W w
-cab Q q
-cab WQ wq
-cab Wq wq
-" }}}
-" emacs bindings {{{
-inoremap <C-a> <home>
-inoremap <C-e> <end>
-" }}}
-" buffer nav {{{
-map <Right> :bnext<CR>
-map <Left>  :bprev<CR>
-" }}}
-" plugins and stuff {{{
-nmap <Leader>T= :Tabularize /=<CR>
-vmap <Leader>T= :Tabularize /=<CR>
-nmap <Leader>T<Space> :Tabularize /<Space><CR>
-vmap <Leader>T<Space> :Tabularize /<Space><CR>
-nmap <Leader>T: :Tabularize /:\zs<CR>
-vmap <Leader>T: :Tabularize /:\zs<CR>
-nmap sk :SplitjoinSplit<CR>
-nmap sj :SplitjoinJoin<CR>
-map <Leader>w :w<CR>
-map <Leader>W :SudoWrite<CR>
-map <Leader>a :Ack! 
-map <Leader>m :Rename 
-map <Leader>rb :RunRubyFocusedTest<CR>
-map <Leader>c :VimuxPromptCommand<CR>
-map <Leader>vq :VimuxCloseRunner<CR>
-map <Leader>vx :VimuxInterruptRunner<CR>
-nnoremap <Leader>b :silent !open <C-R>=escape("<C-R><C-F>", "#?&;\|%")<CR><CR> " open URLs
-" }}}
-" motion for numbers {{{
-" Motion for numbers.  Great for CSS.  Lets you do things like this:
-" margin-top: 200px; -> daN -> margin-top: px;
-onoremap N :<c-u>call <SID>NumberTextObject(0)<cr>
-xnoremap N :<c-u>call <SID>NumberTextObject(0)<cr>
-onoremap aN :<c-u>call <SID>NumberTextObject(1)<cr>
-xnoremap aN :<c-u>call <SID>NumberTextObject(1)<cr>
-onoremap iN :<c-u>call <SID>NumberTextObject(1)<cr>
-xnoremap iN :<c-u>call <SID>NumberTextObject(1)<cr>
-function! s:NumberTextObject(whole)
-    normal! v
-    while getline('.')[col('.')] =~# '\v[0-9]'
-        normal! l
-    endwhile
-    if a:whole
-        normal! o
-        while col('.') > 1 && getline('.')[col('.') - 2] =~# '\v[0-9]'
-            normal! h
-        endwhile
-    endif
-endfunction
-" }}}
+source ~/.vim/bindings.vim
+source ~/.vim/autocmd.vim
 
-" Autocommands {{{
-au BufRead,BufNewFile {Gem,Rake,Cap,Vagrant,Thor,Guard}file,config.ru setf ruby
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,ronn} setf markdown
-au BufRead,BufNewFile {SConstruct,SConscript,*.py} setf python.django
-au BufRead,BufNewFile *.{nu,nujson},Nukefile setf nu
-au BufRead,BufNewFile *.json setf javascript
-au BufRead,BufNewFile *.conf setf config
-au BufRead,BufNewFile *.ledger setf ledger | comp ledger
-au BufRead,BufNewFile *gitconfig setf gitconfig
-au BufRead,BufNewFile nginx.conf setf nginx
-au BufRead,BufNewFile *.gradle setf groovy
-au BufRead,BufNewFile *.sbt setf scala
-au BufRead,BufNewFile *.scaml setf haml
-au BufRead,BufNewFile *muttrc setf muttrc
-au BufRead,BufNewFile quakelive.cfg setf quake
-au BufRead,BufNewFile *.{css,sass,scss,less,styl} setlocal omnifunc=csscomplete#CompleteCSS
-au BufRead,BufNewFile *.{css,sass,scss,less,styl} setlocal iskeyword+=-
-au BufRead,BufNewFile {*.go,Makefile,.git*,*gitconfig} setlocal noexpandtab
-au BufRead,BufNewFile *.{jar,war,ear,sar} setf zip
-au BufRead,BufNewFile {,.}zshrc,*.fish setlocal foldmethod=marker
-au BufRead,BufNewFile *.fish setf tcsh
-au BufWritePost {g,.g,,.}vimrc source $MYVIMRC | exe ":PowerlineReloadColorscheme"
-au BufReadPost fugitive://* setlocal bufhidden=delete
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-au VimResized * exe "normal! \<c-w>="
-au FileType {vim,javascript} setlocal foldmethod=marker
-au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
-au InsertEnter * set number
-au InsertLeave * set relativenumber
-" }}}
-" Vars {{{
-let g:maintainer='{"name": "Greg V", "web": "http://floatboth.com"}'
 let vimclojure#SplitPos='bottom'
 let g:vimclojure#DynamicHighlighting=1
 let g:SuperTabDefaultCompletionType='context'
 let g:Powerline_symbols='fancy'
 let delimitMate_excluded_ft='clojure'
-" }}}
-
 set background=light
 if $SOLARIZED == "dark"
   set background=dark
