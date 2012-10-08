@@ -20,8 +20,6 @@ link gitignore
 link teamocil
 link tmux.conf
 link vim
-link vimrc
-link gvimrc
 link emacs
 link emacs.d
 link inputrc
@@ -37,6 +35,8 @@ link mutt
 link_custom mutt/muttrc $HOME/.muttrc
 link_custom irbrc.rb $HOME/.irbrc
 
+link_custom vim/vimrc $HOME/.vimrc
+link_custom vim/gvimrc $HOME/.gvimrc
 mkdir -p $HOME/.config/fish
 link_custom config.fish $HOME/.config/fish/config.fish
 mkdir -p $HOME/.ssh

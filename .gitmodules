@@ -1,96 +1,6 @@
-[submodule "bin/pickdrop"]
-	path = bin/pickdrop
-	url = git://github.com/iaindooley/pickdrop.git
 [submodule "bin/rvn"]
 	path = bin/rvn
 	url = git://github.com/rupa/rvn.git
-[submodule "vim/bundle/coffee-script"]
-	path = vim/bundle/coffee-script
-	url = git://github.com/kchmck/vim-coffee-script.git
-[submodule "vim/bundle/zencoding"]
-	path = vim/bundle/zencoding
-	url = git://github.com/mattn/zencoding-vim.git
-[submodule "vim/bundle/fugitive"]
-	path = vim/bundle/fugitive
-	url = git://github.com/tpope/vim-fugitive.git
-[submodule "vim/bundle/haml"]
-	path = vim/bundle/haml
-	url = git://github.com/tpope/vim-haml.git
-[submodule "vim/bundle/javascript"]
-	path = vim/bundle/javascript
-	url = git://github.com/pangloss/vim-javascript.git
-[submodule "vim/bundle/snipmate"]
-	path = vim/bundle/snipmate
-	url = git://github.com/msanders/snipmate.vim.git
-[submodule "vim/pathogen"]
-	path = vim/pathogen
-	url = git://github.com/tpope/vim-pathogen.git
-[submodule "vim/bundle/jade"]
-	path = vim/bundle/jade
-	url = git://github.com/digitaltoad/vim-jade.git
-[submodule "vim/bundle/ack"]
-	path = vim/bundle/ack
-	url = git://github.com/mileszs/ack.vim.git
-[submodule "vim/bundle/snipmate_for_django"]
-	path = vim/bundle/snipmate_for_django
-	url = git://github.com/robhudson/snipmate_for_django.git
-[submodule "vim/bundle/html5"]
-	path = vim/bundle/html5
-	url = git://github.com/othree/html5.vim.git
-[submodule "vim/bundle/css3"]
-	path = vim/bundle/css3
-	url = git://github.com/hail2u/vim-css3-syntax.git
-[submodule "vim/bundle/stylus"]
-	path = vim/bundle/stylus
-	url = git://github.com/wavded/vim-stylus.git
-[submodule "vim/bundle/delimitMate"]
-	path = vim/bundle/delimitMate
-	url = git://github.com/vim-scripts/delimitMate.vim.git
-[submodule "vim/bundle/snipmate_nodejs"]
-	path = vim/bundle/snipmate_nodejs
-	url = git://github.com/jamescarr/snipmate-nodejs.git
-[submodule "vim/bundle/solarized"]
-	path = vim/bundle/solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule "vim/bundle/unimpaired"]
-	path = vim/bundle/unimpaired
-	url = git://github.com/tpope/vim-unimpaired.git
-[submodule "vim/bundle/slim"]
-	path = vim/bundle/slim
-	url = git://github.com/bbommarito/vim-slim.git
-[submodule "vim/bundle/commonjs-package-json/plugin"]
-	path = vim/bundle/commonjs-package-json/plugin
-	url = git://gist.github.com/961425.git
-[submodule "vim/bundle/golang"]
-	path = vim/bundle/golang
-	url = git://github.com/jnwhiteh/vim-golang.git
-[submodule "vim/bundle/github"]
-	path = vim/bundle/github
-	url = git://github.com/solars/github-vim.git
-[submodule "vim/bundle/tabular"]
-	path = vim/bundle/tabular
-	url = git://github.com/godlygeek/tabular.git
-[submodule "vim/bundle/clojure"]
-	path = vim/bundle/clojure
-	url = git://github.com/vim-scripts/VimClojure.git
-[submodule "vim/bundle/speeddating"]
-	path = vim/bundle/speeddating
-	url = git://github.com/tpope/vim-speeddating.git
-[submodule "vim/bundle/surround"]
-	path = vim/bundle/surround
-	url = git://github.com/tpope/vim-surround
-[submodule "vim/bundle/endwise"]
-	path = vim/bundle/endwise
-	url = git://github.com/tpope/vim-endwise
-[submodule "vim/bundle/abolish"]
-	path = vim/bundle/abolish
-	url = git://github.com/tpope/vim-abolish
-[submodule "vim/bundle/strftimedammit"]
-	path = vim/bundle/strftimedammit
-	url = git://github.com/sjl/strftimedammit.vim.git
-[submodule "vim/bundle/gundo"]
-	path = vim/bundle/gundo
-	url = git://github.com/sjl/gundo.vim.git
 [submodule "bin/tmux-osx-paste-fix"]
 	path = bin/tmux-osx-paste-fix
 	url = git://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard.git
@@ -100,87 +10,18 @@
 [submodule "vendor/zsh-hss"]
 	path = vendor/zsh-hss
 	url = git://github.com/zsh-users/zsh-history-substring-search.git
-[submodule "vim/bundle/indent-object"]
-	path = vim/bundle/indent-object
-	url = git://github.com/michaeljsmith/vim-indent-object.git
-[submodule "vim/bundle/easymotion"]
-	path = vim/bundle/easymotion
-	url = git://github.com/Lokaltog/vim-easymotion.git
-[submodule "vim/bundle/repeat"]
-	path = vim/bundle/repeat
-	url = git://github.com/tpope/vim-repeat.git
-[submodule "vim/bundle/ledger"]
-	path = vim/bundle/ledger
-	url = git://github.com/cypok/vim-ledger.git
-[submodule "vim/bundle/supertab"]
-	path = vim/bundle/supertab
-	url = git://github.com/ervandew/supertab.git
-[submodule "vim/bundle/quickrun"]
-	path = vim/bundle/quickrun
-	url = git://github.com/thinca/vim-quickrun.git
-[submodule "vim/bundle/argtextobj"]
-	path = vim/bundle/argtextobj
-	url = git://github.com/vim-scripts/argtextobj.vim.git
-[submodule "vim/bundle/nu"]
-	path = vim/bundle/nu
-	url = git://github.com/itfrombit/nuvim.git
-[submodule "vim/bundle/splitjoin"]
-	path = vim/bundle/splitjoin
-	url = git://github.com/AndrewRadev/splitjoin.vim.git
-[submodule "vim/bundle/ctrlp"]
-	path = vim/bundle/ctrlp
-	url = git://github.com/kien/ctrlp.vim.git
-[submodule "vim/bundle/pasta"]
-	path = vim/bundle/pasta
-	url = git://github.com/sickill/vim-pasta.git
-[submodule "vim/bundle/powerline"]
-	path = vim/bundle/powerline
-	url = git://github.com/Lokaltog/vim-powerline.git
 [submodule "keybindings"]
 	path = keybindings
 	url = git://github.com/ttscoff/KeyBindings.git
-[submodule "vim/bundle/snipmate_clojure"]
-	path = vim/bundle/snipmate_clojure
-	url = git://github.com/swannodette/clojure-snippets.git
-[submodule "vim/bundle/paredit"]
-	path = vim/bundle/paredit
-	url = git://github.com/emezeske/paredit.vim.git
 [submodule "mutt/solarized"]
 	path = mutt/solarized
 	url = git://github.com/altercation/mutt-colors-solarized.git
 [submodule "zshuery"]
 	path = zshuery
 	url = git://github.com/myfreeweb/zshuery
-[submodule "vim/bundle/commentary"]
-	path = vim/bundle/commentary
-	url = git://github.com/tpope/vim-commentary.git
-[submodule "vim/bundle/eunuch"]
-	path = vim/bundle/eunuch
-	url = git://github.com/tpope/vim-eunuch.git
-[submodule "vim/bundle/bundler"]
-	path = vim/bundle/bundler
-	url = git://github.com/tpope/vim-bundler.git
-[submodule "vim/bundle/git"]
-	path = vim/bundle/git
-	url = git://github.com/tpope/vim-git.git
-[submodule "vim/bundle/scala"]
-	path = vim/bundle/scala
-	url = git://github.com/derekwyatt/vim-scala.git
-[submodule "vim/bundle/vitality"]
-	path = vim/bundle/vitality
-	url = git://github.com/sjl/vitality.vim.git
-[submodule "vim/bundle/vimux"]
-	path = vim/bundle/vimux
-	url = git://github.com/benmills/vimux.git
-[submodule "vim/bundle/vimux-ruby"]
-	path = vim/bundle/vimux-ruby
-	url = git://github.com/pgr0ss/vimux-ruby-test.git
 [submodule "bin/fasd"]
 	path = bin/fasd
 	url = git://github.com/clvv/fasd.git
-[submodule "vim/bundle/splice"]
-	path = vim/bundle/splice
-	url = git://github.com/sjl/splice.vim.git
 [submodule "emacs.d/autopair"]
 	path = emacs.d/autopair
 	url = git://github.com/emacsmirror/autopair.git
@@ -208,18 +49,9 @@
 [submodule "emacs.d/surround"]
 	path = emacs.d/surround
 	url = git://github.com/timcharper/evil-surround.git
-[submodule "vim/bundle/elixir"]
-	path = vim/bundle/elixir
-	url = git://github.com/elixir-lang/vim-elixir.git
-[submodule "vim/bundle/snipmate_elixir"]
-	path = vim/bundle/snipmate_elixir
-	url = git://github.com/carlosgaldino/elixir-snippets.git
-[submodule "vim/bundle/editorconfig"]
-	path = vim/bundle/editorconfig
-	url = git://github.com/editorconfig/editorconfig-vim.git
 [submodule "bin/spot"]
 	path = bin/spot
 	url = git://github.com/guille/spot.git
-[submodule "vim/bundle/easybuffer"]
-	path = vim/bundle/easybuffer
-	url = git://github.com/troydm/easybuffer.vim.git
+[submodule "vim/vundle"]
+	path = vim/vundle
+	url = git://github.com/gmarik/vundle.git
