@@ -10,12 +10,13 @@
 " https://github.com/holman/dotfiles
 " https://github.com/spf13/spf13-vim
 " https://github.com/garybernhardt/dotfiles
+" https://github.com/mutewinter/dot_vim
 
 set nocompatible
 source ~/.vim/bundles.vim
 syntax on
 
-" basics {{{
+" basics
 set noswapfile backup undofile undoreload=5000 history=500
 set noequalalways
 set wrapscan incsearch ignorecase smartcase
@@ -25,8 +26,8 @@ set magic
 set nojoinspaces
 set modelines=3
 set synmaxcol=500 " don't highlight minified js and stuff
-" }}}
-" formatting {{{
+
+" formatting
 set nowrap
 set expandtab
 set tabstop=2 shiftwidth=2 softtabstop=2
@@ -34,8 +35,8 @@ set autoindent smartindent
 set encoding=utf-8 nobomb
 set whichwrap+=<,>,[,]
 set virtualedit=block
-" }}}
-" ui {{{
+
+" ui
 set notimeout ttimeout ttimeoutlen=10
 set relativenumber
 set hlsearch
@@ -57,8 +58,8 @@ set mat=5
 set virtualedit=onemore
 set viewoptions=folds,options,cursor,unix,slash
 set t_ti= t_te= " http://www.shallowsky.com/linux/noaltscreen.html
-" }}}
-" completion {{{
+
+" completion
 set completeopt=longest,menuone,preview
 set wildmenu wildmode=list:longest,list:full
 set wildignore+=.hg,.git,.bzr,.svn                 " Version control
@@ -69,8 +70,8 @@ set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest   " compiled object files
 set wildignore+=*.spl                              " compiled spelling word lists
 set wildignore+=*.sw?                              " Vim swap files
 set wildignore+=.DS_Store,Thumbs.db                " Shit
-" }}}
-" paths {{{
+
+" paths
 set shell=zsh
 set formatprg=par\ -eq
 set tags=./tags;
@@ -78,7 +79,8 @@ set dictionary=/usr/share/dict/words
 set backupskip=/tmp/*,/private/tmp/*
 set backupdir=~/.vim/tmp/backups/
 set undodir=~/.vim/tmp/undo/
-" }}}
+
+" ////////////////////////////
 
 source ~/.vim/bindings.vim
 source ~/.vim/autocmd.vim
