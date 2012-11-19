@@ -27,6 +27,5 @@ backup_last_file() {
 }
 APPSUP=$HOME/Library/Application\ Support
 
-backup_file $HOME/Documents/my.ledger
 backup_last_file textexpander $APPSUP/TextExpander/Backups
 backup_last_file 1password $APPSUP/1Password/Backups

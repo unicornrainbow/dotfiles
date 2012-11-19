@@ -34,6 +34,20 @@ nnoremap <CR> :nohlsearch<CR>
 " unfuck the screen
 nnoremap <leader>u :syntax sync fromstart<cr>:redraw!<cr> 
 
+" select (charwise) the contents of the current line, excluding indentation.
+" great for pasting Python lines into REPLs.
+nnoremap vv ^vg_
+
+" keep the cursor in place while joining lines
+nnoremap J mzJ`z
+
+" insert mode completion
+inoremap <c-f> <c-x><c-f>
+inoremap <c-]> <c-x><c-]>}
+
+" don't move on *
+nnoremap * *<C-o>
+
 " windows
 map <C-h> <C-w>h
 map <C-k> <C-w>j
@@ -47,13 +61,19 @@ command! Q q
 command! Wq wq
 command! WQ wq
 
-" emacs bindings in insert
+" emacs bindings in insert and command
 inoremap <C-a> <home>
 inoremap <C-e> <end>
+cnoremap <C-a> <home>
+cnoremap <C-e> <end>
 
 " buffer nav
-map <Right> :bnext<CR>
-map <Left>  :bprev<CR>
+nnoremap <Right> :bnext<CR>
+nnoremap <Left>  :bprev<CR>
+
+" List nav
+nnoremap <Up>    :cprev<CR>zvzz
+nnoremap <Down>  :cnext<CR>zvzz
 
 " plugins and stuff
 nmap <Leader>T= :Tabularize /=<CR>
@@ -73,6 +93,9 @@ map <Leader>c :VimuxPromptCommand<CR>
 map <Leader>vq :VimuxCloseRunner<CR>
 map <Leader>vx :VimuxInterruptRunner<CR>
 nnoremap <Leader>b :silent !open <C-R>=escape("<C-R><C-F>", "#?&;\|%")<CR><CR> " open URLs
+autocmd FileType python map <Leader>8 :call Flake8()<CR>
+let g:ctrlp_map = '<Leader>p'
+nnoremap <Leader>t :CtrlPTag<CR>
 
 " Motion for numbers.  Great for CSS.  Lets you do things like this:
 " margin-top: 200px; -> daN -> margin-top: px;

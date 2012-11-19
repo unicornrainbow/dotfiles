@@ -60,7 +60,7 @@ set viewoptions=folds,options,cursor,unix,slash
 set t_ti= t_te= " http://www.shallowsky.com/linux/noaltscreen.html
 
 " completion
-set completeopt=longest,menuone,preview
+set complete=.,w,b,u,t completeopt=longest,menuone,preview
 set wildmenu wildmode=list:longest,list:full
 set wildignore+=.hg,.git,.bzr,.svn                 " Version control
 set wildignore+=*.aux,*.out,*.toc                  " LaTeX intermediate files
@@ -70,6 +70,7 @@ set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest   " compiled object files
 set wildignore+=*.spl                              " compiled spelling word lists
 set wildignore+=*.sw?                              " Vim swap files
 set wildignore+=.DS_Store,Thumbs.db                " Shit
+set wildignore+=target                             " JVM compiled stuff
 
 " paths
 set shell=zsh
@@ -90,6 +91,7 @@ let g:vimclojure#DynamicHighlighting=1
 let g:SuperTabDefaultCompletionType='context'
 let g:Powerline_symbols='fancy'
 let delimitMate_excluded_ft='clojure'
+let g:flake8_ignore='E128'
 set background=light
 if $SOLARIZED == "dark"
   set background=dark

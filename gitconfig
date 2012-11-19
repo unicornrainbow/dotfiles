@@ -27,7 +27,7 @@
 	prompt = false
 [diff]
 	renames = copy
-	tool = vimdiff
+	tool = Kaleidoscope
 	wordRegex = [^[:space:]]
 	mnemonicprefix = true
 [mergetool "splice"]
@@ -68,6 +68,7 @@
 	# [f]ile
 	fa  = add
 	faa = !git add --all && git ws
+	fap = add --patch
 	fc  = !touch $@ && git add $@ && $EDITOR $1
 	ff  = rm --cached # [f]orget
 	fm  = mv # [m]ove
@@ -102,3 +103,5 @@
 	pushInsteadOf = "git://github.com/"
 [url "git@github.com:myfreeweb/"]
 	insteadOf = my:
+[difftool "Kaleidoscope"]
+	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"

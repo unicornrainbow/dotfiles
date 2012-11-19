@@ -52,6 +52,7 @@ if [[ $(uname) = 'Linux' ]]; then
   QUAKE=$HOME/.quakelive/quakelive/home/baseq3
 elif [[ $(uname) = 'Darwin' ]]; then
   cat ./crontab ./crontab_mac | crontab
+  link_custom scpt $HOME/Library/Scripts
   mkdir -p $HOME/Library/KeyBindings
   link_custom keybindings/DefaultKeyBinding.dict $HOME/Library/KeyBindings/DefaultKeyBinding.dict
   LAUNCHBAR=$HOME/Library/Application\ Support/LaunchBar

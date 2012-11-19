@@ -26,8 +26,8 @@ set PATH (brew --prefix coreutils)/libexec/gnubin $PATH
 set PATH "$DOTFILES/bin" $PATH
 
 # Java
-set -gx JAVA_HOME "/Library/Java/Home"
-set PATH "/Library/Java/Home/bin" $PATH
+set -gx JAVA_HOME (/usr/libexec/java_home)
+set PATH "$JAVA_HOME/bin" $PATH
 
 # Fish
 set -gx fish_greeting ''
