@@ -29,6 +29,7 @@ link weechat
 link ledgerrc
 link lesskey
 link urlview
+link slate
 link offlineimaprc
 link msmtprc
 link mutt

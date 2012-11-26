@@ -24,21 +24,21 @@ disable "Remote Desktop Connection"
 disable /VirtualBox/
 
 # App switching --------------------------------------------------------
-ctrlshift "n" { activate $browser }
-ctrlshift "e" { activate $term }
-ctrlshift "i" { activate "ForkLift" }
-ctrlshift "o" { activate "MacVim" }
-ctrlshift "y" { activate "Pixelmator" }
-ctrlshift "m" { activate "Messages" }
-ctrlshift "." { activate "WrapTunes"; send "<Cmd-0>" }
-ctrlshift "u" { activate "Finder" }
-ctrlshift "/" {
-  activate "Ecoute"
-  # opens the window even after cmd+w closing it
-  sleep 0.1
-  ecoute = Accessibility::Gateway.get_application_by_name "Ecoute"
-  ecoute.menu_bar.find.first_item_matching(:role => Matches.partial("menuitem"), :title => Matches.exact("Ecoute")).press
-}
+# ctrlshift "n" { activate $browser }
+# ctrlshift "e" { activate $term }
+# ctrlshift "i" { activate "ForkLift" }
+# ctrlshift "o" { activate "MacVim" }
+# ctrlshift "y" { activate "Pixelmator" }
+# ctrlshift "m" { activate "Messages" }
+# ctrlshift "." { activate "WrapTunes"; send "<Cmd-0>" }
+# ctrlshift "u" { activate "Finder" }
+# ctrlshift "/" {
+#   activate "Ecoute"
+#   # opens the window even after cmd+w closing it
+#   sleep 0.1
+#   ecoute = Accessibility::Gateway.get_application_by_name "Ecoute"
+#   ecoute.menu_bar.find.first_item_matching(:role => Matches.partial("menuitem"), :title => Matches.exact("Ecoute")).press
+# }
 
 # Automation -----------------------------------------------------------
 ctrlshift ";" {

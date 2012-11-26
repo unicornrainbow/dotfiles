@@ -25,6 +25,9 @@ end
 set PATH (brew --prefix coreutils)/libexec/gnubin $PATH
 set PATH "$DOTFILES/bin" $PATH
 
+# JS
+set PATH "/usr/local/share/npm/bin" $PATH
+
 # Java
 set -gx JAVA_HOME (/usr/libexec/java_home)
 set PATH "$JAVA_HOME/bin" $PATH
