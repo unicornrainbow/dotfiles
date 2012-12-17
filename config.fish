@@ -92,7 +92,7 @@ function fish_prompt
   printf '%s ' (prompt_pwd)
   set -g lastc green
 
-  if git root >/dev/null 2>&1
+  if git rev-parse --show-toplevel >/dev/null 2>&1
     p_arrow blue
     printf ' ⭠ '
     printf '%s ' (git branch --contains HEAD ^/dev/null | grep '*' | tr -s ' ' | cut -d ' ' -f2)

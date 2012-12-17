@@ -55,3 +55,12 @@
 [submodule "vim/vundle"]
 	path = vim/vundle
 	url = git://github.com/gmarik/vundle.git
+[submodule "bin/spark"]
+	path = bin/spark
+	url = git://github.com/holman/spark.git
+[submodule "bin/battery"]
+	path = bin/battery
+	url = git://github.com/Goles/Battery.git
+[submodule "emacs.d/powerline"]
+	path = emacs.d/powerline
+	url = git://github.com/jonathanchu/emacs-powerline.git

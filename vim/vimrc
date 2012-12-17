@@ -26,6 +26,7 @@ set magic
 set nojoinspaces
 set modelines=3
 set synmaxcol=500 " don't highlight minified js and stuff
+set switchbuf=usetab
 
 " formatting
 set nowrap

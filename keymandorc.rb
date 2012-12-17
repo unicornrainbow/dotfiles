@@ -19,7 +19,7 @@ $browser = "Google Chrome"
 $term = "iTerm"
 
 # Basic settings -------------------------------------------------------
-start_at_login
+# start_at_login
 disable "Remote Desktop Connection"
 disable /VirtualBox/
 
