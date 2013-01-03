@@ -72,6 +72,7 @@ set wildignore+=*.spl                              " compiled spelling word list
 set wildignore+=*.sw?                              " Vim swap files
 set wildignore+=.DS_Store,Thumbs.db                " Shit
 set wildignore+=target                             " JVM compiled stuff
+set wildignore+=node_modules,build
 
 " paths
 set shell=zsh

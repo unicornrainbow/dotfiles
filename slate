@@ -26,7 +26,7 @@ bind  down:${nudgekeys} nudge +0  +5%
 bind    up:${nudgekeys} nudge +0  -5%
 
 # ------------------------------------------------------------------------------- Focus
-alias focuskeys ctrl;shift
+alias focuskeys ctrl;shift;alt;cmd # hyper
 bind n:${focuskeys} focus 'Google Chrome'
 bind e:${focuskeys} focus 'iTerm'
 bind i:${focuskeys} focus 'ForkLift'

@@ -17,6 +17,7 @@
 --ignore-dir=.sass-cache
 --ignore-dir=build
 --ignore-dir=dist
+--ignore-dir=node_modules
 --type-add=html=haml,jade,mustache,tpl,erb,slim
 --type-add=css=sass,scss,less,styl,ccss,clevercss
 --type-add=js=coffee

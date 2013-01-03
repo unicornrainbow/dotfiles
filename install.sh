@@ -56,6 +56,8 @@ elif [[ $(uname) = 'Darwin' ]]; then
   link_custom scpt $HOME/Library/Scripts
   mkdir -p $HOME/Library/KeyBindings
   link_custom keybindings/DefaultKeyBinding.dict $HOME/Library/KeyBindings/DefaultKeyBinding.dict
+  mkdir -p $HOME/Library/Application\ Support/KeyRemap4MacBook
+  link_custom private.xml $HOME/Library/Application\ Support/KeyRemap4MacBook/private.xml
   QUAKE=$HOME/Library/Application\ Support/QuakeLive/quakelive/home/baseq3
   for agent in ./launchd/*; do
     ln -s $(ruby -e "puts File.expand_path(\"$agent\")") $HOME/Library/LaunchAgents/
