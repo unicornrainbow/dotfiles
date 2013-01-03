@@ -69,10 +69,6 @@ psack() { ps auxww | ack $* | ack -v ack | collapse | cut -d' ' -f 2,11- }
 alias "ps?"=psack
 cljv() { curl -s https://clojars.org/$1 | grep version | head -n 1 | sed -e "s/<[a-z\/=\" ]*>//g" -e "s/&lt;[\/a-z]*&gt;//g" }
 dighost() { host $(dig $1 | grep ANSWER -C 1 | tail -n 1 | awk '{ print $5 }') }
-vidposter() {
-  if [[ $2 != "" ]]; then TIME=$2; else TIME='00:00:03'; fi
-  ffmpeg -i $1 -an -ss $TIME -an -r 1 -vframes 1 -y $(echo $1 | sed 's/^\(.*\)\.[^.]*$/\1/')_poster.jpg
-}
 echoarrow() { echo "$fg_bold[black]====> $fg_no_bold[yellow]$*$reset_color" }
 updatestuff() {
   echoarrow "Updating dotfiles w/ submodules" && (cd $DOTFILES && git pull && git su)

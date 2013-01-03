@@ -133,7 +133,7 @@ def clear
 end
 alias c clear
 
-%w{sketches hirb hirb/import_object ap pp what_methods map_by_method}.each do |lib|
+%w{hirb hirb/import_object ap}.each do |lib|
   begin
     require lib
   rescue LoadError => err
@@ -142,7 +142,6 @@ alias c clear
 end
 
 begin
-  Sketches.config :editor => ENV["EDITOR"]
   Hirb.enable
   extend Hirb::Console
 rescue LoadError => err

@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+if [[ $2 != "" ]]; then TIME=$2; else TIME='00:00:03'; fi
+ffmpeg -i $1 -an -ss $TIME -an -r 1 -vframes 1 -y $(echo $1 | sed 's/^\(.*\)\.[^.]*$/\1/')_poster.jpg
