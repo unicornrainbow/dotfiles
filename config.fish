@@ -32,6 +32,12 @@ set PATH "/usr/local/share/npm/bin" $PATH
 set -gx JAVA_HOME (/usr/libexec/java_home)
 set PATH "$JAVA_HOME/bin" $PATH
 
+# Postgres
+set PATH "/Applications/Postgres.app/Contents/MacOS/bin" $PATH
+
+# TeX
+set PATH "/usr/texbin" $PATH
+
 # Fish
 set -gx fish_greeting ''
 set -gx COMMAND_MODE unix2003

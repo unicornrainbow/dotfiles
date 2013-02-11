@@ -1,5 +1,5 @@
-" allow jumping to tags w/ dashes
-setlocal iskeyword+=-
+map <Leader>ss cpr:Eval (run-specs)<CR>
+map <Leader>sw :w<CR>cpr
 
 " https://gist.github.com/519858
 function! GetClojureFold()
@@ -8,6 +8,8 @@ function! GetClojureFold()
   elseif getline(v:lnum) =~ '^\s*(def.*\s'
     return ">1"
   elseif getline(v:lnum) =~ '^\s*(deftest.*\s'
+    return ">1"
+  elseif getline(v:lnum) =~ '^\s*(it.*\s'
     return ">1"
   elseif getline(v:lnum) =~ '^\s*(fact.*\s'
     return ">1"
