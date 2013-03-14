@@ -15,10 +15,19 @@
 
 ;;; General settings
 (fset 'yes-or-no-p 'y-or-n-p)
-(server-start t)
 (cua-mode t)
 (ido-mode t)
+(setq ido-create-new-buffer 'always
+      ido-enable-flex-matching t
+      ido-everywhere t
+      ido-ignore-buffers (append '(".*Completion" "*magit-process*" "*Pymacs*" "*Messages*") ido-ignore-buffers)
+      ido-ignore-extensions t
+      ido-confirm-unique-completion t
+      ido-max-directory-size 100500
+      ido-use-filename-at-point 'guess
+      ido-use-virtual-buffers t)
 (show-paren-mode t)
+(global-hl-line-mode t)
 (savehist-mode t)
 (recentf-mode t)
 (delete-selection-mode t)
@@ -28,6 +37,11 @@
   (tooltip-mode -1))
 (when (functionp 'tool-bar-mode)
   (tool-bar-mode -1))
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'forward
+      uniquify-separator "/"
+      uniquify-after-kill-buffer-p t
+      uniquify-ignore-buffers-re "^\\*")
 (if (featurep window-system)
     (modify-frame-parameters nil '((wait-for-wm . nil)))
   (menu-bar-mode -1))
@@ -43,14 +57,6 @@
       next-line-add-newlines t
       tooltip-use-echo-area t
       vc-handled-backends '()
-      ido-create-new-buffer 'always
-      ido-enable-flex-matching t
-      ido-everywhere t
-      ido-ignore-buffers (append '(".*Completion" "*magit-process*" "*Pymacs*" "*Messages*") ido-ignore-buffers)
-      ido-ignore-extensions t
-      ido-confirm-unique-completion t
-      ido-max-directory-size 100500
-      ido-use-filename-at-point 'guess
       kill-buffer-query-functions (remq 'process-kill-buffer-query-function
                                         kill-buffer-query-functions)
       redisplay-dont-pause t)
@@ -115,6 +121,18 @@
 (require 'color-theme-solarized)
 (color-theme-initialize)
 (color-theme-solarized-light)
+(setq color-theme-is-global t)
 
 (addpath "clojure")
 (require 'clojure-mode)
+
+(addpath "nrepl")
+(require 'nrepl)
+(add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
+(add-hook 'nrepl-mode-hook 'subword-mode)
+(setq nrepl-hide-special-buffers t)
+
+(addpath "paredit")
+(require 'paredit)
+(add-hook 'clojure-mode-hook 'paredit-mode)
+(add-hook 'nrepl-mode-hook 'paredit-mode)

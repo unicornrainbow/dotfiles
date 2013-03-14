@@ -31,6 +31,7 @@ set PATH "/usr/local/share/npm/bin" $PATH
 # Java
 set -gx JAVA_HOME (/usr/libexec/java_home)
 set PATH "$JAVA_HOME/bin" $PATH
+set -gx JRUBY_OPTS "-J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1 -J-noverify"
 
 # Postgres
 set PATH "/Applications/Postgres.app/Contents/MacOS/bin" $PATH
@@ -83,12 +84,6 @@ end
 . $DOTFILES/ruby.fish
 
 # Prompt {{{
-function p_arrow
-  set_color $lastc --background=$argv[1]
-  printf '⮀'
-  set_color white --background=$argv[1]
-end
-
 function fish_prompt
   set last_status $status
   command fasd --proc (fasd --sanitize $1)
@@ -99,33 +94,28 @@ function fish_prompt
   set -g lastc green
 
   if git rev-parse --show-toplevel >/dev/null 2>&1
-    p_arrow blue
+    set_color white --background=blue
     printf ' ⭠ '
     printf '%s ' (git branch --contains HEAD ^/dev/null | grep '*' | tr -s ' ' | cut -d ' ' -f2)
-    set -g lastc blue
   end
 
   if [ -n "$VIRTUAL_ENV" ]
-    p_arrow yellow
+    set_color white --background=yellow
     printf ' %s ' (basename "$VIRTUAL_ENV")
-    set -g lastc yellow
   end
 
-  if test -s $HOME/.rbenv/version
-    p_arrow purple
-    printf ' %s ' (cat $HOME/.rbenv/version)
-    set -g lastc purple
-  end
+#  if test -s $HOME/.rbenv/version
+#    set_color white --background=purple
+#    printf ' %s ' (cat $HOME/.rbenv/version)
+#  end
 
   if test $last_status -ne 0
-    p_arrow red
+    set_color white --background=red
     printf ' %d ' $last_status
-    set -g lastc red
   end
 
-  p_arrow normal
   set_color normal
-  printf ' '
+  printf '$ '
 end
 # }}}
 

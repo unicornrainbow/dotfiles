@@ -9,6 +9,7 @@ au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,ronn} setf markdown
 au BufRead,BufNewFile {SConstruct,SConscript,*.py} setf python.django
 au BufRead,BufNewFile *.{nu,nujson},Nukefile setf nu
 au BufRead,BufNewFile *.json setf javascript
+au BufRead,BufNewFile *.emblem setf slim
 au BufRead,BufNewFile *.conf setf config
 au BufRead,BufNewFile *.ledger setf ledger | comp ledger
 au BufRead,BufNewFile *gitconfig setf gitconfig

@@ -64,3 +64,9 @@
 [submodule "emacs.d/powerline"]
 	path = emacs.d/powerline
 	url = git://github.com/jonathanchu/emacs-powerline.git
+[submodule "emacs.d/nrepl"]
+	path = emacs.d/nrepl
+	url = git://github.com/kingtim/nrepl.el.git
+[submodule "emacs.d/paredit"]
+	path = emacs.d/paredit
+	url = git://github.com/emacsmirror/paredit.git

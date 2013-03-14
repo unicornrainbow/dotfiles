@@ -91,13 +91,9 @@ source ~/.vim/autocmd.vim
 let vimclojure#SplitPos='bottom'
 let g:vimclojure#DynamicHighlighting=1
 let g:SuperTabDefaultCompletionType='context'
-let g:Powerline_symbols='fancy'
 let delimitMate_excluded_ft='clojure'
 let g:flake8_ignore='E128'
-set background=light
-if $SOLARIZED == "dark"
-  set background=dark
-endif
+set background=dark
 colorscheme solarized
 
 if filereadable(expand("~/.vimrc.local"))

@@ -45,14 +45,6 @@ end
 
 IRB.conf[:USE_READLINE] = true
 IRB.conf[:AUTO_INDENT]  = true
-IRB.conf[:PROMPT][:CUSTOM] = {
-    :PROMPT_N => "#{color :blue, :white}... #{color :default, :blue}\u2b80#{color :default, :default} ",
-    :PROMPT_I => "#{color :blue, :white}irb #{color :default, :blue}\u2b80#{color :default, :default} ",
-    :PROMPT_S => nil,
-    :PROMPT_C => "#{color :blue, :white}... #{color :default, :blue}\u2b80#{color :default, :default} ",
-    :RETURN => "#{color :default, :green}\u2b82#{color :green, :white} %s #{color :default, :default}\n"
-}
-IRB.conf[:PROMPT_MODE] = :CUSTOM
 
 def IRB.reload
   load __FILE__
