@@ -116,11 +116,9 @@
 (autopair-global-mode)
 
 (addpath "color-theme")
-(addpath "color-theme-solarized")
 (require 'color-theme)
-(require 'color-theme-solarized)
 (color-theme-initialize)
-(color-theme-solarized-light)
+(color-theme-dark-laptop)
 (setq color-theme-is-global t)
 
 (addpath "clojure")
@@ -136,3 +134,4 @@
 (require 'paredit)
 (add-hook 'clojure-mode-hook 'paredit-mode)
 (add-hook 'nrepl-mode-hook 'paredit-mode)
+

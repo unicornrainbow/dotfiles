@@ -89,7 +89,7 @@ function fish_prompt
   command fasd --proc (fasd --sanitize $1)
   echo
 
-  set_color white --background=green
+  set_color black --background=green
   printf '%s ' (prompt_pwd)
   set -g lastc green
 
@@ -100,17 +100,17 @@ function fish_prompt
   end
 
   if [ -n "$VIRTUAL_ENV" ]
-    set_color white --background=yellow
+    set_color black --background=yellow
     printf ' %s ' (basename "$VIRTUAL_ENV")
   end
 
 #  if test -s $HOME/.rbenv/version
-#    set_color white --background=purple
+#    set_color black --background=purple
 #    printf ' %s ' (cat $HOME/.rbenv/version)
 #  end
 
   if test $last_status -ne 0
-    set_color white --background=red
+    set_color black --background=red
     printf ' %d ' $last_status
   end
 

@@ -125,15 +125,9 @@ def clear
 end
 alias c clear
 
-%w{hirb hirb/import_object ap}.each do |lib|
-  begin
-    require lib
-  rescue LoadError => err
-    $stderr.puts "Couldn't load #{lib}: #{err}"
-  end
-end
-
 begin
+  require 'hirb'
+  require 'hirb/import_object'
   Hirb.enable
   extend Hirb::Console
 rescue LoadError => err
