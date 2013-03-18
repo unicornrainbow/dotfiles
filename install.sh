@@ -28,12 +28,7 @@ link railsrc
 link weechat
 link ledgerrc
 link lesskey
-link urlview
 link slate
-link offlineimaprc
-link msmtprc
-link mutt
-link_custom mutt/muttrc $HOME/.muttrc
 link_custom irbrc.rb $HOME/.irbrc
 
 link_custom vim/vimrc $HOME/.vimrc

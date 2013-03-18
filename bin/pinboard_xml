@@ -29,16 +29,16 @@ try:
 
     items = json.loads(getreq.text)
 
-    res = '''<!DOCTYPE NETSCAPE-Bookmark-file-1>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Pinboard bookmarks</title>
-    <dl>'''
+    res = '''<?xml version="1.0"?>
+<items>'''
 
     for item in items:
-        res += '<dt><a href="%s">%s</a></dt>\n' % \
-        (item['href'].encode('utf-8'), item['description'].encode('utf-8'))
-    res += '</dl>'
+        href = item['href'].encode('utf-8')
+        desc = item['description'].encode('utf-8')
+        res += '<item uid="%s" title="%s" subtitle="%s" arg="%s">\n' % \
+        (href, desc, href, href)
+    res += '</items>'
 
-    open(os.environ['HOME']+'/.bookmarks.html', 'w').write(res)
+    open(os.environ['HOME']+'/.bookmarks.xml', 'w').write(res)
 except requests.exceptions.RequestException:
     die('connection error', errno.ECONNREFUSED)
