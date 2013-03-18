@@ -4,11 +4,6 @@
     git submodule update --init --recursive
     ./install.sh
 
-## Dependencies
-There are many. And most of them can be installed with [babushka](http://babushka.me/) + my [deps](https://github.com/myfreeweb/babushka-deps). Hey, it even installs the dotfiles themselves.
-
-But are you really going to use all my dotfiles? No. You're not me. You should steal the good parts instead :-)
-
 ## The good parts
 - git&hg alias system, one letter == one thing, like vi commands, but the object comes before the verb, which makes more sense for version control
 - [Tarsnap](http://www.tarsnap.com/)-based backup script `bin/backup` and backup deletion script `bin/rmbackups`
