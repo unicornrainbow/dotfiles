@@ -33,10 +33,10 @@ try:
 <items>'''
 
     for item in items:
-        href = item['href'].encode('utf-8')
-        desc = item['description'].encode('utf-8')
-        res += '<item uid="%s" title="%s" subtitle="%s" arg="%s">\n' % \
-        (href, desc, href, href)
+        href = item['href'].encode('utf-8').replace('\n', '')
+        desc = item['description'].encode('utf-8').replace('\n', '')
+        res += '<item uid="%s" arg="%s"><title>%s</title><subtitle>%s</subtitle></item>\n' % \
+        (href, href, desc, href)
     res += '</items>'
 
     open(os.environ['HOME']+'/.bookmarks.xml', 'w').write(res)
