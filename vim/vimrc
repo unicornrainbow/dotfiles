@@ -94,6 +94,7 @@ let g:SuperTabDefaultCompletionType='context'
 let delimitMate_excluded_ft='clojure'
 let g:flake8_ignore='E128'
 set background=dark
+colorscheme railscasts
 
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local

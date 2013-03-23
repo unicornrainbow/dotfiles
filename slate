@@ -33,9 +33,7 @@ bind i:${focuskeys} focus 'ForkLift'
 bind o:${focuskeys} focus 'MacVim'
 bind y:${focuskeys} focus 'Pixelmator'
 bind m:${focuskeys} focus 'Messages'
-bind .:${focuskeys} focus 'WrapTunes'
 bind u:${focuskeys} focus 'Finder'
-bind /:${focuskeys} focus 'Ecoute'
 
 # ------------------------------------------------------------------------------- Window Hints
 bind esc:cmd hint

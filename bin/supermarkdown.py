@@ -3,6 +3,6 @@ import sys
 from markdown import Markdown
 
 print Markdown(extensions=[
-    "meta", "extra", "codehilite", "headerid(level=2)",
+    "meta", "extra", "codehilite", "headerid",
     "sane_lists", "smartypants"
-]).convert(sys.stdin.read())
+]).convert(sys.stdin.read()).replace('codehilite', 'highlight')
