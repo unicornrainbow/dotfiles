@@ -29,3 +29,4 @@
 --exclude=build
 --exclude=dist
 --exclude=log
+--exclude=target

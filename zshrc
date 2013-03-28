@@ -65,9 +65,7 @@ fi
 # }}}
 # Custom settings, aliases and functions {{{
 source $DOTFILES/rc
-psack() { ps auxww | ack $* | ack -v ack | collapse | cut -d' ' -f 2,11- }
 alias "ps?"=psack
-cljv() { curl -s https://clojars.org/$1 | grep version | head -n 1 | sed -e "s/<[a-z\/=\" ]*>//g" -e "s/&lt;[\/a-z]*&gt;//g" }
 dighost() { host $(dig $1 | grep ANSWER -C 1 | tail -n 1 | awk '{ print $5 }') }
 echoarrow() { echo "$fg_bold[black]====> $fg_no_bold[yellow]$*$reset_color" }
 updatestuff() {

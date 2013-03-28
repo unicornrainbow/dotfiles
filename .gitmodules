@@ -49,9 +49,6 @@
 [submodule "emacs.d/surround"]
 	path = emacs.d/surround
 	url = git://github.com/timcharper/evil-surround.git
-[submodule "bin/spot"]
-	path = bin/spot
-	url = git://github.com/guille/spot.git
 [submodule "vim/vundle"]
 	path = vim/vundle
 	url = git://github.com/gmarik/vundle.git

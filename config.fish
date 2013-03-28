@@ -70,14 +70,6 @@ function emacs
   command emacs $argv
   set -gx TERM $OLDTERM
 end
-
-function latrus
-  echo "$argv" | tr "qwertyuiop[]asdfghjkl;'zxcvbnm,.QWERTYUIOP{}ASDFGHJKL:\"ZXCVBNM" "йцукенгшщзхъфывапролджэячсмитьбюЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ"
-end
-
-function ruslat
-  echo "$argv" | tr "йцукенгшщзхъфывапролджэячсмитьбюЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ" "qwertyuiop[]asdfghjkl;'zxcvbnm,.QWERTYUIOP{}ASDFGHJKL:\"ZXCVBNM"
-end
 # }}}
 
 . $DOTFILES/python.fish
