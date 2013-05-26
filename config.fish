@@ -39,6 +39,11 @@ set PATH "/Applications/Postgres.app/Contents/MacOS/bin" $PATH
 # TeX
 set PATH "/usr/texbin" $PATH
 
+# iOSOpenDev
+set iOSOpenDevPath "/opt/iOSOpenDev"
+set iOSOpenDevDevice "192.168.1.148"
+set PATH "/opt/iOSOpenDev/bin" $PATH
+
 # Fish
 set -gx fish_greeting ''
 set -gx COMMAND_MODE unix2003
@@ -62,6 +67,10 @@ alias z 'pushd (fasd -d $argv)'
 function mcd
   mkdir -p "$argv"
   cd "$argv"
+end
+
+function pd
+  cd (pro search $argv)
 end
 
 function emacs

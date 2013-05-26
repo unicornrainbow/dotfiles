@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# http://superuser.com/a/455739/121004
+
+while [[ $PWD != / ]] ; do
+  find "$PWD"/ -maxdepth 1 "$@"
+  cd ..
+done

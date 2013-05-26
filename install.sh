@@ -29,6 +29,7 @@ link weechat
 link ledgerrc
 link lesskey
 link slate
+link proBase
 link_custom irbrc.rb $HOME/.irbrc
 
 link_custom vim/vimrc $HOME/.vimrc
