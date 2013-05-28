@@ -10,6 +10,7 @@
                   [lein-sub "0.2.4"]
                   [lein-kibit "0.0.8"]
                   [lein-create-template "0.1.1"]
+                  [lein-deps-tree "0.1.2"]
                   [lein-immutant "0.17.1"]]
          :aliases {"slamhound" ["run" "-m" "slam.hound"]}}
          :injections [(require '(clojure.tools.namespace repl find))

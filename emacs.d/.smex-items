@@ -1,0 +1,22 @@
+
+;; ----- smex-history -----
+(
+ ido-ubiquitous
+ eval-buffer
+ package-install
+ eval-expression
+ color-theme-xp
+ color-theme-taylor
+ color-theme-gnome
+)
+
+;; ----- smex-data -----
+(
+ (color-theme-gnome . 1)
+ (color-theme-taylor . 1)
+ (color-theme-xp . 1)
+ (package-install . 4)
+ (eval-expression . 1)
+ (eval-buffer . 3)
+ (ido-ubiquitous . 2)
+)

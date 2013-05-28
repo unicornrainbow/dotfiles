@@ -22,33 +22,9 @@
 [submodule "bin/fasd"]
 	path = bin/fasd
 	url = git://github.com/clvv/fasd.git
-[submodule "emacs.d/autopair"]
-	path = emacs.d/autopair
-	url = git://github.com/emacsmirror/autopair.git
-[submodule "emacs.d/popwin"]
-	path = emacs.d/popwin
-	url = git://github.com/m2ym/popwin-el.git
-[submodule "emacs.d/smart-tab"]
-	path = emacs.d/smart-tab
-	url = git://github.com/genehack/smart-tab.git
 [submodule "emacs.d/vimvars"]
 	path = emacs.d/vimvars
 	url = git://github.com/jamesyoungman/vimvars.git
-[submodule "emacs.d/color-theme"]
-	path = emacs.d/color-theme
-	url = git://github.com/haxney/color-theme.git
-[submodule "emacs.d/color-theme-solarized"]
-	path = emacs.d/color-theme-solarized
-	url = git://github.com/sellout/emacs-color-theme-solarized.git
-[submodule "emacs.d/clojure"]
-	path = emacs.d/clojure
-	url = git://github.com/technomancy/clojure-mode.git
-[submodule "emacs.d/evil"]
-	path = emacs.d/evil
-	url = git://gitorious.org/evil/evil.git
-[submodule "emacs.d/surround"]
-	path = emacs.d/surround
-	url = git://github.com/timcharper/evil-surround.git
 [submodule "vim/vundle"]
 	path = vim/vundle
 	url = git://github.com/gmarik/vundle.git
@@ -58,12 +34,3 @@
 [submodule "bin/battery"]
 	path = bin/battery
 	url = git://github.com/Goles/Battery.git
-[submodule "emacs.d/powerline"]
-	path = emacs.d/powerline
-	url = git://github.com/jonathanchu/emacs-powerline.git
-[submodule "emacs.d/nrepl"]
-	path = emacs.d/nrepl
-	url = git://github.com/kingtim/nrepl.el.git
-[submodule "emacs.d/paredit"]
-	path = emacs.d/paredit
-	url = git://github.com/emacsmirror/paredit.git

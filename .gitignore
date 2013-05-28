@@ -9,3 +9,5 @@ weechat/logs
 cache
 emacs.d/history
 emacs.d/swank
+emacs.d/elpa
+emacs.d/auto-save-list
