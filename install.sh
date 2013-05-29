@@ -30,8 +30,6 @@ link_custom irbrc.rb $HOME/.irbrc
 
 link_custom vim/vimrc $HOME/.vimrc
 link_custom vim/gvimrc $HOME/.gvimrc
-mkdir -p $HOME/.config/fish
-link_custom config.fish $HOME/.config/fish/config.fish
 mkdir -p $HOME/.ssh
 link_custom ssh_config $HOME/.ssh/config
 mkdir -p $HOME/.lein

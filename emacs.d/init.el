@@ -7,15 +7,6 @@
 ;;;   http://whattheemacsd.com
 ;;;   https://github.com/bodil/emacs.d
 
-
-;; Fix the PATH variable
-(defun set-exec-path-from-shell-PATH ()
-  (let ((path-from-shell (shell-command-to-string "$SHELL -i -c 'echo $PATH'")))
-    (setenv "PATH" path-from-shell)
-    (setq exec-path (split-string path-from-shell path-separator))))
-
-(when window-system (set-exec-path-from-shell-PATH))
-
 ;; Submodules
 (setq emacs-dir "~/.emacs.d")
 (add-to-list 'load-path emacs-dir)
@@ -35,6 +26,7 @@
                       smart-tab
                       diminish
                       powerline
+                      ag
                       ; Vim
                       evil
                       evil-paredit
@@ -62,6 +54,13 @@
     (package-install p)))
 
 ;;; General settings
+(defun set-exec-path-from-shell-PATH ()
+  "Set up Emacs' `exec-path' and PATH environment variable to match that used by the user's shell."
+  (interactive)
+  (let ((path-from-shell (replace-regexp-in-string "[ \t\n]*$" "" (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
+    (setenv "PATH" path-from-shell)
+    (setq exec-path (split-string path-from-shell path-separator))))
+(set-exec-path-from-shell-PATH)
 (set-face-attribute 'default nil :font "Source Code Pro-14")
 (setq ido-everywhere t
       ido-ignore-buffers (append '(".*Completion" "*magit-process*" "*Pymacs*" "*Messages*") ido-ignore-buffers)
@@ -201,7 +200,6 @@
 (define-key nrepl-interaction-mode-map (kbd "C-c C-a") 'nrepl-apropos)
 (define-key nrepl-mode-map (kbd "C-c C-a") 'nrepl-apropos)
 
-(require 'midje-test-mode)
 (setenv "MIDJE_COLORIZE" "false") 
 
 (require 'auto-complete-config)
@@ -211,12 +209,10 @@
 (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
 (add-hook 'clojure-mode-hook 'ac-nrepl-setup)
 
-(require 'paredit)
 (add-hook 'clojure-mode-hook 'paredit-mode)
 (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
 (add-hook 'nrepl-mode-hook 'paredit-mode)
 
-(require 'autopair)
 (autopair-global-mode)
 
 (eval-after-load 'find-file-in-project '(add-to-list 'ffip-patterns "*.clj"))
@@ -257,6 +253,9 @@
 
 (require 'popwin)
 (setq display-buffer-function 'popwin:display-buffer)
+(push '("^\\*.*\\*$" :regexp t :height 15 :position bottom :noselect t) popwin:special-display-config)
+(require 'ag)
+(setq ag-highlight-search t)
 
 ;; Diminish modeline clutter
 (require 'diminish)
