@@ -21,6 +21,7 @@
 (add-to-list 'load-path emacs-dir)
 (defun addpath (dir)
   (add-to-list 'load-path (concat emacs-dir "/" dir)))
+(addpath "vendor")
 
 ;; Packages
 (defvar my-packages '(; General
@@ -33,6 +34,7 @@
                       popwin
                       smart-tab
                       diminish
+                      powerline
                       ; Vim
                       evil
                       evil-paredit
@@ -41,8 +43,9 @@
                       clojure-mode
                       clojure-test-mode
                       kibit-mode
-                      midje-mode
                       nrepl
+                      ac-nrepl
+                      nrepl-ritz
                       align-cljlet
                       paredit
                       rainbow-delimiters
@@ -59,11 +62,7 @@
     (package-install p)))
 
 ;;; General settings
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(prefer-coding-system 'utf-8)
-(set-language-environment "UTF-8")
-(cua-mode t)
+(set-face-attribute 'default nil :font "Source Code Pro-14")
 (setq ido-everywhere t
       ido-ignore-buffers (append '(".*Completion" "*magit-process*" "*Pymacs*" "*Messages*") ido-ignore-buffers)
       ido-ignore-extensions t
@@ -161,6 +160,7 @@
 (define-key evil-normal-state-map (kbd "C-j") 'windmove-up)
 (define-key evil-normal-state-map (kbd "C-l") 'windmove-right)
 (define-key evil-normal-state-map (kbd "C-p") 'ffip)
+(define-key evil-normal-state-map (kbd "C-o") 'ido-find-file)
 (define-key evil-normal-state-map (kbd ";") 'evil-ex)
 (define-key evil-normal-state-map (kbd "]e") 'move-line-down)
 (define-key evil-normal-state-map (kbd "[e") 'move-line-up)
@@ -187,16 +187,29 @@
 
 ;; Lisp stuff
 (require 'clojure-mode)
-(require 'midje-mode)
-(require 'clojure-jump-to-file)
 (require 'align-cljlet)
-
+(require 'ac-nrepl)
 (require 'nrepl)
+(require 'nrepl-ritz)
 (add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
 (add-hook 'nrepl-mode-hook 'subword-mode)
 (setq nrepl-popup-stacktraces nil)
 (setq nrepl-hide-special-buffers t)
 (add-to-list 'same-window-buffer-names "*nrepl*")
+(define-key nrepl-interaction-mode-map (kbd "C-c C-j") 'nrepl-javadoc)
+(define-key nrepl-mode-map (kbd "C-c C-j") 'nrepl-javadoc)
+(define-key nrepl-interaction-mode-map (kbd "C-c C-a") 'nrepl-apropos)
+(define-key nrepl-mode-map (kbd "C-c C-a") 'nrepl-apropos)
+
+(require 'midje-test-mode)
+(setenv "MIDJE_COLORIZE" "false") 
+
+(require 'auto-complete-config)
+(ac-config-default)
+(eval-after-load "auto-complete" '(add-to-list 'ac-modes 'nrepl-mode))
+(eval-after-load "auto-complete" '(add-to-list 'ac-modes 'clojure-mode))
+(add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
+(add-hook 'clojure-mode-hook 'ac-nrepl-setup)
 
 (require 'paredit)
 (add-hook 'clojure-mode-hook 'paredit-mode)
@@ -208,6 +221,9 @@
 
 (eval-after-load 'find-file-in-project '(add-to-list 'ffip-patterns "*.clj"))
 
+(require 'powerline)
+(powerline-default-theme)
+
 ;; Color stuff
 (require 'highlight-parentheses)
 (define-globalized-minor-mode global-highlight-parentheses-mode
@@ -215,6 +231,7 @@
 
 (custom-set-variables '(hl-paren-colors (quote ("orange" "yellow" "greenyellow" "green" "springgreen" "cyan" "slateblue" "magenta" "purple"))))
 (add-hook 'clojure-mode-hook 'highlight-parentheses-mode)
+(add-hook 'nrepl-mode-hook 'highlight-parentheses-mode)
 (add-hook 'emacs-lisp-mode-hook 'highlight-parentheses-mode)
 
 (require 'color-theme)
@@ -231,6 +248,7 @@
    :group 'starter-kit-faces)
 
 (font-lock-add-keywords 'clojure-mode '(("(\\|)" . 'esk-paren-face)))
+(font-lock-add-keywords 'nrepl-mode '(("(\\|)" . 'esk-paren-face)))
 (font-lock-add-keywords 'emacs-lisp-mode '(("(\\|)" . 'esk-paren-face)))
 
 ;; Stuff
@@ -244,5 +262,6 @@
 (require 'diminish)
 (diminish 'undo-tree-mode)
 (diminish 'smart-tab-mode)
+(require 'elisp-slime-nav)
 (diminish 'elisp-slime-nav-mode)
 (diminish 'highlight-parentheses-mode)
