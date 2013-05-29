@@ -7,7 +7,6 @@
 au BufRead,BufNewFile {Gem,Rake,Cap,Vagrant,Thor,Guard}file,config.ru setf ruby
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,ronn} setf markdown
 au BufRead,BufNewFile {SConstruct,SConscript} setf python
-au BufRead,BufNewFile *.em setf coffee
 au BufRead,BufNewFile *.conf setf config
 au BufRead,BufNewFile *.ledger setf ledger | comp ledger
 au BufRead,BufNewFile *gitconfig setf gitconfig

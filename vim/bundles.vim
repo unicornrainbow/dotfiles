@@ -6,6 +6,7 @@ Bundle 'gmarik/vundle'
 
 " Languages
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'heartsentwined/vim-ember-script'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
 Bundle 'nelstrom/vim-markdown-folding'
