@@ -17,16 +17,12 @@ link hgrc
 link ctags
 link gitconfig
 link gitignore
-link teamocil
 link tmux.conf
 link vim
-link emacs
 link emacs.d
 link inputrc
 link gemrc
 link railsrc
-link weechat
-link ledgerrc
 link lesskey
 link slate
 link proBase
