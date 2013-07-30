@@ -34,3 +34,6 @@
 [submodule "bin/battery"]
 	path = bin/battery
 	url = git://github.com/Goles/Battery.git
+[submodule "reslate"]
+	path = reslate
+	url = git@github.com:lunixbochs/reslate.git

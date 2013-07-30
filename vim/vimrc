@@ -27,6 +27,7 @@ set nojoinspaces
 set modelines=3
 set synmaxcol=500 " don't highlight minified js and stuff
 set switchbuf=usetab
+set gdefault
 
 " formatting
 set nowrap
@@ -43,6 +44,7 @@ set relativenumber
 set hlsearch
 set backspace=indent,eol,start
 set noerrorbells
+set noshowmode
 set showbreak=↪
 set list listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set fillchars=diff:⣿,vert:│
@@ -61,7 +63,6 @@ set viewoptions=folds,options,cursor,unix,slash
 set t_ti= t_te= " http://www.shallowsky.com/linux/noaltscreen.html
 
 " completion
-set complete=.,w,b,u,t completeopt=longest,menuone,preview
 set wildmenu wildmode=list:longest,list:full
 set wildignore+=.hg,.git,.bzr,.svn                 " Version control
 set wildignore+=*.aux,*.out,*.toc                  " LaTeX intermediate files
@@ -90,9 +91,12 @@ source ~/.vim/autocmd.vim
 
 let vimclojure#SplitPos='bottom'
 let g:vimclojure#DynamicHighlighting=1
-let g:SuperTabDefaultCompletionType='context'
 let delimitMate_excluded_ft='clojure'
 let g:flake8_ignore='E128'
+let g:FactorRoot='/Applications/factor'
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+
 set background=dark
 colorscheme railscasts
 

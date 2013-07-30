@@ -32,17 +32,23 @@ export PATH=$DOTFILES/bin:$HOME/.cabal/bin:$PATH
 if [[ $HAS_BREW == 1 ]]; then
   BREWGO=$(brew --prefix go)
   [[ -d $BREWGO ]] && export GOROOT=$BREWGO && export GOBIN=$BREWGO/bin \
-    && export GOPATH=$GOROOT && export PATH=$GOBIN:$PATH
+    && export GOPATH=$HOME/Code/go && export PATH=$GOPATH/bin:$GOBIN:$PATH
   source "$(brew --prefix grc)/etc/grc.bashrc"
 fi
 
 # JS
+export NODE_PATH=/usr/local/lib/node_modules
 export PATH=/usr/local/share/npm/bin:$PATH
 
 # Java
 export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH=$JAVA_HOME/bin:$PATH
 export JRUBY_OPTS="-J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1 -J-noverify"
+
+# Ruby
+export RBXOPT=-X19
+export RBENV_ROOT=/usr/local/var/rbenv
+eval "$(rbenv init -)"
 
 # Python
 export PYTHONDONTWRITEBYTECODE=true
@@ -52,6 +58,7 @@ export PYTHONSTARTUP=$DOTFILES/pythonrc.py
 
 # Postgres
 export PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH
+export DYLD_FALLBACK_LIBRARY_PATH=/Applications/Postgres.app/Contents/MacOS/lib:/usr/lib:$DYLD_LIBRARY_PATH
 
 # TeX
 export PATH=/usr/texbin:$PATH
@@ -86,7 +93,6 @@ echoarrow() { echo "$fg_bold[black]====> $fg_no_bold[yellow]$*$reset_color" }
 updatestuff() {
   echoarrow "Updating dotfiles w/ submodules" && (cd $DOTFILES && git pull && git su)
   [[ $HAS_BREW == 1 ]] && echoarrow "Updating Homebrew" && brew update
-  [[ -e $HOME/.rbenv ]] && echoarrow "Updating rbenv"    && (cd $HOME/.rbenv && git pull)
 }
 
 chpwd() { update_terminal_cwd; }

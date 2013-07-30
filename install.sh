@@ -24,7 +24,7 @@ link inputrc
 link gemrc
 link railsrc
 link lesskey
-link slate
+link slate.js
 link proBase
 link_custom irbrc.rb $HOME/.irbrc
 
