@@ -4,15 +4,18 @@
 #
 # thanks:
 # https://bitbucket.org/sjl/dotfiles/src/cbbbc897e9b3/fish/config.fish
+# https://twitter.com/davegardnerisme/status/360422133316337664
 
 alias b="bundle"
 alias be="bundle exec"
 alias ci="git commit -am"
 alias g="git"
+alias git-yolo='git commit -am "`curl -s http://whatthecommit.com/index.txt `"'
 alias gaes="dev_appserver.py -a 0.0.0.0 ."
 alias gi="gem install"
 alias p="popd"
 alias r="rails"
+alias rmig="rake db:migrate RAILS_ENV=development && rake db:migrate RAILS_ENV=test"
 alias vi="vim"
 alias e="vim" # ;e -- semicolon gets eaten
 alias collapse="sed -e 's/  */ /g'"
