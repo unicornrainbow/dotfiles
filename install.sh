@@ -1,4 +1,5 @@
 #!/bin/zsh
+
 pwd > ~/.dotfiles_location
 
 link() {
@@ -26,6 +27,7 @@ link railsrc
 link lesskey
 link slate.js
 link proBase
+link curlrc
 link_custom irbrc.rb $HOME/.irbrc
 
 link_custom vim/vimrc $HOME/.vimrc
@@ -51,9 +53,12 @@ elif [[ $(uname) = 'Darwin' ]]; then
     ln -s $(ruby -e "puts File.expand_path(\"$agent\")") $HOME/Library/LaunchAgents/
   done
   QUAKE=$HOME/Library/Application\ Support/QuakeLive/quakelive/home/baseq3
+  ./osx.sh
 fi
+
 if [[ -d $QUAKE ]]; then
   link_custom quakelive.cfg $QUAKE/quakelive.cfg
   echo 'exec "quakelive.cfg"' > $QUAKE/autoexec.cfg
 fi
+
 echo "Installed dotfiles!"

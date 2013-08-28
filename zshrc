@@ -4,6 +4,7 @@
 #
 # thanks:
 # http://selena.deckelmann.usesthis.com/
+# https://github.com/mathiasbynens/dotfiles/blob/master/.functions
 
 # Loading plugins, setting variables {{{
 export CODEDIR=$HOME/Code
@@ -93,6 +94,13 @@ echoarrow() { echo "$fg_bold[black]====> $fg_no_bold[yellow]$*$reset_color" }
 updatestuff() {
   echoarrow "Updating dotfiles w/ submodules" && (cd $DOTFILES && git pull && git su)
   [[ $HAS_BREW == 1 ]] && echoarrow "Updating Homebrew" && brew update
+}
+dataurl() {
+  local mimeType=$(file -b --mime-type "$1")
+  if [[ $mimeType == text/* ]]; then
+    mimeType="${mimeType};charset=utf-8"
+  fi
+  echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')"
 }
 
 chpwd() { update_terminal_cwd; }

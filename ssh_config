@@ -4,6 +4,12 @@ ControlPath /tmp/ssh_%h%p%r
 ControlPersist 5m
 GSSAPIAuthentication no
 HashKnownHosts no
+TCPKeepAlive yes
 
 Host nfsn
   Hostname ssh.phx.nearlyfreespeech.net
+
+Host scsc
+  Hostname 54.216.202.110
+  User ubuntu
+  IdentityFile ~/.ssh/dev.pem
