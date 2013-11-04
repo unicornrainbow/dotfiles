@@ -29,7 +29,7 @@ link slate.js
 link proBase
 link curlrc
 link_custom irbrc.rb $HOME/.irbrc
-
+link_custom gpg.conf $HOME/.gnupg/gpg.conf
 link_custom vim/vimrc $HOME/.vimrc
 link_custom vim/gvimrc $HOME/.gvimrc
 mkdir -p $HOME/.ssh

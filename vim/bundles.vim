@@ -24,6 +24,7 @@ Bundle 'elixir-lang/vim-elixir'
 Bundle 'brandonbloom/vim-factor'
 Bundle 'ujihisa/neco-ghc'
 Bundle 'eagletmt/ghcmod-vim'
+Bundle 'wting/rust.vim'
 
 " Features
 Bundle 'tpope/vim-fugitive'

@@ -59,7 +59,7 @@ export PYTHONSTARTUP=$DOTFILES/pythonrc.py
 
 # Postgres
 export PATH=/Applications/Postgres.app/Contents/MacOS/bin:$PATH
-export DYLD_FALLBACK_LIBRARY_PATH=/Applications/Postgres.app/Contents/MacOS/lib:/usr/lib:$DYLD_LIBRARY_PATH
+#export DYLD_FALLBACK_LIBRARY_PATH=/Applications/Postgres.app/Contents/MacOS/lib:/usr/lib:$DYLD_LIBRARY_PATH
 
 # TeX
 export PATH=/usr/texbin:$PATH
@@ -124,4 +124,5 @@ source $DOTFILES/vendor/zsh-hss/zsh-history-substring-search.zsh
 eval "$($DOTFILES/bin/fasd/fasd --init auto)"
 source $HOME/.zshrc.local
 
-[[ -e $(which fortune) ]] && fortune | (cowsay || cat) 2&> /dev/null | (lolcat || cat) 2&>/dev/null
+[[ -e $(which doge) ]] && doge
+[[ -e $(which fortune) ]] && fortune | (cowsay -f tux || cat) 2&> /dev/null | (lolcat || cat) 2&>/dev/null
